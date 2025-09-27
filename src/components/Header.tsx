@@ -14,7 +14,7 @@ export default function Header() {
         {/* Left: brand */}
         <a href="/" className="flex items-center gap-2 -ml-1 sm:-ml-8">
           <motion.img
-            src="assets/logo.jpeg"
+            src="assets/Logo.png"
             alt="Logo Stichting Manarah"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
