@@ -1,0 +1,15 @@
+/* Import existing styles */
+@import '../styles.css';
+@import '../styles-donate-page.css';
+
+/* React specific styles */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
