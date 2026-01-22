@@ -5,9 +5,27 @@
 import axios from 'axios'
 import { getAuthToken, logout } from './auth'
 
-// API URL - use relative path so it works when served from same server
-// In development, Vite proxy can be used, or set VITE_API_URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
+// API URL configuration
+// For GitHub Pages, use external backend URL
+// For local development, use relative path or localhost
+const getApiBaseUrl = () => {
+  // If environment variable is set, use it
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL
+  }
+  
+  // Check if we're on GitHub Pages
+  if (typeof window !== 'undefined' && window.location.hostname.includes('github.io')) {
+    // Use external backend URL (you'll need to host backend separately)
+    // For now, return empty string - backend will need to be hosted separately
+    return 'https://stichting-manarah-api.onrender.com/api' // Update this with your backend URL
+  }
+  
+  // Local development - use relative path (works with Vite proxy)
+  return '/api'
+}
+
+const API_BASE_URL = getApiBaseUrl()
 
 const api = axios.create({
   baseURL: API_BASE_URL,
