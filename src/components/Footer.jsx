@@ -32,7 +32,7 @@ const Footer = () => {
             {/* Brand Column */}
             <div className="footer-brand">
               <Link to="/" className="footer-logo">
-                <img src="/assets/whitelogo.png" alt="Stichting Manarah" className="footer-logo-image" />
+                <img src={`${import.meta.env.BASE_URL}assets/whitelogo.png`} alt="Stichting Manarah" className="footer-logo-image" />
               </Link>
               <p className="footer-brand-description">
                 Wij zetten ons in voor kwetsbare mensen: armen, wezen en mensen met een beperking — in Nederland en wereldwijd.

@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="hero-pro-bg">
         <div 
           className="hero-pro-bg-image" 
-          style={{ backgroundImage: "url('/assets/almanarah.jpg')" }}
+          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/almanarah.jpg')` }}
         />
       </div>
       

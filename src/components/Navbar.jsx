@@ -63,7 +63,7 @@ const Navbar = () => {
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           <img 
-            src={showSolidNavbar ? "/assets/bluelogo.png" : "/assets/whitelogo.png"} 
+            src={showSolidNavbar ? `${import.meta.env.BASE_URL}assets/bluelogo.png` : `${import.meta.env.BASE_URL}assets/whitelogo.png`} 
             alt="Stichting Manarah" 
             className="logo-image" 
           />
