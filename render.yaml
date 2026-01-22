@@ -1,0 +1,12 @@
+# Render Blueprint for Stichting Manarah Website
+services:
+  - type: web
+    name: stichting-manarah
+    env: node
+    buildCommand: npm install && npm run build && cd backend && npm install
+    startCommand: cd backend && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000

@@ -14,37 +14,31 @@ const SamenInActie = () => {
 
   const actionTypes = [
     {
-      icon: '💝',
       title: 'Word donateur',
       description: 'Steun structureel met een maandelijkse bijdrage en maak een blijvend verschil voor mensen in nood.',
       details: 'Als donateur geef je maandelijks een vast bedrag. Dit geeft ons de zekerheid om langetermijnprojecten te plannen en duurzame impact te maken.'
     },
     {
-      icon: '🤝',
       title: 'Word vrijwilliger',
       description: 'Zet je tijd en talenten in voor onze missie en help direct mee aan projecten.',
       details: 'Vrijwilligers zijn onmisbaar voor ons werk. Je kunt helpen met evenementen, fondsenwerving, administratie of andere taken die bij jouw vaardigheden passen.'
     },
     {
-      icon: '🏫',
-      title: 'Actie met school/kerk',
+      title: 'Actie met school/moskee',
       description: 'Organiseer een actie met je gemeenschap en betrek anderen bij ons werk.',
-      details: 'Scholen en kerken zijn belangrijke partners. Samen kunnen we bewustwording creëren en fondsen werven voor specifieke projecten.'
+      details: 'Scholen en moskeeën zijn belangrijke partners. Samen kunnen we bewustwording creëren en fondsen werven voor specifieke projecten.'
     },
     {
-      icon: '📋',
       title: 'Eigen actie starten',
       description: 'Begin je eigen fundraising actie en inspireer anderen om te geven.',
       details: 'Organiseer een sponsorloop, verkoop, of andere creatieve actie. Wij helpen je met materialen en promotie.'
     },
     {
-      icon: '💼',
       title: 'Grote gift',
       description: 'Maak een substantiële bijdrage mogelijk en verander levens op grote schaal.',
       details: 'Grote giften maken het mogelijk om hele projecten te financieren of nieuwe initiatieven te starten. Neem contact op voor persoonlijk advies.'
     },
     {
-      icon: '📜',
       title: 'Nalaten',
       description: 'Steun onze missie in je testament en zorg voor blijvende impact.',
       details: 'Door ons op te nemen in je testament, zorg je ervoor dat je steun ook na je overlijden doorwerkt. Wij helpen je graag met informatie en advies.'
@@ -109,7 +103,6 @@ const SamenInActie = () => {
           <div className="samen-actie-grid">
             {actionTypes.map((action, index) => (
               <div key={index} className="samen-actie-card">
-                <div className="samen-actie-icon">{action.icon}</div>
                 <h3 className="samen-actie-card-title">{action.title}</h3>
                 <p className="samen-actie-card-description">{action.description}</p>
                 <details className="samen-actie-details">
@@ -133,21 +126,35 @@ const SamenInActie = () => {
               </p>
               <div className="samen-actie-contact-details">
                 <div className="contact-detail-item">
-                  <span className="contact-detail-icon">📧</span>
+                  <span className="contact-detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </span>
                   <div>
                     <strong>Email</strong>
                     <p>info@stichting.nl</p>
                   </div>
                 </div>
                 <div className="contact-detail-item">
-                  <span className="contact-detail-icon">📞</span>
+                  <span className="contact-detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </span>
                   <div>
                     <strong>Telefoon</strong>
                     <p>+31 (0)20 123 4567</p>
                   </div>
                 </div>
                 <div className="contact-detail-item">
-                  <span className="contact-detail-icon">📍</span>
+                  <span className="contact-detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </span>
                   <div>
                     <strong>Adres</strong>
                     <p>Straatnaam 123<br />1234 AB Amsterdam</p>
@@ -159,7 +166,12 @@ const SamenInActie = () => {
             <div className="samen-actie-contact-form-wrapper">
               {submitted ? (
                 <div className="form-success-message">
-                  <div className="form-success-icon">✓</div>
+                  <div className="form-success-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                  </div>
                   <h3>Bedankt voor je bericht!</h3>
                   <p>We hebben je bericht ontvangen en nemen zo snel mogelijk contact met je op.</p>
                   <button
@@ -225,7 +237,7 @@ const SamenInActie = () => {
                       <option value="">Selecteer een optie</option>
                       <option value="donateur">Word donateur</option>
                       <option value="vrijwilliger">Word vrijwilliger</option>
-                      <option value="school-kerk">Actie met school/kerk</option>
+                      <option value="school-moskee">Actie met school/moskee</option>
                       <option value="eigen-actie">Eigen actie starten</option>
                       <option value="grote-gift">Grote gift</option>
                       <option value="nalaten">Nalaten</option>

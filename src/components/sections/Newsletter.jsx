@@ -1,34 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Reveal from '../Reveal'
 
 const Newsletter = () => {
-  const [email, setEmail] = useState('')
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // TODO: Implement newsletter subscription
-    alert('Bedankt voor je aanmelding! Je ontvangt binnenkort onze nieuwsbrief.')
-    setEmail('')
-  }
-
   return (
-    <section className="newsletter-section">
+    <section className="newsletter-manarah">
       <div className="container">
-        <div className="newsletter-content">
-          <h2 className="newsletter-title">Blijf op de hoogte</h2>
-          <p className="newsletter-description">
-            Schrijf je in voor onze nieuwsbrief en ontvang updates over onze projecten en impact
-          </p>
-          <form className="newsletter-form" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="Je e-mailadres"
-              className="newsletter-input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button type="submit" className="btn btn-primary">Inschrijven</button>
-          </form>
+        <div className="newsletter-manarah-content">
+          <Reveal>
+            <h2 className="newsletter-manarah-title">
+              <span className="newsletter-highlight">Doe mee</span>
+              met Stichting Manarah
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="newsletter-manarah-text">
+              Samen kunnen we meer bereiken. Sluit je aan bij ons werk via onze WhatsApp-community. 
+              Andere opties worden binnenkort beschikbaar!
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="newsletter-manarah-buttons">
+              <a
+                href="https://stichtingmanarah.nl/nieuwsbrief.php"
+                className="btn-newsletter"
+              >
+                Nieuwsbrief
+              </a>
+              <a
+                href="https://chat.whatsapp.com/GKb3l0Fi67H4YhayEDnBLX"
+                className="btn-newsletter"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp-groep
+              </a>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

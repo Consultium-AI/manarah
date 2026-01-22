@@ -1,21 +1,19 @@
 import React from 'react'
 import Hero from '../components/sections/Hero'
+import About from '../components/sections/About'
 import Stories from '../components/sections/Stories'
-import Impact from '../components/sections/Impact'
-import Quote from '../components/sections/Quote'
-import Action from '../components/sections/Action'
-import Donor from '../components/sections/Donor'
+import DonateBanner from '../components/sections/DonateBanner'
+import Contact from '../components/sections/Contact'
 import Newsletter from '../components/sections/Newsletter'
 
 const Home = () => {
   return (
     <div className="home-page">
       <Hero />
+      <About />
       <Stories />
-      <Impact />
-      <Quote />
-      <Action />
-      <Donor />
+      <DonateBanner />
+      <Contact />
       <Newsletter />
     </div>
   )

@@ -1,65 +1,109 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-column">
-            <h3 className="footer-title">Onze specialisaties</h3>
-            <ul className="footer-links">
-              <li><a href="#">Water & Sanitatie</a></li>
-              <li><a href="#">Onderwijs</a></li>
-              <li><a href="#">Vredesopbouw</a></li>
-              <li><a href="#">Onderdak</a></li>
-              <li><a href="#">Voedselzekerheid</a></li>
-              <li><a href="#">Klimaatweerbaarheid</a></li>
-              <li><a href="#">Noodhulp</a></li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <h3 className="footer-title">Doe mee</h3>
-            <ul className="footer-links">
-              <li><a href="#">Donateur worden</a></li>
-              <li><a href="#">Vrijwilliger worden</a></li>
-              <li><a href="#">Eigen actie starten</a></li>
-              <li><a href="#">Acties met school/kerk</a></li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <h3 className="footer-title">Contact & Info</h3>
-            <ul className="footer-links">
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Wijziging doorgeven</a></li>
-              <li><a href="#">Privacy statement</a></li>
-              <li><a href="#">Cookie settings</a></li>
-              <li><a href="#">IBAN: NL12 ABCD 1234 5678 90</a></li>
-            </ul>
-          </div>
-          <div className="footer-column footer-social">
-            <h3 className="footer-title">Volg ons</h3>
-            <div className="social-icons">
-              <a href="#" className="social-icon" aria-label="Facebook">📘</a>
-              <a href="#" className="social-icon" aria-label="Twitter">🐦</a>
-              <a href="#" className="social-icon" aria-label="Instagram">📷</a>
-              <a href="#" className="social-icon" aria-label="LinkedIn">💼</a>
+    <footer className="footer-modern">
+      {/* CTA Section */}
+      <div className="footer-cta">
+        <div className="container">
+          <div className="footer-cta-content">
+            <div className="footer-cta-text">
+              <h3>Klaar om het verschil te maken?</h3>
+              <p>Elke donatie, hoe klein ook, helpt mensen in nood.</p>
             </div>
-            <div className="footer-badges">
-              <img 
-                src="https://via.placeholder.com/100x60/ffffff/000000?text=CBF" 
-                alt="CBF Keurmerk" 
-                className="badge-img"
-              />
-              <img 
-                src="https://via.placeholder.com/100x60/ffffff/000000?text=ANBI" 
-                alt="ANBI" 
-                className="badge-img"
-              />
+            <Link to="/doneren" className="footer-cta-btn">
+              Doneer nu
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer */}
+      <div className="footer-main-modern">
+        <div className="container">
+          <div className="footer-grid-modern">
+            {/* Brand Column */}
+            <div className="footer-brand">
+              <Link to="/" className="footer-logo">
+                <img src="/assets/whitelogo.png" alt="Stichting Manarah" className="footer-logo-image" />
+              </Link>
+              <p className="footer-brand-description">
+                Wij zetten ons in voor kwetsbare mensen: armen, wezen en mensen met een beperking — in Nederland en wereldwijd.
+              </p>
+              <div className="footer-social">
+                <a href="https://wa.me/31103602862" target="_blank" rel="noreferrer" className="social-link" aria-label="WhatsApp">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                </a>
+                <a href="mailto:info@stichtingmanarah.nl" className="social-link" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="footer-column-modern">
+              <h4 className="footer-column-title">Navigatie</h4>
+              <ul className="footer-links-modern">
+                <li><Link to="/wie-zijn-wij">Wie zijn wij</Link></li>
+                <li><Link to="/waar-we-werken">Waar we werken</Link></li>
+                <li><Link to="/projecten">Projecten</Link></li>
+                <li><Link to="/samen-in-actie">Samen in actie</Link></li>
+                <li><Link to="/doneren">Doneren</Link></li>
+              </ul>
+            </div>
+
+            {/* Stichtinggegevens */}
+            <div className="footer-column-modern">
+              <h4 className="footer-column-title">Gegevens</h4>
+              <ul className="footer-links-modern footer-info">
+                <li><span className="info-label">KvK</span> 97004332</li>
+                <li><span className="info-label">RSIN</span> 86780667</li>
+                <li><span className="info-label">Locatie</span> Rotterdam</li>
+                <li className="footer-iban-row">
+                  <span className="info-label">IBAN</span>
+                  <span className="footer-iban-modern">NL17RABO0141712287</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Documenten */}
+            <div className="footer-column-modern">
+              <h4 className="footer-column-title">Documenten</h4>
+              <ul className="footer-links-modern">
+                <li><a href="https://stichtingmanarah.nl/assets/docs/beleidsplan.pdf" target="_blank" rel="noreferrer">Beleidsplan</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">Privacyverklaring</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">Algemene voorwaarden</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/donatiebeleid.pdf" target="_blank" rel="noreferrer">Donatiebeleid</a></li>
+              </ul>
             </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <p>&copy; 2024 Foundation. Alle rechten voorbehouden.</p>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="footer-bottom-modern">
+        <div className="container">
+          <div className="footer-bottom-content">
+            <p className="footer-copyright">
+              © {currentYear} Stichting Manarah. Alle rechten voorbehouden.
+            </p>
+            <p className="footer-anbi">
+              <span className="anbi-badge">ANBI</span>
+              Erkende goede doelen instelling
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -16,8 +16,8 @@ const WaarWeWerken = () => {
       image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop'
     },
     {
-      slug: 'zuid-soedan',
-      name: 'Zuid-Soedan',
+      slug: 'sudan',
+      name: 'Sudan',
       description: 'We werken aan voedselzekerheid, watertoegang en vredesopbouw in een van de meest kwetsbare regio\'s ter wereld.',
       image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop'
     }

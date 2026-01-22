@@ -1,6 +1,7 @@
 /* Import existing styles */
 @import '../styles.css';
 @import '../styles-donate-page.css';
+@import './styles/manarah.css';
 
 /* React specific styles */
 #root {

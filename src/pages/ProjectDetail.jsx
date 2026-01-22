@@ -13,7 +13,7 @@ const ProjectDetail = () => {
     const countryNames = {
       'BF': 'Burkina Faso',
       'SY': 'Syrië',
-      'SS': 'Zuid-Soedan',
+      'SD': 'Sudan',
       'UA': 'Oekraïne',
       'YE': 'Jemen',
       'ET': 'Ethiopië',
@@ -146,7 +146,12 @@ const ProjectDetail = () => {
             </div>
             <h1 className="project-detail-hero-title">{project.name}</h1>
             <p className="project-detail-hero-location">
-              <span className="project-detail-location-icon">📍</span>
+              <span className="project-detail-location-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
               {countryName}
             </p>
             <p className="project-detail-hero-description">

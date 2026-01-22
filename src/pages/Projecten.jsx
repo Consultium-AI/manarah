@@ -14,7 +14,7 @@ const Projecten = () => {
   const countryToContinent = {
     'BF': 'Afrika', // Burkina Faso
     'SY': 'Azië', // Syrië
-    'SS': 'Afrika', // Zuid-Soedan
+    'SD': 'Afrika', // Sudan
     'UA': 'Europa', // Oekraïne
     'YE': 'Azië', // Jemen
     'ET': 'Afrika', // Ethiopië
@@ -104,7 +104,7 @@ const Projecten = () => {
     const countryNames = {
       'BF': 'Burkina Faso',
       'SY': 'Syrië',
-      'SS': 'Zuid-Soedan',
+      'SD': 'Sudan',
       'UA': 'Oekraïne',
       'YE': 'Jemen',
       'ET': 'Ethiopië',
@@ -231,7 +231,12 @@ const Projecten = () => {
                   <div className="project-card-content">
                     <h3 className="project-card-title">{project.name}</h3>
                     <p className="project-card-country">
-                      <span className="project-card-country-icon">📍</span>
+                      <span className="project-card-country-icon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                          <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                      </span>
                       {getCountryName(project.country_code)}
                     </p>
                     <p className="project-card-description">

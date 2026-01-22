@@ -39,9 +39,14 @@ const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
 const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    credentials: true
+}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../')));
+
+// Serve frontend dist files
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Database connection
 const dbPath = path.join(__dirname, 'database', 'foundation.db');
@@ -900,6 +905,11 @@ app.get('/api/users', authenticateToken, requireAdmin, (req, res) => {
 // Health check
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Serve React app for all other routes (SPA catch-all)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 // Start server

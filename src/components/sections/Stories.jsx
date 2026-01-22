@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Reveal from '../Reveal'
 
 const Stories = () => {
   const stories = [
@@ -16,7 +17,7 @@ const Stories = () => {
       label: 'Nieuws'
     },
     {
-      title: 'Waterputten brengen hoop in Zuid-Soedan',
+      title: 'Waterputten brengen hoop in Sudan',
       excerpt: 'Dankzij nieuwe waterputten hebben dorpen nu toegang tot schoon drinkwater, wat levens redt.',
       image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop',
       label: 'Verhaal'
@@ -24,29 +25,38 @@ const Stories = () => {
   ]
 
   return (
-    <section className="stories-section">
+    <section className="stories-manarah">
       <div className="container">
-        <h2 className="section-title">Verhalen & Nieuws</h2>
-        <div className="stories-grid">
+        <Reveal>
+          <h2 className="stories-manarah-title">
+            <span className="stories-highlight">Verhalen</span>
+            & Nieuws
+          </h2>
+        </Reveal>
+        <div className="stories-manarah-grid">
           {stories.map((story, index) => (
-            <article key={index} className="story-card">
-              <div className="story-image">
-                <img src={story.image} alt={story.title} />
-                <span className={`story-label ${story.label === 'Nieuws' ? 'story-label-news' : ''}`}>
-                  {story.label}
-                </span>
-              </div>
-              <div className="story-content">
-                <h3 className="story-title">{story.title}</h3>
-                <p className="story-excerpt">{story.excerpt}</p>
-                <Link to="/projecten" className="story-link">Lees meer →</Link>
-              </div>
-            </article>
+            <Reveal key={index} delay={0.1 * index}>
+              <article className="story-card-manarah">
+                <div className="story-image-manarah">
+                  <img src={story.image} alt={story.title} />
+                  <span className={`story-label-manarah ${story.label === 'Nieuws' ? 'story-label-news' : ''}`}>
+                    {story.label}
+                  </span>
+                </div>
+                <div className="story-content-manarah">
+                  <h3 className="story-title-manarah">{story.title}</h3>
+                  <p className="story-excerpt-manarah">{story.excerpt}</p>
+                  <Link to="/projecten" className="story-link-manarah">Lees meer →</Link>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
-        <div className="stories-more">
-          <Link to="/projecten" className="link-more">Meer nieuws →</Link>
-        </div>
+        <Reveal delay={0.4}>
+          <div className="stories-manarah-more">
+            <Link to="/projecten" className="btn-stories-more">Meer nieuws →</Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -18,7 +18,7 @@ const AboutQuote = () => {
             />
             <div className="quote-author-info">
               <p className="quote-author-name">Maria van der Berg</p>
-              <p className="quote-author-role">Projectcoördinator Zuid-Soedan</p>
+              <p className="quote-author-role">Projectcoördinator Sudan</p>
             </div>
           </div>
         </div>

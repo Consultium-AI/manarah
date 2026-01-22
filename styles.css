@@ -5,19 +5,19 @@
 
 /* CSS Variables - Design Tokens */
 :root {
-    /* Colors - Rood-Wit & Blauw-Wit Thema */
-    --color-primary: #DC143C;
-    --color-primary-dark: #B71C1C;
-    --color-primary-light: #FF6B7A;
-    --color-secondary: #003366;
-    --color-secondary-dark: #001F3D;
-    --color-secondary-light: #004C99;
-    --color-accent: #DC143C;
+    /* Colors - Blauw Thema (Manarah Style) */
+    --color-primary: #2563EB;
+    --color-primary-dark: #1D4ED8;
+    --color-primary-light: #60A5FA;
+    --color-secondary: #1E40AF;
+    --color-secondary-dark: #1E3A8A;
+    --color-secondary-light: #3B82F6;
+    --color-accent: #2563EB;
     --color-text: #1a1a1a;
     --color-text-light: #666666;
     --color-bg: #ffffff;
     --color-bg-light: #f8f9fa;
-    --color-bg-dark: #003366;
+    --color-bg-dark: #1E3A8A;
     --color-border: #e0e0e0;
     
     /* Typography */
@@ -143,7 +143,7 @@ p {
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
@@ -307,7 +307,17 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 76, 153, 0.5) 100%);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), transparent);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -315,7 +325,39 @@ p {
     z-index: 1;
     width: 100%;
     color: white;
-    text-align: center;
+    text-align: left;
+}
+
+/* Manarah Hero Style */
+.hero-manarah {
+    min-height: 75vh;
+}
+
+.hero-manarah .hero-content {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+}
+
+.hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge-line {
+    height: 3px;
+    width: 4rem;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+.hero-badge-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .hero-title {
@@ -324,9 +366,21 @@ p {
     font-weight: 700;
 }
 
+.hero-title-manarah {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
 .hero-title .highlight {
     color: var(--color-accent);
     font-weight: 700;
+}
+
+.highlight-blue {
+    color: #60A5FA;
 }
 
 .hero-subtitle {
@@ -338,11 +392,42 @@ p {
     margin-right: auto;
 }
 
+.hero-subtitle-manarah {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .hero-buttons {
     display: flex;
     gap: var(--spacing-sm);
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+}
+
+.btn-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
+}
+
+.btn-glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-glass:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .hero-buttons .btn-secondary {
@@ -608,6 +693,13 @@ p {
 .action-icon {
     font-size: 3rem;
     margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-icon svg {
+    display: block;
 }
 
 .action-title {
@@ -852,11 +944,299 @@ p {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Footer */
+/* ============================================
+   Donate Banner - Manarah Style
+   ============================================ */
+
+/* Reveal Animations */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.15s; }
+.delay-3 { transition-delay: 0.2s; }
+.delay-4 { transition-delay: 0.25s; }
+
+.donate-banner {
+    background-color: #1D4ED8;
+    color: white;
+    padding: 4rem 0;
+    margin-top: 2rem;
+}
+
+.donate-banner-header {
+    margin-bottom: 1.5rem;
+}
+
+.donate-banner-title {
+    font-size: clamp(1.875rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0;
+    font-family: var(--font-primary);
+}
+
+.donate-banner-highlight {
+    display: inline-block;
+    background-color: white;
+    color: #1D4ED8;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+}
+
+.donate-banner-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 48rem;
+    margin-bottom: 2rem;
+}
+
+.donate-banner-frequency {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.frequency-option {
+    min-width: 180px;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(37, 99, 235, 0.4);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-primary);
+}
+
+.frequency-option:hover {
+    background-color: rgba(37, 99, 235, 0.6);
+}
+
+.frequency-option.active {
+    background-color: white;
+    color: #1D4ED8;
+    border-color: transparent;
+}
+
+.donate-banner-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.amount-option {
+    width: 160px;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(37, 99, 235, 0.4);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-primary);
+}
+
+.amount-option:hover {
+    background-color: rgba(37, 99, 235, 0.6);
+}
+
+.amount-option.active {
+    background-color: white;
+    color: #1D4ED8;
+    border-color: transparent;
+}
+
+.amount-custom-input {
+    width: 160px;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(37, 99, 235, 0.2);
+    color: white;
+    font-family: var(--font-primary);
+}
+
+.amount-custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.amount-custom-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.donate-banner-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.donate-banner-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.checkbox-label.checkbox-bg {
+    background-color: rgba(37, 99, 235, 0.2);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: white;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+.checkbox-label a {
+    color: white;
+    text-decoration: underline;
+}
+
+.checkbox-label a:hover {
+    opacity: 0.8;
+}
+
+.donate-banner-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.donate-banner-fields-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .donate-banner-fields,
+    .donate-banner-fields-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.field-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.25rem;
+}
+
+.donate-field-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(37, 99, 235, 0.1);
+    color: white;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+}
+
+.donate-field-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.donate-field-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.donate-banner-terms {
+    margin-top: 0;
+}
+
+.donate-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background-color: white;
+    color: #1D4ED8;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+    font-family: var(--font-primary);
+}
+
+.donate-banner-btn:hover {
+    background-color: #EFF6FF;
+}
+
+.donate-heart {
+    font-size: 1.25rem;
+}
+
+/* Footer - Manarah Style */
 .footer {
     background-color: var(--color-bg-dark);
     color: white;
     padding: var(--spacing-xxl) 0 var(--spacing-lg);
+}
+
+.footer-manarah {
+    padding: 0;
+}
+
+.footer-main {
+    background-color: #262626;
+    padding: 5rem 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .footer-content {
@@ -872,24 +1252,64 @@ p {
 
 .footer-title {
     color: white;
-    font-size: 1.125rem;
+    font-size: 1.75rem;
     margin-bottom: var(--spacing-md);
-    font-weight: 700;
+    font-weight: 800;
+    font-family: var(--font-primary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-links li {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
     transition: var(--transition-base);
 }
 
 .footer-links a:hover {
     color: white;
-    padding-left: 4px;
+    text-decoration: underline;
+}
+
+.footer-link-highlight {
+    color: white !important;
+}
+
+.footer-link-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.whatsapp-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #25D366;
+}
+
+.footer-iban {
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.footer-link-donate {
+    color: #60A5FA !important;
+    font-weight: 500;
+}
+
+.footer-link-donate:hover {
+    color: #93C5FD !important;
 }
 
 .footer-social {
@@ -936,11 +1356,17 @@ p {
     opacity: 1;
 }
 
+.footer-manarah .footer-bottom {
+    background-color: #171717;
+    border-top: 1px solid #333;
+    padding: 1.5rem 0;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-lg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.875rem;
 }
 
@@ -1042,7 +1468,7 @@ p {
 .text-highlight {
     color: var(--color-primary);
     font-weight: 600;
-    background-color: rgba(230, 57, 70, 0.1);
+    background-color: rgba(37, 99, 235, 0.1);
     padding: 0 0.25rem;
 }
 
@@ -1135,7 +1561,7 @@ p {
     border-radius: 50%;
     z-index: 2;
     transition: top 0.3s ease;
-    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.2);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
 }
 
 /* Values List */
@@ -1363,6 +1789,13 @@ p {
 .impact-story-icon {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.impact-story-icon svg {
+    display: block;
 }
 
 .impact-story-heading {
@@ -2347,6 +2780,13 @@ p {
 .samen-actie-icon {
     font-size: 3rem;
     margin-bottom: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.samen-actie-icon svg {
+    display: block;
 }
 
 .samen-actie-card-title {
@@ -3267,7 +3707,7 @@ details[open] .samen-actie-summary::before {
 .form-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .form-input::placeholder {
@@ -4477,3 +4917,504 @@ input:focus {
     outline-offset: 2px;
 }
 
+/* ============================================
+   Manarah Style Components
+   ============================================ */
+
+/* Hero Manarah */
+.hero-manarah {
+    position: relative;
+    min-height: 75vh;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+@media (min-width: 640px) {
+    .hero-manarah {
+        min-height: 85vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-manarah {
+        min-height: 100vh;
+    }
+}
+
+.hero-manarah-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-manarah-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-manarah-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), transparent);
+}
+
+.hero-manarah-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-manarah-inner {
+    max-width: 48rem;
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+}
+
+@media (min-width: 640px) {
+    .hero-manarah-inner {
+        padding-top: 7rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-manarah-inner {
+        padding-top: 16rem;
+    }
+}
+
+.hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge-line {
+    height: 3px;
+    width: 4rem;
+    background-color: #2563EB;
+    border-radius: 9999px;
+}
+
+.hero-badge-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-manarah-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+    .hero-manarah-title {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-manarah-title {
+        font-size: 3.75rem;
+    }
+}
+
+.highlight-blue {
+    color: #60A5FA;
+}
+
+.hero-manarah-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .hero-manarah-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.hero-manarah-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.btn-manarah-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2563EB;
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-manarah-primary:hover {
+    background-color: #1D4ED8;
+}
+
+.btn-manarah-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-manarah-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* About Manarah */
+.about-manarah {
+    padding: 5rem 0;
+}
+
+.about-manarah-content {
+    text-align: center;
+    padding: 0 0.5rem;
+}
+
+.about-pretitle {
+    letter-spacing: 0.35em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2563EB;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+    .about-pretitle {
+        font-size: 0.875rem;
+    }
+}
+
+.about-manarah-title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .about-manarah-title {
+        font-size: 3rem;
+    }
+}
+
+.about-highlight {
+    display: inline-block;
+    background-color: rgba(125, 211, 252, 0.5);
+    color: #1E40AF;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+}
+
+.about-manarah-text {
+    max-width: 56rem;
+    margin: 0 auto;
+    color: #1F2937;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .about-manarah-text {
+        font-size: 1.5rem;
+    }
+}
+
+.about-manarah-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-highlight-text {
+    margin-top: 1.5rem;
+}
+
+/* Contact Manarah */
+.contact-manarah {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.contact-manarah-title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .contact-manarah-title {
+        font-size: 3rem;
+    }
+}
+
+.contact-highlight {
+    display: inline-block;
+    background-color: rgba(125, 211, 252, 0.5);
+    color: #1E40AF;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+}
+
+.contact-manarah-subtitle {
+    color: #4B5563;
+    font-size: 1.125rem;
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto 2rem;
+}
+
+.contact-manarah-form {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E5E7EB;
+    padding: 1.5rem;
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .contact-manarah-form {
+        padding: 2rem;
+    }
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+    .contact-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1F2937;
+    margin-bottom: 0.25rem;
+}
+
+.required {
+    color: #EF4444;
+}
+
+.form-input-manarah {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid #D1D5DB;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-input-manarah:focus {
+    outline: none;
+    border-color: #93C5FD;
+    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .contact-form-actions {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.btn-contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #2563EB, #4F46E5, #06B6D4);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-contact-submit:hover {
+    opacity: 0.95;
+}
+
+.contact-email-note {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.contact-email-note a {
+    color: #2563EB;
+}
+
+.contact-email-note a:hover {
+    text-decoration: underline;
+}
+
+.contact-privacy-note {
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin-top: 0.75rem;
+}
+
+.contact-privacy-note a {
+    color: #2563EB;
+}
+
+.contact-privacy-note a:hover {
+    text-decoration: underline;
+}
+
+.contact-whatsapp {
+    max-width: 56rem;
+    margin: 2rem auto 0;
+    text-align: center;
+}
+
+.contact-whatsapp-text {
+    color: #4B5563;
+    margin-bottom: 0.75rem;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background-color: #16A34A;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #15803D;
+}
+
+.whatsapp-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Newsletter Manarah */
+.newsletter-manarah {
+    padding: 5rem 0;
+}
+
+.newsletter-manarah-content {
+    text-align: center;
+}
+
+.newsletter-manarah-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .newsletter-manarah-title {
+        font-size: 3.75rem;
+    }
+}
+
+.newsletter-highlight {
+    display: inline-block;
+    background-color: rgba(125, 211, 252, 0.5);
+    color: #1E40AF;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+}
+
+.newsletter-manarah-text {
+    color: #1F2937;
+    font-size: 1.25rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .newsletter-manarah-text {
+        font-size: 1.5rem;
+    }
+}
+
+.newsletter-manarah-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.btn-newsletter {
+    display: inline-flex;
+    align-items: center;
+    background-color: #2563EB;
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.btn-newsletter:hover {
+    background-color: #1D4ED8;
+}

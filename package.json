@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "cd backend && node server.js",
     "backend": "cd backend && npm start",
     "backend:dev": "cd backend && npm run dev",
-    "init-db": "cd backend && npm run init-db"
+    "init-db": "cd backend && npm run init-db",
+    "render-build": "npm install && npm run build && cd backend && npm install && npm run init-db"
   },
   "dependencies": {
     "react": "^18.2.0",

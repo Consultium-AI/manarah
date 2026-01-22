@@ -2,6 +2,54 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { projectsAPI } from '../utils/api'
 
+// Simple SVG icons for activities
+const ActivityIcon = ({ type }) => {
+  const icons = {
+    droplet: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+      </svg>
+    ),
+    book: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+    ),
+    utensils: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+        <path d="M7 2v20"/>
+        <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+      </svg>
+    ),
+    handshake: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/>
+      </svg>
+    ),
+    emergency: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4"/>
+        <path d="M12 16h.01"/>
+      </svg>
+    ),
+    home: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    ),
+    heart: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    )
+  }
+  return icons[type] || icons.heart
+}
+
 const LandDetail = () => {
   const { countrySlug } = useParams()
   const [countryProjects, setCountryProjects] = useState([])
@@ -9,12 +57,12 @@ const LandDetail = () => {
 
   // Mapping van slugs naar land codes en informatie
   const countryData = {
-    'zuid-soedan': {
-      code: 'SS',
-      name: 'Zuid-Soedan',
+    'sudan': {
+      code: 'SD',
+      name: 'Sudan',
       image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1920&h=1080&fit=crop',
       context: [
-        'Zuid-Soedan is een van de meest kwetsbare landen ter wereld. Sinds de onafhankelijkheid in 2011 heeft het land te maken met aanhoudende conflicten, voedselonzekerheid en klimaatgerelateerde uitdagingen. Miljoenen mensen zijn afhankelijk van humanitaire hulp om te overleven.',
+        'Sudan is een van de meest kwetsbare landen ter wereld. Het land heeft te maken met aanhoudende conflicten, voedselonzekerheid en klimaatgerelateerde uitdagingen. Miljoenen mensen zijn afhankelijk van humanitaire hulp om te overleven.',
         'De situatie wordt verergerd door periodieke droogtes en overstromingen, die de voedselproductie verstoren en gemeenschappen dwingen om te migreren. Veel gezinnen hebben geen toegang tot basisvoorzieningen zoals schoon water, gezondheidszorg en onderwijs.',
         'Wij werken samen met lokale partners om duurzame oplossingen te bieden die gemeenschappen helpen om weerstand te bieden aan deze uitdagingen en een betere toekomst op te bouwen.'
       ],
@@ -22,22 +70,22 @@ const LandDetail = () => {
         {
           title: 'Waterputten en sanitatie',
           description: 'We bouwen waterputten en voorzien gemeenschappen van sanitatievoorzieningen. Dit voorkomt ziektes en verbetert de levenskwaliteit aanzienlijk.',
-          icon: '💧'
+          icon: 'droplet'
         },
         {
           title: 'Voedselzekerheid',
           description: 'We bieden voedselhulp aan gezinnen in nood en trainen boeren in duurzame landbouwtechnieken om voedselproductie te verbeteren.',
-          icon: '🌾'
+          icon: 'utensils'
         },
         {
           title: 'Vredesopbouw',
           description: 'We werken aan vredesopbouw en conflictresolutie door gemeenschappen samen te brengen en dialoog te faciliteren.',
-          icon: '🤝'
+          icon: 'handshake'
         },
         {
           title: 'Onderwijs',
           description: 'We zorgen voor toegang tot onderwijs voor kinderen, vooral meisjes, en bouwen scholen in afgelegen gebieden.',
-          icon: '📚'
+          icon: 'book'
         }
       ]
     },
@@ -54,17 +102,17 @@ const LandDetail = () => {
         {
           title: 'Noodhulp',
           description: 'We bieden voedsel, onderdak en medische zorg aan ontheemde gezinnen en gemeenschappen die getroffen zijn door conflict.',
-          icon: '🚑'
+          icon: 'emergency'
         },
         {
           title: 'Onderwijs',
           description: 'We zorgen voor toegang tot onderwijs voor kinderen die door conflict zijn getroffen en bouwen veilige leeromgevingen.',
-          icon: '📚'
+          icon: 'book'
         },
         {
           title: 'Water en sanitatie',
           description: 'We bouwen waterputten en voorzien gemeenschappen van schoon drinkwater en sanitatievoorzieningen.',
-          icon: '💧'
+          icon: 'droplet'
         }
       ]
     },
@@ -81,17 +129,17 @@ const LandDetail = () => {
         {
           title: 'Noodhulp',
           description: 'We bieden voedsel, onderdak, kleding en medische zorg aan gezinnen die alles hebben verloren.',
-          icon: '🚑'
+          icon: 'emergency'
         },
         {
           title: 'Wederopbouw',
           description: 'We helpen bij het herstellen van basisvoorzieningen en het opbouwen van weerbare gemeenschappen.',
-          icon: '🏗️'
+          icon: 'home'
         },
         {
           title: 'Psychosociale steun',
           description: 'We bieden counseling en psychosociale steun aan kinderen en volwassenen die trauma\'s hebben opgelopen.',
-          icon: '💙'
+          icon: 'heart'
         }
       ]
     }
@@ -176,7 +224,7 @@ const LandDetail = () => {
             <div className="country-activities-grid">
               {country.activities.map((activity, index) => (
                 <div key={index} className="country-activity-card">
-                  <div className="country-activity-icon">{activity.icon}</div>
+                  <div className="country-activity-icon"><ActivityIcon type={activity.icon} /></div>
                   <h3 className="country-activity-title">{activity.title}</h3>
                   <p className="country-activity-description">{activity.description}</p>
                 </div>

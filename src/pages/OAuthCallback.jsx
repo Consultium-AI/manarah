@@ -53,21 +53,37 @@ const OAuthCallback = () => {
           <div className="verification-status">
             {status === 'processing' && (
               <>
-                <div className="verification-icon">⏳</div>
+                <div className="verification-icon">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
                 <h2 className="auth-title">Inloggen...</h2>
                 <p>Even geduld, je wordt ingelogd.</p>
               </>
             )}
             {status === 'success' && (
               <>
-                <div className="verification-icon success">✅</div>
+                <div className="verification-icon success">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
                 <h2 className="auth-title">Ingelogd!</h2>
                 <p>{message}</p>
               </>
             )}
             {status === 'error' && (
               <>
-                <div className="verification-icon error">❌</div>
+                <div className="verification-icon error">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="15" y1="9" x2="9" y2="15"/>
+                    <line x1="9" y1="9" x2="15" y2="15"/>
+                  </svg>
+                </div>
                 <h2 className="auth-title">Inloggen mislukt</h2>
                 <p>{message}</p>
                 <div style={{ marginTop: '2rem' }}>
