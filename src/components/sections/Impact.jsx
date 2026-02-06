@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Impact = () => {
+  const { t } = useTranslation()
+
   return (
     <section className="impact-section">
       <div className="container">
         <div className="impact-content">
           <div className="impact-text">
-            <h2 className="section-title">Wereldwijde impact</h2>
-            <p className="impact-description">
-              We zijn actief in crisisgebieden over de hele wereld. Met jouw steun helpen we <strong>meer dan 1 miljoen mensen per jaar</strong> met noodhulp, onderwijs, water, onderdak en vredesopbouw.
-            </p>
-            <Link to="/waar-we-werken" className="btn btn-primary">Bekijk wat we doen</Link>
+            <h2 className="section-title">{t('impact.title')}</h2>
+            <p className="impact-description" dangerouslySetInnerHTML={{ __html: t('impact.text') }} />
+            <Link to="/waar-we-werken" className="btn btn-primary">{t('impact.button')}</Link>
           </div>
           <div className="impact-visual">
             <div className="world-map">

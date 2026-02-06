@@ -1,47 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const ValuesTimeline = () => {
+  const { t } = useTranslation()
   const [activeValue, setActiveValue] = useState(0)
   const timelineDotRef = useRef(null)
   const valueItemsRef = useRef([])
   const timelineWrapperRef = useRef(null)
 
   const values = [
-    {
-      id: 'integrity',
-      title: 'Integriteit',
-      description: 'We willen leven vanuit onze waarden en principes op elk niveau van onze organisatie en op elke locatie.'
-    },
-    {
-      id: 'hope',
-      title: 'Hoop',
-      description: 'We komen in actie vanuit een hoopvolle houding en geven noodhulp en nieuwe hoop.'
-    },
-    {
-      id: 'compassion',
-      title: 'Meeleven',
-      description: 'We voelen mee met de pijn en het verlies van anderen, en dit meeleven zet ons aan tot actie. We zien de mens achter elke situatie.'
-    },
-    {
-      id: 'joy',
-      title: 'Vreugde',
-      description: 'We vinden vreugde in de kleine overwinningen en de momenten van verbinding. Deze vreugde geeft ons kracht en herinnert ons eraan waarom we dit werk doen.'
-    },
-    {
-      id: 'accountability',
-      title: 'Verantwoording',
-      description: 'We zijn verantwoordelijk voor onze acties en transparant over wat we doen. We verantwoorden ons aan de gemeenschappen die we dienen, onze donateurs en onszelf.'
-    },
-    {
-      id: 'dignity',
-      title: 'Waardigheid',
-      description: 'Ieder mens heeft inherente waardigheid, ongeacht hun omstandigheden. We werken eraan om deze waardigheid te erkennen, te respecteren en te herstellen.'
-    },
-    {
-      id: 'faith',
-      title: 'Geloof',
-      description: 'We geloven in de kracht van mensen om hun eigen toekomst vorm te geven. We geloven in de mogelijkheid van verandering, zelfs in de moeilijkste omstandigheden.'
-    }
+    { id: 'integrity', title: t('values.integrity'), description: t('values.integrity-desc') },
+    { id: 'hope', title: t('values.hope'), description: t('values.hope-desc') },
+    { id: 'compassion', title: t('values.compassion'), description: t('values.compassion-desc') },
+    { id: 'joy', title: t('values.joy'), description: t('values.joy-desc') },
+    { id: 'accountability', title: t('values.accountability'), description: t('values.accountability-desc') },
+    { id: 'dignity', title: t('values.dignity'), description: t('values.dignity-desc') },
+    { id: 'faith', title: t('values.faith'), description: t('values.faith-desc') },
   ]
 
   useEffect(() => {
@@ -119,9 +93,7 @@ const ValuesTimeline = () => {
     <section className="interactive-values-section">
       <div className="values-intro">
         <div className="container">
-          <p className="values-intro-text">
-            We werken vanuit principes die <span className="text-highlight">hoop</span> en <span className="text-highlight">waardigheid</span> herstellen. Deze waarden drijven ons om elke dag klaar te staan voor mensen die het hard nodig hebben.
-          </p>
+          <p className="values-intro-text" dangerouslySetInnerHTML={{ __html: t('values.intro') }} />
         </div>
       </div>
 
@@ -130,7 +102,7 @@ const ValuesTimeline = () => {
           {/* Left Side Text */}
           <div className="values-left-text">
             <div className="values-left-content">
-              <h2 className="values-left-title">Onze waarden</h2>
+              <h2 className="values-left-title">{t('values.title')}</h2>
             </div>
           </div>
 
@@ -162,11 +134,11 @@ const ValuesTimeline = () => {
       <div className="values-cta">
         <div className="container">
           <p className="values-cta-text">
-            Onze waarden drijven ons om elke dag klaar te staan. Doe mee en geef hoop.
+            {t('values.cta-text')}
           </p>
           <div className="values-cta-buttons">
-            <a href="/doneren" className="btn btn-primary btn-cta-large">Doneer nu</a>
-            <a href="#" className="btn btn-secondary">Word vrijwilliger</a>
+            <a href="/doneren" className="btn btn-primary btn-cta-large">{t('hero.donate')}</a>
+            <a href="#" className="btn btn-secondary">{t('values.volunteer')}</a>
           </div>
         </div>
       </div>

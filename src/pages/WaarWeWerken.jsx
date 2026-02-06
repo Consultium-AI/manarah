@@ -1,25 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../hooks/useTranslation'
 
 const WaarWeWerken = () => {
+  const { t } = useTranslation()
+
   const countries = [
     {
       slug: 'palestina',
-      name: 'Palestina',
-      description: 'We staan zij aan zij met het Palestijnse volk dat lijdt onder bezetting, ontheemding en een verwoestende humanitaire crisis. Samen bieden we hoop en hulp.',
-      image: '/assets/Al_Aqsa.jpg'
+      name: t('country.PS'),
+      description: t('countries.palestine-desc'),
+      image: `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`
     },
     {
       slug: 'syrie',
-      name: 'Syrië',
-      description: 'We bieden noodhulp en ondersteunen wederopbouw voor gezinnen die alles hebben verloren door jaren van conflict.',
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop'
+      name: t('country.SY'),
+      description: t('countries.syria-desc'),
+      image: 'https://images.unsplash.com/photo-1658159788721-78e4e057c9aa?w=600&h=400&fit=crop'
     },
     {
       slug: 'sudan',
-      name: 'Sudan',
-      description: 'We werken aan voedselzekerheid, watertoegang en vredesopbouw in een van de meest kwetsbare regio\'s ter wereld.',
-      image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop'
+      name: t('country.SD'),
+      description: t('countries.sudan-desc'),
+      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&h=400&fit=crop'
     }
   ]
 
@@ -27,9 +30,9 @@ const WaarWeWerken = () => {
     <div>
       <section className="countries-hero">
         <div className="container">
-          <h1 className="countries-hero-title">Waar we werken</h1>
+          <h1 className="countries-hero-title">{t('countries.hero-title')}</h1>
           <p className="countries-hero-subtitle">
-            We zijn actief in meer dan 25 landen wereldwijd, waar we samen met lokale gemeenschappen werken aan duurzame oplossingen voor conflict, armoede en klimaatverandering.
+            {t('countries.hero-subtitle')}
           </p>
         </div>
       </section>
@@ -46,7 +49,7 @@ const WaarWeWerken = () => {
                   <h3 className="country-card-title">{country.name}</h3>
                   <p className="country-card-description">{country.description}</p>
                   <Link to={`/land/${country.slug}`} className="btn btn-outline">
-                    Meer over {country.name}
+                    {t('countries.more-about', { name: country.name })}
                   </Link>
                 </div>
               </article>

@@ -72,7 +72,7 @@ const Footer = () => {
               <ul className="footer-links-modern footer-info">
                 <li><span className="info-label">KvK</span> 97004332</li>
                 <li><span className="info-label">RSIN</span> 86780667</li>
-                <li><span className="info-label">Locatie</span> Rotterdam</li>
+                <li><span className="info-label">{t('footer.location')}</span> Rotterdam</li>
                 <li className="footer-iban-row">
                   <span className="info-label">IBAN</span>
                   <span className="footer-iban-modern">NL17RABO0141712287</span>
@@ -84,10 +84,10 @@ const Footer = () => {
             <div className="footer-column-modern">
               <h4 className="footer-column-title">{t('footer.documents')}</h4>
               <ul className="footer-links-modern">
-                <li><a href="https://stichtingmanarah.nl/assets/docs/beleidsplan.pdf" target="_blank" rel="noreferrer">Beleidsplan</a></li>
-                <li><a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">Privacyverklaring</a></li>
-                <li><a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">Algemene voorwaarden</a></li>
-                <li><a href="https://stichtingmanarah.nl/assets/docs/donatiebeleid.pdf" target="_blank" rel="noreferrer">Donatiebeleid</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/beleidsplan.pdf" target="_blank" rel="noreferrer">{t('footer.doc-beleidsplan')}</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">{t('footer.doc-privacy')}</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">{t('footer.doc-terms')}</a></li>
+                <li><a href="https://stichtingmanarah.nl/assets/docs/donatiebeleid.pdf" target="_blank" rel="noreferrer">{t('footer.doc-donation-policy')}</a></li>
               </ul>
             </div>
           </div>

@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Quote = () => {
+  const { t } = useTranslation()
+
   return (
     <section className="quote-section">
       <div className="quote-background">
@@ -15,10 +18,10 @@ const Quote = () => {
       <div className="quote-content">
         <div className="container">
           <blockquote className="quote-text">
-            "Elke dag zie ik hoe onze hulp levens verandert. Kinderen die weer naar school kunnen, families die toegang krijgen tot schoon water, en gemeenschappen die samenwerken aan vrede. Dit is waarom ik hier ben."
+            {t('quote.text')}
           </blockquote>
-          <p className="quote-author">— Sarah, Hulpverlener in Sudan</p>
-          <Link to="/land/sudan" className="btn btn-secondary">Lees meer over de hulp in Sudan</Link>
+          <p className="quote-author">{t('quote.author')}</p>
+          <Link to="/land/sudan" className="btn btn-secondary">{t('quote.button')}</Link>
         </div>
       </div>
     </section>

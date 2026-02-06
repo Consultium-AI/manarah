@@ -91,18 +91,18 @@ const Doneren = () => {
     const amount = customAmount ? parseFloat(customAmount) : selectedAmount
 
     if (!amount || amount <= 0) {
-      alert('Selecteer een bedrag of voer een bedrag in.')
+      alert(t('donate.alert-select-amount'))
       return
     }
 
     // Validate guest info if not logged in
     if (!isLoggedIn) {
       if (!guestName.trim()) {
-        alert('Vul je naam in.')
+        alert(t('donate.alert-name'))
         return
       }
       if (!guestEmail.trim() || !guestEmail.includes('@')) {
-        alert('Vul een geldig e-mailadres in.')
+        alert(t('donate.alert-email'))
         return
       }
     }
@@ -141,7 +141,7 @@ const Doneren = () => {
       }
     } catch (error) {
       console.error('Donation error:', error)
-      alert(error.response?.data?.error || 'Er is een fout opgetreden bij het verwerken van je donatie.')
+      alert(error.response?.data?.error || t('donate.alert-error'))
     } finally {
       setIsSubmitting(false)
     }

@@ -1,26 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Stories = () => {
+  const { t } = useTranslation()
+
   const stories = [
     {
-      title: 'Hoe onderwijs levens verandert in Syrië',
-      excerpt: 'In vluchtelingenkampen bieden we kinderen de kans om te leren en te dromen van een betere toekomst.',
+      title: t('stories.story1-title'),
+      excerpt: t('stories.story1-excerpt'),
       image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop',
-      label: 'Verhaal'
+      label: t('stories.label-story')
     },
     {
-      title: 'Noodhulp in Oekraïne: eerste resultaten',
-      excerpt: 'Onze teams hebben al duizenden gezinnen bereikt met voedsel, onderdak en medische zorg.',
+      title: t('stories.story2-title'),
+      excerpt: t('stories.story2-excerpt'),
       image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&h=400&fit=crop',
-      label: 'Nieuws'
+      label: t('stories.label-news')
     },
     {
-      title: 'Waterputten brengen hoop in Sudan',
-      excerpt: 'Dankzij nieuwe waterputten hebben dorpen nu toegang tot schoon drinkwater, wat levens redt.',
-      image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop',
-      label: 'Verhaal'
+      title: t('stories.story3-title'),
+      excerpt: t('stories.story3-excerpt'),
+      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&h=400&fit=crop',
+      label: t('stories.label-story')
     }
   ]
 
@@ -29,8 +32,8 @@ const Stories = () => {
       <div className="container">
         <Reveal>
           <h2 className="stories-manarah-title">
-            <span className="stories-highlight">Verhalen</span>
-            & Nieuws
+            <span className="stories-highlight">{t('stories.title-highlight')}</span>
+            {t('stories.title-suffix')}
           </h2>
         </Reveal>
         <div className="stories-manarah-grid">
@@ -39,14 +42,14 @@ const Stories = () => {
               <article className="story-card-manarah">
                 <div className="story-image-manarah">
                   <img src={story.image} alt={story.title} />
-                  <span className={`story-label-manarah ${story.label === 'Nieuws' ? 'story-label-news' : ''}`}>
+                  <span className={`story-label-manarah ${story.label === t('stories.label-news') ? 'story-label-news' : ''}`}>
                     {story.label}
                   </span>
                 </div>
                 <div className="story-content-manarah">
                   <h3 className="story-title-manarah">{story.title}</h3>
                   <p className="story-excerpt-manarah">{story.excerpt}</p>
-                  <Link to="/projecten" className="story-link-manarah">Lees meer →</Link>
+                  <Link to="/projecten" className="story-link-manarah">{t('stories.read-more')}</Link>
                 </div>
               </article>
             </Reveal>
@@ -54,7 +57,7 @@ const Stories = () => {
         </div>
         <Reveal delay={0.4}>
           <div className="stories-manarah-more">
-            <Link to="/projecten" className="btn-stories-more">Meer nieuws →</Link>
+            <Link to="/projecten" className="btn-stories-more">{t('stories.more-news')}</Link>
           </div>
         </Reveal>
       </div>

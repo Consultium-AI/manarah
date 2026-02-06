@@ -29,14 +29,15 @@ const ProjectDetail = () => {
     const code = proj?.country_code
     const countryImages = {
       'BF': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
-      'SY': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop',
-      'SS': 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1920&h=1080&fit=crop',
+      'SY': 'https://images.unsplash.com/photo-1658159788721-78e4e057c9aa?w=1920&h=1080&fit=crop',
+      'SS': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
+      'SD': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
       'UA': 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1920&h=1080&fit=crop',
       'YE': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'ET': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop',
       'SO': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop',
       'AF': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
-      'IQ': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop',
+      'IQ': 'https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?w=1920&h=1080&fit=crop',
       'MM': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'BD': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'PK': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',

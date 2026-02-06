@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { authAPI } from '../utils/api'
 import { setAuthToken, setUser } from '../utils/auth'
+import { useTranslation } from '../hooks/useTranslation'
 
 const OAuthCallback = () => {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [status, setStatus] = useState('processing')
   const [message, setMessage] = useState('')
 
@@ -15,7 +17,7 @@ const OAuthCallback = () => {
     
     if (!code) {
       setStatus('error')
-      setMessage('Geen autorisatie code ontvangen.')
+      setMessage(t('oauth.no-code'))
       return
     }
 
@@ -35,14 +37,14 @@ const OAuthCallback = () => {
         setAuthToken(response.data.token)
         setUser(response.data.user)
         setStatus('success')
-        setMessage('Succesvol ingelogd!')
+        setMessage(t('oauth.success-text'))
         setTimeout(() => {
           navigate('/')
         }, 1500)
       }
     } catch (error) {
       setStatus('error')
-      setMessage(error.response?.data?.error || 'Inloggen mislukt.')
+      setMessage(error.response?.data?.error || t('oauth.error-text'))
     }
   }
 
@@ -59,8 +61,8 @@ const OAuthCallback = () => {
                     <polyline points="12 6 12 12 16 14"/>
                   </svg>
                 </div>
-                <h2 className="auth-title">Inloggen...</h2>
-                <p>Even geduld, je wordt ingelogd.</p>
+                <h2 className="auth-title">{t('oauth.processing-title')}</h2>
+                <p>{t('oauth.processing-text')}</p>
               </>
             )}
             {status === 'success' && (
@@ -71,7 +73,7 @@ const OAuthCallback = () => {
                     <path d="M9 12l2 2 4-4"/>
                   </svg>
                 </div>
-                <h2 className="auth-title">Ingelogd!</h2>
+                <h2 className="auth-title">{t('oauth.success-title')}</h2>
                 <p>{message}</p>
               </>
             )}
@@ -84,10 +86,10 @@ const OAuthCallback = () => {
                     <line x1="9" y1="9" x2="15" y2="15"/>
                   </svg>
                 </div>
-                <h2 className="auth-title">Inloggen mislukt</h2>
+                <h2 className="auth-title">{t('oauth.error-title')}</h2>
                 <p>{message}</p>
                 <div style={{ marginTop: '2rem' }}>
-                  <a href="/inloggen" className="btn btn-primary">Naar login</a>
+                  <a href="/inloggen" className="btn btn-primary">{t('oauth.to-login')}</a>
                 </div>
               </>
             )}

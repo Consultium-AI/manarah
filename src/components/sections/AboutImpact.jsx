@@ -1,45 +1,48 @@
 import React from 'react'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const AboutImpact = () => {
+  const { t } = useTranslation()
+
   const stats = [
-    { number: '1.2M+', label: 'Mensen geholpen per jaar' },
-    { number: '25+', label: 'Landen waar we actief zijn' },
-    { number: '500+', label: 'Medewerkers en vrijwilligers' },
-    { number: '150+', label: 'Actieve projecten' }
+    { number: '1.2M+', label: t('aboutimpact.stat1') },
+    { number: '25+', label: t('aboutimpact.stat2') },
+    { number: '500+', label: t('aboutimpact.stat3') },
+    { number: '150+', label: t('aboutimpact.stat4') }
   ]
 
   const impactStories = [
     {
-      heading: 'Onderdak voor gezinnen',
-      text: 'Meer dan <strong>50.000 gezinnen</strong> hebben veilige onderkomens gekregen in conflictgebieden en na natuurrampen. We bouwen niet alleen huizen, maar ook gemeenschappen.'
+      heading: t('aboutimpact.shelter'),
+      text: t('aboutimpact.shelter-text')
     },
     {
-      heading: 'Schoon water voor iedereen',
-      text: 'We hebben <strong>meer dan 200 waterputten</strong> gebouwd en gerepareerd, waardoor duizenden mensen toegang hebben tot schoon drinkwater. Water is leven, en leven is hoop.'
+      heading: t('aboutimpact.water'),
+      text: t('aboutimpact.water-text')
     },
     {
-      heading: 'Onderwijs voor kinderen',
-      text: 'Meer dan <strong>75.000 kinderen</strong> gaan weer naar school dankzij onze onderwijsprogramma\'s. We bouwen scholen, trainen leraren en zorgen voor lesmateriaal.'
+      heading: t('aboutimpact.education'),
+      text: t('aboutimpact.education-text')
     },
     {
-      heading: 'Voedselzekerheid',
-      text: 'We helpen <strong>meer dan 30.000 gezinnen</strong> om zelf voedsel te verbouwen door zaden, training en landbouwondersteuning. Zelfredzaamheid geeft mensen hun waardigheid terug.'
+      heading: t('aboutimpact.food'),
+      text: t('aboutimpact.food-text')
     },
     {
-      heading: 'Vredesopbouw',
-      text: 'In <strong>meer dan 15 gemeenschappen</strong> werken we aan vredesopbouw en verzoening. We brengen mensen samen, faciliteren dialoog en bouwen bruggen tussen groepen.'
+      heading: t('aboutimpact.peace'),
+      text: t('aboutimpact.peace-text')
     },
     {
-      heading: 'Noodhulp',
-      text: 'Bij acute crises reageren we snel met voedsel, water, onderdak en medische zorg. In het afgelopen jaar hebben we <strong>meer dan 200.000 mensen</strong> geholpen tijdens noodsituaties.'
+      heading: t('aboutimpact.emergency'),
+      text: t('aboutimpact.emergency-text')
     }
   ]
 
   return (
     <section className="impact-about-section">
       <div className="container">
-        <h2 className="section-title">Onze impact</h2>
-        <p className="section-subtitle">Samen maken we het verschil voor duizenden mensen wereldwijd</p>
+        <h2 className="section-title">{t('aboutimpact.title')}</h2>
+        <p className="section-subtitle">{t('aboutimpact.subtitle')}</p>
         
         <div className="impact-stats">
           {stats.map((stat, index) => (
@@ -51,7 +54,7 @@ const AboutImpact = () => {
         </div>
 
         <div className="impact-stories">
-          <h3 className="impact-stories-title">Verhalen van hoop</h3>
+          <h3 className="impact-stories-title">{t('aboutimpact.stories-title')}</h3>
           <div className="impact-stories-grid">
             {impactStories.map((story, index) => (
               <div key={index} className="impact-story-item">

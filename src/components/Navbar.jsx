@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { getAuthToken, getUser, logout } from '../utils/auth'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -10,6 +10,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const searchInputRef = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
   
@@ -32,7 +35,15 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMenuOpen(false)
+    setSearchOpen(false)
+    setSearchQuery('')
   }, [location])
+
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus()
+    }
+  }, [searchOpen])
 
   const handleLogout = () => {
     if (window.confirm(t('logout.confirm'))) {
@@ -50,6 +61,15 @@ const Navbar = () => {
 
   const isActive = (path) => {
     return location.pathname === path ? 'active' : ''
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      navigate(`/projecten?search=${encodeURIComponent(searchQuery)}`)
+      setSearchOpen(false)
+      setSearchQuery('')
+    }
   }
 
   const showSolidNavbar = !isHomePage || isScrolled
@@ -94,6 +114,21 @@ const Navbar = () => {
             </li>
           )}
           
+          {/* Mobile search */}
+          <li className="nav-item nav-item-mobile">
+            <form onSubmit={handleSearch} className="nav-search-mobile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input
+                type="text"
+                placeholder={t('hero.search-placeholder')}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </form>
+          </li>
+
           <li className="nav-item nav-item-mobile">
             <div className="nav-donate-group-mobile">
               <LanguageSwitcher />
@@ -118,6 +153,34 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-actions">
+          {/* Compact search */}
+          <div className={`nav-search ${searchOpen ? 'nav-search-open' : ''}`}>
+            {searchOpen ? (
+              <form onSubmit={handleSearch} className="nav-search-form">
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  className="nav-search-input"
+                  placeholder={t('hero.search-placeholder')}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onBlur={() => { if (!searchQuery) setSearchOpen(false) }}
+                />
+                <button type="button" className="nav-search-close" onClick={() => { setSearchOpen(false); setSearchQuery('') }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </form>
+            ) : (
+              <button className="nav-search-toggle" onClick={() => setSearchOpen(true)} aria-label="Zoeken">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </button>
+            )}
+          </div>
+
           {isLoggedIn ? (
             <div className="user-dropdown">
               <button className="user-button">

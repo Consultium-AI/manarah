@@ -86,6 +86,7 @@ const Projecten = () => {
     // Fallback naar country image mapping
     const countryImages = {
       'PS': `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
+      'SD': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
     }
     return countryImages[project.country_code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }

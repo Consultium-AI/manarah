@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { projectsAPI } from '../utils/api'
+import { useTranslation } from '../hooks/useTranslation'
 
 // Simple SVG icons for activities
 const ActivityIcon = ({ type }) => {
@@ -52,6 +53,7 @@ const ActivityIcon = ({ type }) => {
 
 const LandDetail = () => {
   const { countrySlug } = useParams()
+  const { t } = useTranslation()
   const [countryProjects, setCountryProjects] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -60,7 +62,7 @@ const LandDetail = () => {
     'sudan': {
       code: 'SD',
       name: 'Sudan',
-      image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1920&h=1080&fit=crop',
+      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
       context: [
         'Sudan is een van de meest kwetsbare landen ter wereld. Het land heeft te maken met aanhoudende conflicten, voedselonzekerheid en klimaatgerelateerde uitdagingen. Miljoenen mensen zijn afhankelijk van humanitaire hulp om te overleven.',
         'De situatie wordt verergerd door periodieke droogtes en overstromingen, die de voedselproductie verstoren en gemeenschappen dwingen om te migreren. Veel gezinnen hebben geen toegang tot basisvoorzieningen zoals schoon water, gezondheidszorg en onderwijs.',
@@ -92,7 +94,7 @@ const LandDetail = () => {
     'palestina': {
       code: 'PS',
       name: 'Palestina',
-      image: '/assets/Al_Aqsa.jpg',
+      image: `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
       context: [
         'Palestina bevindt zich in een van de langstdurende humanitaire crises ter wereld. Miljoenen Palestijnen leven onder bezetting en worden dagelijks geconfronteerd met ontheemding, verwoesting en een gebrek aan basisvoorzieningen. Gaza is het zwaarst getroffen, met een belegering die de toegang tot voedsel, water, medicijnen en elektriciteit ernstig beperkt.',
         'Gezinnen zijn uit hun huizen verdreven, kinderen groeien op tussen puin en trauma, en ziekenhuizen kunnen de stroom gewonden nauwelijks aan. De Al-Aqsa moskee, een heilig symbool voor miljoenen moslims wereldwijd, staat onder constante druk. Het leed van het Palestijnse volk raakt ons diep.',
@@ -124,7 +126,7 @@ const LandDetail = () => {
     'syrie': {
       code: 'SY',
       name: 'Syrië',
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop',
+      image: 'https://images.unsplash.com/photo-1658159788721-78e4e057c9aa?w=1920&h=1080&fit=crop',
       context: [
         'Na meer dan een decennium van conflict heeft Syrië te maken met een van de grootste humanitaire crises ter wereld. Miljoenen mensen zijn ontheemd en hebben dringend hulp nodig.',
         'Veel gezinnen hebben alles verloren en zijn afhankelijk van humanitaire hulp om te overleven. De infrastructuur is grotendeels verwoest, waardoor toegang tot basisvoorzieningen zoals water, gezondheidszorg en onderwijs zeer beperkt is.',
@@ -193,15 +195,10 @@ const LandDetail = () => {
         </div>
         <div className="country-hero-content">
           <div className="container">
-            <h1 className="country-hero-title">
-              We zijn er in <span className="highlight">{country.name}</span>
-            </h1>
-            <p className="country-hero-intro">
-              Samen met lokale partners werken we aan <strong>duurzame oplossingen</strong> voor de meest kwetsbare gemeenschappen. 
-              Ons werk richt zich op het bieden van hoop en het versterken van weerbaarheid.
-            </p>
+            <h1 className="country-hero-title" dangerouslySetInnerHTML={{ __html: t('land.hero-title', { name: country.name }) }} />
+            <p className="country-hero-intro" dangerouslySetInnerHTML={{ __html: t('land.hero-intro') }} />
             <Link to="/doneren" className="btn btn-primary btn-hero-cta">
-              Doneer nu voor {country.name}
+              {t('land.donate-for', { name: country.name })}
             </Link>
           </div>
         </div>
@@ -211,7 +208,7 @@ const LandDetail = () => {
       <section className="country-context">
         <div className="container">
           <div className="context-content">
-            <h2 className="section-title">Wat is er aan de hand?</h2>
+            <h2 className="section-title">{t('land.context-title')}</h2>
             {country.context.map((paragraph, index) => (
               <p key={index} className="context-paragraph">
                 {paragraph}
@@ -225,7 +222,7 @@ const LandDetail = () => {
       {country.activities.length > 0 && (
         <section className="country-activities">
           <div className="container">
-            <h2 className="section-title">Wat doen wij?</h2>
+            <h2 className="section-title">{t('land.activities-title')}</h2>
             <div className="country-activities-grid">
               {country.activities.map((activity, index) => (
                 <div key={index} className="country-activity-card">
@@ -243,7 +240,7 @@ const LandDetail = () => {
       {countryProjects.length > 0 && (
         <section className="country-projects">
           <div className="container">
-            <h2 className="section-title">Onze projecten in {country.name}</h2>
+            <h2 className="section-title">{t('land.projects-title', { name: country.name })}</h2>
             <div className="country-projects-grid">
               {countryProjects.map(project => (
                 <article key={project.id} className="country-project-card">
@@ -252,10 +249,10 @@ const LandDetail = () => {
                     <p className="country-project-description">{project.description}</p>
                     <div className="country-project-footer">
                       <Link to={`/project/${project.id}`} className="btn btn-outline">
-                        Lees meer
+                        {t('common.read-more')}
                       </Link>
                       <Link to="/doneren" className="btn btn-primary">
-                        Doneer nu
+                        {t('hero.donate')}
                       </Link>
                     </div>
                   </div>
@@ -270,17 +267,14 @@ const LandDetail = () => {
       <section className="country-donation">
         <div className="container">
           <div className="country-donation-content">
-            <h2 className="country-donation-title">Help mee in {country.name}</h2>
-            <p className="country-donation-description">
-              Jouw steun maakt ons werk mogelijk. Elke bijdrage helpt om levens te veranderen en hoop te brengen 
-              aan gemeenschappen die het hard nodig hebben. <strong>Samen kunnen we het verschil maken.</strong>
-            </p>
+            <h2 className="country-donation-title">{t('land.cta-title', { name: country.name })}</h2>
+            <p className="country-donation-description" dangerouslySetInnerHTML={{ __html: t('land.cta-text') }} />
             <div className="country-donation-actions">
               <Link to="/doneren" className="btn btn-primary btn-large">
-                Doneer nu
+                {t('hero.donate')}
               </Link>
               <Link to="/projecten" className="btn btn-secondary">
-                Bekijk alle projecten
+                {t('land.view-all-projects')}
               </Link>
             </div>
           </div>

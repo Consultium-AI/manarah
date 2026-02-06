@@ -1,27 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Action = () => {
+  const { t } = useTranslation()
+
   const actions = [
-    { title: 'Word donateur', description: 'Steun structureel met een maandelijkse bijdrage' },
-    { title: 'Word vrijwilliger', description: 'Zet je tijd en talenten in voor onze missie' },
-    { title: 'Actie in onderwijs', description: 'Organiseer een actie met je gemeenschap' },
-    { title: 'Eigen actie starten', description: 'Begin je eigen fundraising actie' },
-    { title: 'Grote gift', description: 'Maak een substantiële bijdrage mogelijk' },
-    { title: 'Nalaten', description: 'Steun onze missie in je testament' }
+    { title: t('action.donor'), description: t('action.donor-desc') },
+    { title: t('action.volunteer'), description: t('action.volunteer-desc') },
+    { title: t('action.education'), description: t('action.education-desc') },
+    { title: t('action.fundraiser'), description: t('action.fundraiser-desc') },
+    { title: t('action.major'), description: t('action.major-desc') },
+    { title: t('action.legacy'), description: t('action.legacy-desc') }
   ]
 
   return (
     <section className="action-section">
       <div className="container">
-        <h2 className="section-title">Help mee</h2>
-        <p className="section-subtitle">Er zijn verschillende manieren om mee te doen en impact te maken</p>
+        <h2 className="section-title">{t('action.title')}</h2>
+        <p className="section-subtitle">{t('action.subtitle')}</p>
         <div className="action-grid">
           {actions.map((action, index) => (
             <div key={index} className="action-card">
               <h3 className="action-title">{action.title}</h3>
               <p className="action-description">{action.description}</p>
-              <Link to="/samen-in-actie" className="btn btn-outline">Meer info</Link>
+              <Link to="/samen-in-actie" className="btn btn-outline">{t('action.more-info')}</Link>
             </div>
           ))}
         </div>

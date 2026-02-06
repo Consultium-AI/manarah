@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { authAPI } from '../utils/api'
 import { setAuthToken, setUser } from '../utils/auth'
+import { useTranslation } from '../hooks/useTranslation'
 
 const VerifyEmail = () => {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [status, setStatus] = useState('verifying')
   const [message, setMessage] = useState('')
 
@@ -14,7 +16,7 @@ const VerifyEmail = () => {
     
     if (!token) {
       setStatus('error')
-      setMessage('Geen verificatie token gevonden.')
+      setMessage(t('verify.no-token'))
       return
     }
 
@@ -26,14 +28,14 @@ const VerifyEmail = () => {
       const response = await authAPI.verifyEmail(token)
       if (response.data.success) {
         setStatus('success')
-        setMessage('Je emailadres is succesvol geverifieerd! Je kunt nu inloggen.')
+        setMessage(t('verify.success-text'))
         setTimeout(() => {
           navigate('/inloggen')
         }, 3000)
       }
     } catch (error) {
       setStatus('error')
-      setMessage(error.response?.data?.error || 'Verificatie mislukt. De link kan verlopen zijn.')
+      setMessage(error.response?.data?.error || t('verify.error-text'))
     }
   }
 
@@ -50,8 +52,8 @@ const VerifyEmail = () => {
                     <polyline points="12 6 12 12 16 14"/>
                   </svg>
                 </div>
-                <h2 className="auth-title">Email verifiëren...</h2>
-                <p>Even geduld, je emailadres wordt geverifieerd.</p>
+                <h2 className="auth-title">{t('verify.verifying-title')}</h2>
+                <p>{t('verify.verifying-text')}</p>
               </>
             )}
             {status === 'success' && (
@@ -62,10 +64,10 @@ const VerifyEmail = () => {
                     <path d="M9 12l2 2 4-4"/>
                   </svg>
                 </div>
-                <h2 className="auth-title">Email geverifieerd!</h2>
+                <h2 className="auth-title">{t('verify.success-title')}</h2>
                 <p>{message}</p>
                 <p style={{ fontSize: '0.9rem', color: '#666', marginTop: '1rem' }}>
-                  Je wordt doorgestuurd naar de login pagina...
+                  {t('verify.redirect')}
                 </p>
               </>
             )}
@@ -78,10 +80,10 @@ const VerifyEmail = () => {
                     <line x1="9" y1="9" x2="15" y2="15"/>
                   </svg>
                 </div>
-                <h2 className="auth-title">Verificatie mislukt</h2>
+                <h2 className="auth-title">{t('verify.error-title')}</h2>
                 <p>{message}</p>
                 <div style={{ marginTop: '2rem' }}>
-                  <a href="/inloggen" className="btn btn-primary">Naar login</a>
+                  <a href="/inloggen" className="btn btn-primary">{t('verify.to-login')}</a>
                 </div>
               </>
             )}

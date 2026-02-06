@@ -45,9 +45,9 @@ const Inloggen = () => {
       if (errorData?.requiresVerification) {
         setShowVerificationPrompt(true)
         setVerificationEmail(errorData.email || loginEmail)
-        setLoginError('Je emailadres is nog niet geverifieerd. Controleer je inbox of vraag een nieuwe verificatie email aan.')
+        setLoginError(t('login.error-unverified'))
       } else {
-        setLoginError(errorData?.error || 'Inloggen mislukt')
+        setLoginError(errorData?.error || t('login.error-failed'))
       }
     } finally {
       setLoading(false)
@@ -59,7 +59,7 @@ const Inloggen = () => {
       await authAPI.resendVerification(verificationEmail)
       alert('Verificatie email opnieuw verzonden! Controleer je inbox.')
     } catch (error) {
-      alert(error.response?.data?.error || 'Kon verificatie email niet verzenden')
+      alert(error.response?.data?.error || t('login.resend-error'))
     }
   }
 
@@ -74,12 +74,12 @@ const Inloggen = () => {
     }
 
     if (registerPassword.length < 8) {
-      setRegisterError('Het wachtwoord moet minimaal 8 tekens lang zijn.')
+      setRegisterError(t('register.error-length'))
       return
     }
 
     if (!registerTerms) {
-      setRegisterError('Je moet akkoord gaan met de algemene voorwaarden.')
+      setRegisterError(t('register.error-terms'))
       return
     }
 
@@ -102,7 +102,7 @@ const Inloggen = () => {
         }
       }
     } catch (error) {
-      setRegisterError(error.response?.data?.error || 'Registratie mislukt')
+      setRegisterError(error.response?.data?.error || t('register.error-failed'))
     } finally {
       setLoading(false)
     }
@@ -113,7 +113,7 @@ const Inloggen = () => {
       const response = await authAPI.getGoogleAuthUrl()
       window.location.href = response.data.url
     } catch (error) {
-      alert('Kon niet verbinden met Google. Probeer het later opnieuw.')
+      alert(t('login.google-error'))
     }
   }
 
@@ -122,7 +122,7 @@ const Inloggen = () => {
       const response = await authAPI.getFacebookAuthUrl()
       window.location.href = response.data.url
     } catch (error) {
-      alert('Kon niet verbinden met Facebook. Probeer het later opnieuw.')
+      alert(t('login.facebook-error'))
     }
   }
 
@@ -197,13 +197,13 @@ const Inloggen = () => {
                 )}
                 {showVerificationPrompt && (
                   <div className="verification-prompt-modern">
-                    <p>Je emailadres is nog niet geverifieerd.</p>
+                    <p>{t('login.unverified-prompt')}</p>
                     <button 
                       type="button" 
                       className="btn-resend"
                       onClick={handleResendVerification}
                     >
-                      Verstuur verificatie email opnieuw
+                      {t('login.resend-verification')}
                     </button>
                   </div>
                 )}
@@ -285,7 +285,7 @@ const Inloggen = () => {
                       <circle cx="12" cy="12" r="10"/>
                       <path d="M9 12l2 2 4-4"/>
                     </svg>
-                    Account aangemaakt! Controleer je email om je account te verifiëren.
+                    {t('register.success')}
                   </div>
                 )}
                 
@@ -323,7 +323,7 @@ const Inloggen = () => {
                     type="password"
                     id="registerPassword"
                     className="form-input-modern"
-                    placeholder="Minimaal 8 tekens"
+                    placeholder={t('register.password-placeholder')}
                     value={registerPassword}
                     onChange={(e) => setRegisterPassword(e.target.value)}
                     required
@@ -332,7 +332,7 @@ const Inloggen = () => {
                 </div>
                 
                 <div className="form-group-modern">
-                  <label htmlFor="registerPasswordConfirm" className="form-label-modern">Bevestig wachtwoord</label>
+                  <label htmlFor="registerPasswordConfirm" className="form-label-modern">{t('register.confirm-password')}</label>
                   <input
                     type="password"
                     id="registerPasswordConfirm"

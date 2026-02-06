@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from '../../hooks/useTranslation'
 
 const Hero = () => {
   const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const navigate = useNavigate()
 
   useEffect(() => {
     // Trigger animations after mount
@@ -19,13 +17,6 @@ const Hero = () => {
       top: window.innerHeight,
       behavior: 'smooth'
     })
-  }
-
-  const handleSearch = (e) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      navigate(`/projecten?search=${encodeURIComponent(searchQuery)}`)
-    }
   }
 
   return (
@@ -77,25 +68,6 @@ const Hero = () => {
               </Link>
             </div>
 
-            {/* Search Bar */}
-            <form onSubmit={handleSearch} className="hero-search-form">
-              <div className="hero-search-wrapper">
-                <svg className="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"/>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-                <input
-                  type="text"
-                  className="hero-search-input"
-                  placeholder={t('hero.search-placeholder')}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button type="submit" className="hero-search-btn">
-                  {t('hero.search-btn')}
-                </button>
-              </div>
-            </form>
           </div>
           
         </div>

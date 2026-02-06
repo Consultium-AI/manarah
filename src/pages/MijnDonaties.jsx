@@ -30,7 +30,7 @@ const MijnDonaties = () => {
       }
     } catch (err) {
       console.error('Error loading donations:', err)
-      setError(err.response?.data?.error || 'Kon donaties niet laden.')
+      setError(err.response?.data?.error || t('donations.error'))
     } finally {
       setLoading(false)
     }
@@ -200,7 +200,7 @@ const MijnDonaties = () => {
                     <div className="donation-card-body">
                       <div className="donation-info">
                         <div className="donation-info-item">
-                          <span className="donation-info-label">Type:</span>
+                          <span className="donation-info-label">{t('donations.type-label')}:</span>
                           <span className="donation-info-value">
                             {getTypeLabel(donation.donation_type)}
                           </span>
@@ -213,7 +213,7 @@ const MijnDonaties = () => {
                         </div>
                         {donation.project_name && (
                           <div className="donation-info-item">
-                            <span className="donation-info-label">Project:</span>
+                            <span className="donation-info-label">{t('donations.project-label')}:</span>
                             <span className="donation-info-value">{donation.project_name}</span>
                           </div>
                         )}
