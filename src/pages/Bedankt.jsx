@@ -1,15 +1,22 @@
 import React from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Bedankt = () => {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const amount = searchParams.get('amount')
   const type = searchParams.get('type')
 
-  const typeLabels = {
-    'one-time': 'eenmalige',
-    'monthly': 'maandelijkse',
-    'yearly': 'jaarlijkse'
+  const getTypeLabel = () => {
+    switch (type) {
+      case 'one-time':
+        return t('thanks.type-once')
+      case 'monthly':
+        return t('thanks.type-monthly')
+      default:
+        return ''
+    }
   }
 
   return (
@@ -34,35 +41,23 @@ const Bedankt = () => {
                 </svg>
               </div>
               <h1 className="thank-you-title">
-                Bedankt voor je <span className="highlight">gift</span>
+                {t('thanks.title')}
               </h1>
               <p className="thank-you-subtitle">
-                Met jouw {amount ? `donatie van €${amount}` : 'donatie'} kunnen wij mensenlevens redden bij rampen en geweld.
+                {amount && t('thanks.amount', { amount })}
+                {type && ` (${getTypeLabel()})`}
               </p>
               <div className="thank-you-message">
                 <p className="thank-you-text">
-                  Jouw {type ? typeLabels[type] || 'donatie' : 'donatie'} maakt een enorm verschil. Wij geven noodhulp en helpen mensen weer op eigen benen te staan. 
-                  <strong> Je gift wordt direct ingezet voor:</strong>
-                </p>
-                <ul className="thank-you-impact">
-                  <li>Noodhulp voor gezinnen in crisisgebieden</li>
-                  <li>Onderwijs voor kinderen die alles hebben verloren</li>
-                  <li>Schoon water en voedsel voor gemeenschappen</li>
-                  <li>Onderdak en veiligheid voor vluchtelingen</li>
-                </ul>
-                <p className="thank-you-text">
-                  <strong>We beloven je dat elke euro op de beste manier wordt besteed.</strong> We werken direct met lokale gemeenschappen en zorgen ervoor dat jouw steun daar komt waar het het hardst nodig is.
-                </p>
-                <p className="thank-you-text">
-                  Je ontvangt binnenkort een bevestiging per email met meer informatie over hoe jouw donatie wordt gebruikt.
+                  {t('thanks.message')}
                 </p>
               </div>
               <div className="thank-you-actions">
                 <Link to="/" className="btn btn-primary">
-                  Terug naar homepage
+                  {t('thanks.back-home')}
                 </Link>
-                <Link to="/mijn-donaties" className="btn btn-outline">
-                  Bekijk mijn donaties
+                <Link to="/projecten" className="btn btn-outline">
+                  {t('thanks.view-projects')}
                 </Link>
               </div>
             </div>
@@ -70,7 +65,7 @@ const Bedankt = () => {
             {/* Right Side - Additional Info */}
             <div className="thank-you-right">
               <div className="thank-you-card">
-                <h3 className="thank-you-card-title">Jouw impact</h3>
+                <h3 className="thank-you-card-title">{t('donate.stats-title')}</h3>
                 <div className="thank-you-stats">
                   <div className="thank-you-stat">
                     <div className="stat-icon">
@@ -83,7 +78,7 @@ const Bedankt = () => {
                       </div>
                     <div className="stat-content">
                       <div className="stat-number">+1</div>
-                      <div className="stat-label">Gezin geholpen</div>
+                      <div className="stat-label">{t('donate.stats-people')}</div>
                     </div>
                   </div>
                   <div className="thank-you-stat">
@@ -94,7 +89,7 @@ const Bedankt = () => {
                       </div>
                     <div className="stat-content">
                       <div className="stat-number">+10</div>
-                      <div className="stat-label">Liter schoon water</div>
+                      <div className="stat-label">{t('donate.why-water')}</div>
                     </div>
                   </div>
                   <div className="thank-you-stat">
@@ -106,41 +101,20 @@ const Bedankt = () => {
                       </div>
                     <div className="stat-content">
                       <div className="stat-number">+1</div>
-                      <div className="stat-label">Kind naar school</div>
+                      <div className="stat-label">{t('donate.why-education')}</div>
                     </div>
                   </div>
                 </div>
-                <p className="thank-you-card-text">
-                  Samen met andere donateurs helpen we duizenden mensen per jaar. Jouw bijdrage is onderdeel van iets groters.
-                </p>
               </div>
 
               <div className="thank-you-card">
-                <h3 className="thank-you-card-title">Blijf op de hoogte</h3>
+                <h3 className="thank-you-card-title">{t('newsletter.title')}</h3>
                 <p className="thank-you-card-text">
-                  Ontvang updates over hoe jouw donatie wordt gebruikt en verhalen van mensen die we helpen.
+                  {t('newsletter.text')}
                 </p>
                 <Link to="/#newsletter" className="btn btn-secondary btn-block">
-                  Schrijf je in voor updates
+                  {t('newsletter.button')}
                 </Link>
-              </div>
-
-              <div className="thank-you-card">
-                <h3 className="thank-you-card-title">Deel je impact</h3>
-                <p className="thank-you-card-text">
-                  Help anderen om ook het verschil te maken. Deel deze pagina en inspireer vrienden en familie.
-                </p>
-                <div className="thank-you-share">
-                  <button className="share-btn share-facebook">
-                    📘 Facebook
-                  </button>
-                  <button className="share-btn share-twitter">
-                    🐦 Twitter
-                  </button>
-                  <button className="share-btn share-whatsapp">
-                    💬 WhatsApp
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -151,7 +125,3 @@ const Bedankt = () => {
 }
 
 export default Bedankt
-
-
-
-

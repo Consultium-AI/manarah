@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const DonateBanner = () => {
+  const { t } = useTranslation()
   const [frequency, setFrequency] = useState('eenmalig')
   const [selectedAmount, setSelectedAmount] = useState(25)
   const [customAmount, setCustomAmount] = useState('')
@@ -33,21 +35,34 @@ const DonateBanner = () => {
     return () => observer.disconnect()
   }, [])
 
+  const getFrequencyLabel = (freq) => {
+    switch (freq) {
+      case 'eenmalig':
+        return t('donate-banner.frequency.once')
+      case 'maandelijks':
+        return t('donate-banner.frequency.monthly')
+      case 'jaarlijks':
+        return t('donate-banner.frequency.yearly')
+      default:
+        return freq
+    }
+  }
+
   return (
     <section className="donate-banner" id="donate" ref={sectionRef}>
       <div className="container">
         {/* Title */}
         <div className={`donate-banner-header reveal-left ${isVisible ? 'revealed' : ''}`}>
           <h2 className="donate-banner-title">
-            <span className="donate-banner-highlight">Doneer</span>
-            en help mensen in nood op eigen benen te staan
+            <span className="donate-banner-highlight">{t('donate-banner.title')}</span>
+            {t('donate-banner.subtitle')}
           </h2>
         </div>
 
         {/* Subcopy */}
         <div className={`reveal-left delay-1 ${isVisible ? 'revealed' : ''}`}>
           <p className="donate-banner-subtitle">
-            Je kunt ook als moskee of organisatie doneren.
+            {t('donate-banner.subtitle2')}
           </p>
         </div>
 
@@ -60,7 +75,7 @@ const DonateBanner = () => {
               className={`frequency-option ${frequency === freq ? 'active' : ''}`}
               onClick={() => setFrequency(freq)}
             >
-              {freq === 'eenmalig' ? 'Eenmalig' : freq === 'maandelijks' ? 'Maandelijks' : 'Jaarlijks'}
+              {getFrequencyLabel(freq)}
             </button>
           ))}
         </div>
@@ -98,46 +113,46 @@ const DonateBanner = () => {
           <div className="donate-banner-checkbox">
             <label className="checkbox-label checkbox-bg">
               <input type="checkbox" />
-              Ik wil de transactiekosten meebetalen (optioneel).
+              {t('donate-banner.transaction-costs')}
             </label>
           </div>
 
           <div className="donate-banner-fields-4">
             <div className="field-group">
-              <label className="field-label">Naam</label>
+              <label className="field-label">{t('donate-banner.name')}</label>
               <input
                 type="text"
-                placeholder="Jouw naam"
+                placeholder={t('donate-banner.name-placeholder')}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="donate-field-input"
               />
             </div>
             <div className="field-group">
-              <label className="field-label">E-mailadres</label>
+              <label className="field-label">{t('donate-banner.email')}</label>
               <input
                 type="email"
-                placeholder="naam@voorbeeld.nl"
+                placeholder={t('donate-banner.email-placeholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="donate-field-input"
               />
             </div>
             <div className="field-group">
-              <label className="field-label">Straat + huisnr (factuur)</label>
+              <label className="field-label">{t('donate-banner.street')}</label>
               <input
                 type="text"
-                placeholder="Straat 1"
+                placeholder={t('donate-banner.street-placeholder')}
                 value={street}
                 onChange={(e) => setStreet(e.target.value)}
                 className="donate-field-input"
               />
             </div>
             <div className="field-group">
-              <label className="field-label">Postcode + woonplaats</label>
+              <label className="field-label">{t('donate-banner.postcode')}</label>
               <input
                 type="text"
-                placeholder="1234 AB, Rotterdam"
+                placeholder={t('donate-banner.postcode-placeholder')}
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value)}
                 className="donate-field-input"
@@ -148,21 +163,21 @@ const DonateBanner = () => {
           <div className="donate-banner-terms">
             <label className="checkbox-label">
               <input type="checkbox" />
-              Ik ga akkoord met{' '}
+              {t('donate-banner.terms')}{' '}
               <a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">
-                Privacyverklaring
+                {t('donate-banner.privacy')}
               </a>,{' '}
               <a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">
-                Algemene voorwaarden
+                {t('donate-banner.terms-link')}
               </a>,{' '}
               <a href="https://stichtingmanarah.nl/assets/docs/donatiebeleid.pdf" target="_blank" rel="noreferrer">
-                Donatiebeleid
+                {t('donate-banner.policy')}
               </a>.
             </label>
           </div>
 
           <Link to="/doneren" className="donate-banner-btn">
-            Doneer nu
+            {t('nav.doneer-nu')}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>

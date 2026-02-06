@@ -1,21 +1,23 @@
 import React from 'react'
 import Reveal from '../Reveal'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Newsletter = () => {
+  const { t } = useTranslation()
+
   return (
     <section className="newsletter-manarah">
       <div className="container">
         <div className="newsletter-manarah-content">
           <Reveal>
             <h2 className="newsletter-manarah-title">
-              <span className="newsletter-highlight">Doe mee</span>
-              met Stichting Manarah
+              <span className="newsletter-highlight">{t('newsletter.title')}</span>
+              {t('newsletter.title-suffix')}
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="newsletter-manarah-text">
-              Samen kunnen we meer bereiken. Sluit je aan bij ons werk via onze WhatsApp-community. 
-              Andere opties worden binnenkort beschikbaar!
+              {t('newsletter.text')}
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -24,7 +26,7 @@ const Newsletter = () => {
                 href="https://stichtingmanarah.nl/nieuwsbrief.php"
                 className="btn-newsletter"
               >
-                Nieuwsbrief
+                {t('newsletter.button')}
               </a>
               <a
                 href="https://chat.whatsapp.com/GKb3l0Fi67H4YhayEDnBLX"
@@ -32,7 +34,7 @@ const Newsletter = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                WhatsApp-groep
+                {t('newsletter.whatsapp')}
               </a>
             </div>
           </Reveal>
@@ -43,7 +45,3 @@ const Newsletter = () => {
 }
 
 export default Newsletter
-
-
-
-

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 const WaarWeWerken = () => {
   const countries = [
     {
-      slug: 'burkina-faso',
-      name: 'Burkina Faso',
-      description: 'In dit West-Afrikaanse land helpen we gemeenschappen die getroffen zijn door conflict, voedselonzekerheid en klimaatverandering.',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop'
+      slug: 'palestina',
+      name: 'Palestina',
+      description: 'We staan zij aan zij met het Palestijnse volk dat lijdt onder bezetting, ontheemding en een verwoestende humanitaire crisis. Samen bieden we hoop en hulp.',
+      image: '/assets/Al_Aqsa.jpg'
     },
     {
       slug: 'syrie',

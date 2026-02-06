@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Footer = () => {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -11,11 +13,11 @@ const Footer = () => {
         <div className="container">
           <div className="footer-cta-content">
             <div className="footer-cta-text">
-              <h3>Klaar om het verschil te maken?</h3>
-              <p>Elke donatie, hoe klein ook, helpt mensen in nood.</p>
+              <h3>{t('footer.cta-title')}</h3>
+              <p>{t('footer.cta-text')}</p>
             </div>
             <Link to="/doneren" className="footer-cta-btn">
-              Doneer nu
+              {t('nav.doneer-nu')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12"/>
                 <polyline points="12 5 19 12 12 19"/>
@@ -35,7 +37,7 @@ const Footer = () => {
                 <img src={`${import.meta.env.BASE_URL}assets/whitelogo.png`} alt="Stichting Manarah" className="footer-logo-image" />
               </Link>
               <p className="footer-brand-description">
-                Wij zetten ons in voor kwetsbare mensen: armen, wezen en mensen met een beperking — in Nederland en wereldwijd.
+                {t('footer.description')}
               </p>
               <div className="footer-social">
                 <a href="https://wa.me/31103602862" target="_blank" rel="noreferrer" className="social-link" aria-label="WhatsApp">
@@ -54,19 +56,19 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div className="footer-column-modern">
-              <h4 className="footer-column-title">Navigatie</h4>
+              <h4 className="footer-column-title">{t('footer.navigation')}</h4>
               <ul className="footer-links-modern">
-                <li><Link to="/wie-zijn-wij">Wie zijn wij</Link></li>
-                <li><Link to="/waar-we-werken">Waar we werken</Link></li>
-                <li><Link to="/projecten">Projecten</Link></li>
-                <li><Link to="/samen-in-actie">Samen in actie</Link></li>
-                <li><Link to="/doneren">Doneren</Link></li>
+                <li><Link to="/wie-zijn-wij">{t('nav.wie-zijn-wij')}</Link></li>
+                <li><Link to="/waar-we-werken">{t('nav.waar-we-werken')}</Link></li>
+                <li><Link to="/projecten">{t('nav.projecten')}</Link></li>
+                <li><Link to="/samen-in-actie">{t('nav.help-mee')}</Link></li>
+                <li><Link to="/doneren">{t('nav.doneer')}</Link></li>
               </ul>
             </div>
 
             {/* Stichtinggegevens */}
             <div className="footer-column-modern">
-              <h4 className="footer-column-title">Gegevens</h4>
+              <h4 className="footer-column-title">{t('footer.data')}</h4>
               <ul className="footer-links-modern footer-info">
                 <li><span className="info-label">KvK</span> 97004332</li>
                 <li><span className="info-label">RSIN</span> 86780667</li>
@@ -80,7 +82,7 @@ const Footer = () => {
 
             {/* Documenten */}
             <div className="footer-column-modern">
-              <h4 className="footer-column-title">Documenten</h4>
+              <h4 className="footer-column-title">{t('footer.documents')}</h4>
               <ul className="footer-links-modern">
                 <li><a href="https://stichtingmanarah.nl/assets/docs/beleidsplan.pdf" target="_blank" rel="noreferrer">Beleidsplan</a></li>
                 <li><a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">Privacyverklaring</a></li>
@@ -97,11 +99,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-bottom-content">
             <p className="footer-copyright">
-              © {currentYear} Stichting Manarah. Alle rechten voorbehouden.
-            </p>
-            <p className="footer-anbi">
-              <span className="anbi-badge">ANBI</span>
-              Erkende goede doelen instelling
+              {t('footer.copyright', { year: currentYear })}
             </p>
           </div>
         </div>
@@ -111,7 +109,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-
-
-

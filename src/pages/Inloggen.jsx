@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authAPI } from '../utils/api'
 import { setAuthToken, setUser } from '../utils/auth'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Inloggen = () => {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('login')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -36,7 +38,6 @@ const Inloggen = () => {
       if (response.data.success) {
         setAuthToken(response.data.token)
         setUser(response.data.user)
-        alert('Succesvol ingelogd!')
         navigate('/')
       }
     } catch (error) {
@@ -94,11 +95,9 @@ const Inloggen = () => {
       if (response.data.success) {
         if (response.data.requiresVerification) {
           setRegisterSuccess(true)
-          alert('Account aangemaakt! Controleer je email om je account te verifiëren voordat je kunt inloggen.')
         } else {
           setAuthToken(response.data.token)
           setUser(response.data.user)
-          alert('Account succesvol aangemaakt! Je bent nu ingelogd.')
           navigate('/')
         }
       }
@@ -147,21 +146,21 @@ const Inloggen = () => {
                 className={`auth-tab-modern ${activeTab === 'login' ? 'active' : ''}`}
                 onClick={() => setActiveTab('login')}
               >
-                Inloggen
+                {t('login.title')}
               </button>
               <button 
                 className={`auth-tab-modern ${activeTab === 'register' ? 'active' : ''}`}
                 onClick={() => setActiveTab('register')}
               >
-                Registreren
+                {t('register.title')}
               </button>
             </div>
           </div>
 
           {activeTab === 'login' ? (
             <div className="auth-form-wrapper">
-              <h2 className="auth-title-modern">Welkom terug</h2>
-              <p className="auth-subtitle-modern">Log in op je account om door te gaan</p>
+              <h2 className="auth-title-modern">{t('login.title')}</h2>
+              <p className="auth-subtitle-modern">{t('login.subtitle')}</p>
 
               <div className="social-auth-modern">
                 <button className="social-btn-modern" type="button" onClick={handleGoogleAuth}>
@@ -171,18 +170,18 @@ const Inloggen = () => {
                     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                   </svg>
-                  <span>Google</span>
+                  <span>{t('login.google')}</span>
                 </button>
                 <button className="social-btn-modern social-facebook" type="button" onClick={handleFacebookAuth}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
-                  <span>Facebook</span>
+                  <span>{t('login.facebook')}</span>
                 </button>
               </div>
 
               <div className="auth-divider-modern">
-                <span>of met email</span>
+                <span>{t('login.or')}</span>
               </div>
 
               <form className="auth-form-modern" onSubmit={handleLogin}>
@@ -209,22 +208,19 @@ const Inloggen = () => {
                   </div>
                 )}
                 <div className="form-group-modern">
-                  <label htmlFor="loginEmail" className="form-label-modern">E-mailadres</label>
+                  <label htmlFor="loginEmail" className="form-label-modern">{t('login.email')}</label>
                   <input
                     type="email"
                     id="loginEmail"
                     className="form-input-modern"
-                    placeholder="jouw@email.nl"
+                    placeholder={t('donate.email-placeholder')}
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
                     required
                   />
                 </div>
                 <div className="form-group-modern">
-                  <div className="form-label-row">
-                    <label htmlFor="loginPassword" className="form-label-modern">Wachtwoord</label>
-                    <a href="#" className="form-link-modern">Vergeten?</a>
-                  </div>
+                  <label htmlFor="loginPassword" className="form-label-modern">{t('login.password')}</label>
                   <input
                     type="password"
                     id="loginPassword"
@@ -239,16 +235,16 @@ const Inloggen = () => {
                   {loading ? (
                     <>
                       <span className="spinner"></span>
-                      Inloggen...
+                      {t('common.loading')}
                     </>
-                  ) : 'Inloggen'}
+                  ) : t('login.submit')}
                 </button>
               </form>
             </div>
           ) : (
             <div className="auth-form-wrapper">
-              <h2 className="auth-title-modern">Maak een account aan</h2>
-              <p className="auth-subtitle-modern">Registreer je om je donaties te volgen</p>
+              <h2 className="auth-title-modern">{t('register.title')}</h2>
+              <p className="auth-subtitle-modern">{t('register.subtitle')}</p>
 
               <div className="social-auth-modern">
                 <button className="social-btn-modern" type="button" onClick={handleGoogleAuth}>
@@ -269,7 +265,7 @@ const Inloggen = () => {
               </div>
 
               <div className="auth-divider-modern">
-                <span>of met email</span>
+                <span>{t('login.or')}</span>
               </div>
 
               <form className="auth-form-modern" onSubmit={handleRegister}>
@@ -295,12 +291,12 @@ const Inloggen = () => {
                 
                 <div className="form-row">
                   <div className="form-group-modern">
-                    <label htmlFor="registerName" className="form-label-modern">Naam</label>
+                    <label htmlFor="registerName" className="form-label-modern">{t('register.name')}</label>
                     <input
                       type="text"
                       id="registerName"
                       className="form-input-modern"
-                      placeholder="Jan Jansen"
+                      placeholder={t('donate.name-placeholder')}
                       value={registerName}
                       onChange={(e) => setRegisterName(e.target.value)}
                       required
@@ -309,12 +305,12 @@ const Inloggen = () => {
                 </div>
                 
                 <div className="form-group-modern">
-                  <label htmlFor="registerEmail" className="form-label-modern">E-mailadres</label>
+                  <label htmlFor="registerEmail" className="form-label-modern">{t('register.email')}</label>
                   <input
                     type="email"
                     id="registerEmail"
                     className="form-input-modern"
-                    placeholder="jouw@email.nl"
+                    placeholder={t('donate.email-placeholder')}
                     value={registerEmail}
                     onChange={(e) => setRegisterEmail(e.target.value)}
                     required
@@ -322,7 +318,7 @@ const Inloggen = () => {
                 </div>
                 
                 <div className="form-group-modern">
-                  <label htmlFor="registerPassword" className="form-label-modern">Wachtwoord</label>
+                  <label htmlFor="registerPassword" className="form-label-modern">{t('register.password')}</label>
                   <input
                     type="password"
                     id="registerPassword"
@@ -357,7 +353,7 @@ const Inloggen = () => {
                     required
                   />
                   <label htmlFor="registerTerms">
-                    Ik ga akkoord met de <a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">voorwaarden</a> en <a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">privacy</a>
+                    {t('donate-banner.terms')} <a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">{t('donate-banner.terms-link')}</a> en <a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">{t('donate-banner.privacy')}</a>
                   </label>
                 </div>
                 
@@ -369,7 +365,7 @@ const Inloggen = () => {
                     onChange={(e) => setRegisterNewsletter(e.target.checked)}
                   />
                   <label htmlFor="registerNewsletter">
-                    Ontvang updates over onze projecten en impact
+                    {t('register.newsletter')}
                   </label>
                 </div>
                 
@@ -377,9 +373,9 @@ const Inloggen = () => {
                   {loading ? (
                     <>
                       <span className="spinner"></span>
-                      Account aanmaken...
+                      {t('common.loading')}
                     </>
-                  ) : 'Account aanmaken'}
+                  ) : t('register.submit')}
                 </button>
               </form>
             </div>
@@ -391,4 +387,3 @@ const Inloggen = () => {
 }
 
 export default Inloggen
-

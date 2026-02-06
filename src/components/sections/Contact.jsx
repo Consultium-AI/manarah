@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Reveal from '../Reveal'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Contact = () => {
+  const { t } = useTranslation()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -18,12 +20,12 @@ const Contact = () => {
       <div className="container">
         <Reveal>
           <h2 className="contact-manarah-title">
-            <span className="contact-highlight">Neem contact op</span>
+            <span className="contact-highlight">{t('contact.title')}</span>
           </h2>
         </Reveal>
         <Reveal delay={0.05}>
           <p className="contact-manarah-subtitle">
-            Heb je vragen, suggesties of wil je samenwerken? Laat een bericht achter.
+            {t('contact.subtitle')}
           </p>
         </Reveal>
 
@@ -31,20 +33,20 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="contact-manarah-form">
             <div className="contact-form-grid">
               <div className="form-group">
-                <label className="form-label">Naam</label>
+                <label className="form-label">{t('contact.name')}</label>
                 <input
                   type="text"
-                  placeholder="Jouw naam"
+                  placeholder={t('contact.name-placeholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="form-input-manarah"
                 />
               </div>
               <div className="form-group">
-                <label className="form-label">E-mailadres</label>
+                <label className="form-label">{t('contact.email')}</label>
                 <input
                   type="email"
-                  placeholder="naam@voorbeeld.nl"
+                  placeholder={t('contact.email-placeholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="form-input-manarah"
@@ -53,10 +55,10 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label className="form-label">Bericht <span className="required">*</span></label>
+              <label className="form-label">{t('contact.message')} <span className="required">{t('contact.required')}</span></label>
               <textarea
                 required
-                placeholder="Stel hier je vraag..."
+                placeholder={t('contact.message-placeholder')}
                 rows={6}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -66,18 +68,18 @@ const Contact = () => {
 
             <div className="contact-form-actions">
               <button type="submit" className="btn-contact-submit">
-                Versturen
+                {t('contact.submit')}
               </button>
               <span className="contact-email-note">
-                of stuur direct een mail naar{' '}
+                {t('contact.or-email')}{' '}
                 <a href="mailto:info@stichtingmanarah.nl">info@stichtingmanarah.nl</a>
               </span>
             </div>
 
             <p className="contact-privacy-note">
-              Door dit formulier te verzenden, ga je akkoord met onze verwerking van persoonsgegevens zoals uitgelegd in onze{' '}
+              {t('contact.privacy')}{' '}
               <a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">
-                privacyverklaring
+                {t('contact.privacy-link')}
               </a>.
             </p>
           </form>
@@ -85,7 +87,7 @@ const Contact = () => {
 
         <Reveal delay={0.15}>
           <div className="contact-whatsapp">
-            <p className="contact-whatsapp-text">Of neem direct contact op via WhatsApp</p>
+            <p className="contact-whatsapp-text">{t('contact.whatsapp')}</p>
             <a
               href="https://wa.me/31103602862"
               target="_blank"
@@ -95,7 +97,7 @@ const Contact = () => {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="whatsapp-svg">
                 <path d="M20.52 3.48A11.78 11.78 0 0 0 12.01 0C5.38.01.02 5.38.01 12.01c0 2.12.56 4.19 1.62 6.01L0 24l6.14-1.6a11.9 11.9 0 0 0 5.86 1.53h.01c6.63 0 12.01-5.37 12.01-12s-5.36-8.45-3.5-8.45Z"/>
               </svg>
-              WhatsApp Nu
+              {t('contact.whatsapp-button')}
             </a>
           </div>
         </Reveal>

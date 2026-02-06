@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const Hero = () => {
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Trigger animations after mount
@@ -15,6 +19,13 @@ const Hero = () => {
       top: window.innerHeight,
       behavior: 'smooth'
     })
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      navigate(`/projecten?search=${encodeURIComponent(searchQuery)}`)
+    }
   }
 
   return (
@@ -41,90 +52,50 @@ const Hero = () => {
             {/* Badge/Tag */}
             <div className="hero-pro-badge">
               <span className="hero-pro-badge-dot" />
-              <span>Lopend Project</span>
+              <span>{t('hero.badge')}</span>
             </div>
             
             {/* Main Title */}
             <h1 className="hero-pro-title">
-              Ramadan Project
-              <span className="hero-pro-title-accent">2025</span>
+              {t('hero.title')}
+              <span className="hero-pro-title-accent">{t('hero.year')}</span>
             </h1>
             
             {/* Description */}
-            <p className="hero-pro-description">
-              Met jullie steun is dit project afgerond: <strong>€1.900</strong> opgehaald 
-              en <strong>675 warme familiemaaltijden</strong> uitgedeeld tijdens de 
-              gezegende maand Ramadan.
-            </p>
+            <p className="hero-pro-description" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
             
             {/* CTA Buttons */}
             <div className="hero-pro-actions">
               <Link to="/doneren" className="hero-pro-btn-primary">
-                <span>Doneer nu</span>
+                <span>{t('hero.donate')}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </Link>
               <Link to="/projecten" className="hero-pro-btn-secondary">
-                <span>Bekijk projecten</span>
+                <span>{t('hero.view-projects')}</span>
               </Link>
             </div>
-            
-            {/* Trust Indicators */}
-            <div className="hero-pro-trust">
-              <div className="hero-pro-trust-item">
-                <span className="hero-pro-trust-value">ANBI</span>
-                <span className="hero-pro-trust-label">Erkend</span>
-              </div>
-              <div className="hero-pro-trust-divider" />
-              <div className="hero-pro-trust-item">
-                <span className="hero-pro-trust-value">100%</span>
-                <span className="hero-pro-trust-label">Transparant</span>
-              </div>
-              <div className="hero-pro-trust-divider" />
-              <div className="hero-pro-trust-item">
-                <span className="hero-pro-trust-value">2024</span>
-                <span className="hero-pro-trust-label">Opgericht</span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Right side - Stats Card */}
-          <div className={`hero-pro-stats ${isVisible ? 'visible' : ''}`}>
-            <div className="hero-pro-stats-card">
-              <div className="hero-pro-stats-header">
-                <span className="hero-pro-stats-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </span>
-                <span>Impact 2024</span>
-              </div>
-              <div className="hero-pro-stats-grid">
-                <div className="hero-pro-stat">
-                  <span className="hero-pro-stat-number">675+</span>
-                  <span className="hero-pro-stat-label">Maaltijden</span>
-                </div>
-                <div className="hero-pro-stat">
-                  <span className="hero-pro-stat-number">€1.9k</span>
-                  <span className="hero-pro-stat-label">Opgehaald</span>
-                </div>
-                <div className="hero-pro-stat">
-                  <span className="hero-pro-stat-number">150+</span>
-                  <span className="hero-pro-stat-label">Gezinnen</span>
-                </div>
-                <div className="hero-pro-stat">
-                  <span className="hero-pro-stat-number">3</span>
-                  <span className="hero-pro-stat-label">Landen</span>
-                </div>
-              </div>
-              <Link to="/projecten" className="hero-pro-stats-link">
-                Bekijk alle resultaten
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+
+            {/* Search Bar */}
+            <form onSubmit={handleSearch} className="hero-search-form">
+              <div className="hero-search-wrapper">
+                <svg className="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                 </svg>
-              </Link>
-            </div>
+                <input
+                  type="text"
+                  className="hero-search-input"
+                  placeholder={t('hero.search-placeholder')}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type="submit" className="hero-search-btn">
+                  {t('hero.search-btn')}
+                </button>
+              </div>
+            </form>
           </div>
           
         </div>
@@ -132,7 +103,7 @@ const Hero = () => {
       
       {/* Scroll Indicator */}
       <button className="hero-pro-scroll" onClick={scrollToContent} aria-label="Scroll naar beneden">
-        <span className="hero-pro-scroll-text">Scroll</span>
+        <span className="hero-pro-scroll-text">{t('hero.scroll')}</span>
         <span className="hero-pro-scroll-line">
           <span className="hero-pro-scroll-dot" />
         </span>

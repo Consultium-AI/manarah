@@ -1,43 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { projectsAPI } from '../utils/api'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Projecten = () => {
+  const { t } = useTranslation()
   const [projects, setProjects] = useState([])
-  const [filteredProjects, setFilteredProjects] = useState([])
+  const [activeProjects, setActiveProjects] = useState([])
+  const [completedProjects, setCompletedProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [selectedContinent, setSelectedContinent] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
-
-  // Mapping van land codes naar continenten
-  const countryToContinent = {
-    'BF': 'Afrika', // Burkina Faso
-    'SY': 'Azië', // Syrië
-    'SD': 'Afrika', // Sudan
-    'UA': 'Europa', // Oekraïne
-    'YE': 'Azië', // Jemen
-    'ET': 'Afrika', // Ethiopië
-    'SO': 'Afrika', // Somalië
-    'AF': 'Azië', // Afghanistan
-    'IQ': 'Azië', // Irak
-    'MM': 'Azië', // Myanmar
-    'BD': 'Azië', // Bangladesh
-    'PK': 'Azië', // Pakistan
-    'NG': 'Afrika', // Nigeria
-    'CD': 'Afrika', // Congo
-    'KE': 'Afrika', // Kenia
-    'UG': 'Afrika', // Oeganda
-    'TZ': 'Afrika', // Tanzania
-    'RW': 'Afrika', // Rwanda
-    'HT': 'Amerika', // Haïti
-    'CO': 'Amerika', // Colombia
-    'VE': 'Amerika', // Venezuela
-    'GT': 'Amerika', // Guatemala
-    'HN': 'Amerika', // Honduras
-  }
-
-  const continents = ['all', 'Afrika', 'Azië', 'Europa', 'Amerika']
 
   useEffect(() => {
     loadProjects()
@@ -45,7 +18,7 @@ const Projecten = () => {
 
   useEffect(() => {
     filterProjects()
-  }, [projects, selectedContinent, searchTerm])
+  }, [projects, searchTerm])
 
   const loadProjects = async () => {
     try {
@@ -58,13 +31,13 @@ const Projecten = () => {
         console.log('Loaded projects:', projectsList.length)
         setProjects(projectsList)
         if (projectsList.length === 0) {
-          setError('Er zijn nog geen projecten beschikbaar.')
+          setError(t('projects.empty'))
         }
       } else {
-        setError('Kon projecten niet laden. Probeer het later opnieuw.')
+        setError(t('projects.error'))
       }
     } catch (err) {
-      const errorMessage = err.response?.data?.error || err.response?.data?.details || err.message || 'Kon projecten niet laden. Probeer het later opnieuw.'
+      const errorMessage = err.response?.data?.error || err.response?.data?.details || err.message || t('projects.error')
       setError(errorMessage)
       console.error('Error loading projects:', err)
       console.error('Error response:', err.response)
@@ -79,14 +52,6 @@ const Projecten = () => {
   const filterProjects = () => {
     let filtered = [...projects]
 
-    // Filter op continent
-    if (selectedContinent !== 'all') {
-      filtered = filtered.filter(project => {
-        const continent = countryToContinent[project.country_code] || 'Overig'
-        return continent === selectedContinent
-      })
-    }
-
     // Filter op zoekterm (land naam of project naam)
     if (searchTerm.trim() !== '') {
       const searchLower = searchTerm.toLowerCase()
@@ -97,40 +62,32 @@ const Projecten = () => {
       })
     }
 
-    setFilteredProjects(filtered)
+    // Split into active and completed projects
+    const active = filtered.filter(p => p.status === 'active' || p.status === 'paused')
+    const completed = filtered.filter(p => p.status === 'completed' || p.status === 'cancelled')
+    
+    setActiveProjects(active)
+    setCompletedProjects(completed)
   }
 
   const getCountryName = (code) => {
-    const countryNames = {
-      'BF': 'Burkina Faso',
-      'SY': 'Syrië',
-      'SD': 'Sudan',
-      'UA': 'Oekraïne',
-      'YE': 'Jemen',
-      'ET': 'Ethiopië',
-      'SO': 'Somalië',
-      'AF': 'Afghanistan',
-      'IQ': 'Irak',
-      'MM': 'Myanmar',
-      'BD': 'Bangladesh',
-      'PK': 'Pakistan',
-      'NG': 'Nigeria',
-      'CD': 'Congo',
-      'KE': 'Kenia',
-      'UG': 'Oeganda',
-      'TZ': 'Tanzania',
-      'RW': 'Rwanda',
-      'HT': 'Haïti',
-      'CO': 'Colombia',
-      'VE': 'Venezuela',
-      'GT': 'Guatemala',
-      'HN': 'Honduras',
-    }
-    return countryNames[code] || code
+    return t(`country.${code}`) || code
   }
 
-  const getContinent = (code) => {
-    return countryToContinent[code] || 'Overig'
+  const getProjectImage = (project) => {
+    // Gebruik project.image_url als die bestaat, anders fallback naar country image
+    if (project.image_url) {
+      // Als het een relatief pad is, voeg BASE_URL toe
+      if (project.image_url.startsWith('/assets/')) {
+        return `${import.meta.env.BASE_URL}${project.image_url.substring(1)}`
+      }
+      return project.image_url
+    }
+    // Fallback naar country image mapping
+    const countryImages = {
+      'PS': `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
+    }
+    return countryImages[project.country_code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }
 
   const formatCurrency = (amount) => {
@@ -145,13 +102,28 @@ const Projecten = () => {
     return Math.min((current / target) * 100, 100)
   }
 
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case 'active':
+        return t('projects.status-active')
+      case 'completed':
+        return t('projects.status-completed')
+      case 'paused':
+        return t('projects.status-paused')
+      case 'cancelled':
+        return t('projects.status-cancelled')
+      default:
+        return status
+    }
+  }
+
   return (
     <div>
       <section className="projects-hero">
         <div className="container">
-          <h1 className="projects-hero-title">Onze projecten</h1>
+          <h1 className="projects-hero-title">{t('projects.title')}</h1>
           <p className="projects-hero-subtitle">
-            Ontdek alle projecten waarmee we wereldwijd levens veranderen en gemeenschappen versterken.
+            {t('projects.subtitle')}
           </p>
         </div>
       </section>
@@ -161,50 +133,22 @@ const Projecten = () => {
           {/* Filters */}
           <div className="projects-filters">
             <div className="projects-filter-group">
-              <label htmlFor="continent-filter" className="filter-label">Filter op continent:</label>
-              <select
-                id="continent-filter"
-                className="filter-select"
-                value={selectedContinent}
-                onChange={(e) => setSelectedContinent(e.target.value)}
-              >
-                {continents.map(continent => (
-                  <option key={continent} value={continent}>
-                    {continent === 'all' ? 'Alle continenten' : continent}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="projects-filter-group">
-              <label htmlFor="search-filter" className="filter-label">Zoek op land of project:</label>
+              <label htmlFor="search-filter" className="filter-label">{t('projects.search-label')}</label>
               <input
                 id="search-filter"
                 type="text"
                 className="filter-input"
-                placeholder="Bijv. Syrië, Burkina Faso, onderwijs..."
+                placeholder={t('projects.search-placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
 
-          {/* Results count */}
-          <div className="projects-results">
-            <p className="projects-results-text">
-              {loading ? (
-                'Laden...'
-              ) : filteredProjects.length === 0 ? (
-                'Geen projecten gevonden'
-              ) : (
-                `${filteredProjects.length} ${filteredProjects.length === 1 ? 'project gevonden' : 'projecten gevonden'}`
-              )}
-            </p>
-          </div>
-
           {/* Loading state */}
           {loading && (
             <div className="projects-loading">
-              <p>Projecten laden...</p>
+              <p>{t('projects.loading')}</p>
             </div>
           )}
 
@@ -215,89 +159,200 @@ const Projecten = () => {
             </div>
           )}
 
-          {/* Projects grid */}
-          {!loading && !error && (
-            <div className="projects-grid">
-              {filteredProjects.map(project => (
-                <article key={project.id} className="project-card">
-                  <div className="project-card-header">
-                    <span className="project-continent">{getContinent(project.country_code)}</span>
-                    <span className={`project-status project-status-${project.status}`}>
-                      {project.status === 'active' ? 'Actief' : 
-                       project.status === 'completed' ? 'Voltooid' :
-                       project.status === 'paused' ? 'Gepauzeerd' : 'Geannuleerd'}
-                    </span>
-                  </div>
-                  <div className="project-card-content">
-                    <h3 className="project-card-title">{project.name}</h3>
-                    <p className="project-card-country">
-                      <span className="project-card-country-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                          <circle cx="12" cy="10" r="3"/>
-                        </svg>
+          {/* Active Projects Section */}
+          {!loading && !error && activeProjects.length > 0 && (
+            <div className="projects-section-group">
+              <h2 className="projects-section-title">
+                <span className="projects-section-icon projects-section-icon-active">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </span>
+                {t('projects.active-title')}
+                <span className="projects-section-count">{activeProjects.length}</span>
+              </h2>
+              <div className="projects-grid">
+                {activeProjects.map(project => (
+                  <article key={project.id} className="project-card">
+                    {getProjectImage(project) && (
+                      <div className="project-card-image">
+                        <img 
+                          src={getProjectImage(project)} 
+                          alt={project.name}
+                          className="project-card-img"
+                        />
+                      </div>
+                    )}
+                    <div className="project-card-header">
+                      <span className={`project-status project-status-${project.status}`}>
+                        {getStatusLabel(project.status)}
                       </span>
-                      {getCountryName(project.country_code)}
-                    </p>
-                    <p className="project-card-description">
-                      {project.description || 'Geen beschrijving beschikbaar.'}
-                    </p>
-                    {project.target_amount && (
-                      <div className="project-card-progress">
-                        <div className="project-progress-info">
-                          <span className="project-progress-current">
-                            {formatCurrency(project.current_amount || 0)}
-                          </span>
-                          <span className="project-progress-target">
-                            van {formatCurrency(project.target_amount)} opgehaald
-                          </span>
+                    </div>
+                    <div className="project-card-content">
+                      <h3 className="project-card-title">{project.name}</h3>
+                      <p className="project-card-country">
+                        <span className="project-card-country-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                          </svg>
+                        </span>
+                        {getCountryName(project.country_code)}
+                      </p>
+                      <p className="project-card-description">
+                        {project.description || t('projects.no-description')}
+                      </p>
+                      {project.target_amount && (
+                        <div className="project-card-progress">
+                          <div className="project-progress-info">
+                            <span className="project-progress-current">
+                              {formatCurrency(project.current_amount || 0)}
+                            </span>
+                            <span className="project-progress-target">
+                              {t('projects.of-target', { target: formatCurrency(project.target_amount) })}
+                            </span>
+                          </div>
+                          <div className="project-progress-bar">
+                            <div
+                              className="project-progress-fill"
+                              style={{
+                                width: `${getProgressPercentage(project.current_amount, project.target_amount)}%`
+                              }}
+                            ></div>
+                          </div>
                         </div>
-                        <div className="project-progress-bar">
-                          <div
-                            className="project-progress-fill"
-                            style={{
-                              width: `${getProgressPercentage(project.current_amount, project.target_amount)}%`
-                            }}
-                          ></div>
+                      )}
+                      <div className="project-card-stats">
+                        <span className="project-stat">
+                          <strong>{project.donation_count || 0}</strong> {t('projects.donations')}
+                        </span>
+                        {project.total_sent > 0 && (
+                          <span className="project-stat">
+                            <strong>{formatCurrency(project.total_sent)}</strong> {t('projects.paid-out')}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="project-card-footer">
+                      <Link to={`/project/${project.id}`} className="btn btn-outline">
+                        {t('common.read-more')}
+                      </Link>
+                      <Link to="/doneren" className="btn btn-primary">
+                        {t('nav.doneer-nu')}
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Completed Projects Section */}
+          {!loading && !error && completedProjects.length > 0 && (
+            <div className="projects-section-group projects-section-completed">
+              <h2 className="projects-section-title">
+                <span className="projects-section-icon projects-section-icon-completed">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </span>
+                {t('projects.completed-title')}
+                <span className="projects-section-count">{completedProjects.length}</span>
+              </h2>
+              <div className="projects-grid">
+                {completedProjects.map(project => (
+                  <article key={project.id} className="project-card project-card-completed">
+                    {getProjectImage(project) && (
+                      <div className="project-card-image">
+                        <img 
+                          src={getProjectImage(project)} 
+                          alt={project.name}
+                          className="project-card-img"
+                        />
+                        <div className="project-card-completed-overlay">
+                          <span className="project-completed-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            {t('projects.status-completed')}
+                          </span>
                         </div>
                       </div>
                     )}
-                    <div className="project-card-stats">
-                      <span className="project-stat">
-                        <strong>{project.donation_count || 0}</strong> donaties
+                    <div className="project-card-header">
+                      <span className={`project-status project-status-${project.status}`}>
+                        {getStatusLabel(project.status)}
                       </span>
-                      {project.total_sent > 0 && (
-                        <span className="project-stat">
-                          <strong>{formatCurrency(project.total_sent)}</strong> uitgekeerd
-                        </span>
-                      )}
                     </div>
-                  </div>
-                  <div className="project-card-footer">
-                    <Link to={`/project/${project.id}`} className="btn btn-outline">
-                      Lees meer
-                    </Link>
-                    <Link to="/doneren" className="btn btn-primary">
-                      Doneer nu
-                    </Link>
-                  </div>
-                </article>
-              ))}
+                    <div className="project-card-content">
+                      <h3 className="project-card-title">{project.name}</h3>
+                      <p className="project-card-country">
+                        <span className="project-card-country-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                          </svg>
+                        </span>
+                        {getCountryName(project.country_code)}
+                      </p>
+                      <p className="project-card-description">
+                        {project.description || t('projects.no-description')}
+                      </p>
+                      {project.target_amount && (
+                        <div className="project-card-progress project-progress-completed">
+                          <div className="project-progress-info">
+                            <span className="project-progress-current">
+                              {formatCurrency(project.current_amount || 0)}
+                            </span>
+                            <span className="project-progress-target">
+                              {t('projects.of-target', { target: formatCurrency(project.target_amount) })}
+                            </span>
+                          </div>
+                          <div className="project-progress-bar">
+                            <div
+                              className="project-progress-fill project-progress-fill-completed"
+                              style={{
+                                width: `${getProgressPercentage(project.current_amount, project.target_amount)}%`
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      )}
+                      <div className="project-card-stats">
+                        <span className="project-stat">
+                          <strong>{project.donation_count || 0}</strong> {t('projects.donations')}
+                        </span>
+                        {project.total_sent > 0 && (
+                          <span className="project-stat">
+                            <strong>{formatCurrency(project.total_sent)}</strong> {t('projects.paid-out')}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="project-card-footer">
+                      <Link to={`/project/${project.id}`} className="btn btn-outline">
+                        {t('common.read-more')}
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Empty state */}
-          {!loading && !error && filteredProjects.length === 0 && (
+          {!loading && !error && activeProjects.length === 0 && completedProjects.length === 0 && (
             <div className="projects-empty">
-              <p>Geen projecten gevonden die voldoen aan je filters.</p>
+              <p>{t('projects.filter-empty')}</p>
               <button
                 className="btn btn-outline"
                 onClick={() => {
-                  setSelectedContinent('all')
                   setSearchTerm('')
                 }}
               >
-                Filters wissen
+                {t('projects.clear-filter')}
               </button>
             </div>
           )}
@@ -308,4 +363,3 @@ const Projecten = () => {
 }
 
 export default Projecten
-

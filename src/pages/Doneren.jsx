@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { donationsAPI, projectsAPI } from '../utils/api'
 import { isAuthenticated, getUser } from '../utils/auth'
+import { useTranslation } from '../hooks/useTranslation'
 import { 
   HeartIcon, GlobeIcon, ClipboardIcon, CheckIcon, 
   LockIcon, MailIcon, HomeIcon, DropletIcon, BookIcon, 
@@ -9,9 +10,10 @@ import {
 } from '../components/icons/SimpleIcons'
 
 const Doneren = () => {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const [donationType, setDonationType] = useState('one-time')
-  const [selectedAmount, setSelectedAmount] = useState(50)
+  const [selectedAmount, setSelectedAmount] = useState(20)
   const [customAmount, setCustomAmount] = useState('')
   const [selectedProject, setSelectedProject] = useState('global')
   const [projects, setProjects] = useState([])
@@ -38,7 +40,7 @@ const Doneren = () => {
     }
   }, [])
 
-  const amounts = [25, 50, 100, 250]
+  const amounts = [10, 20, 50, 100]
 
   // Load projects on mount
   useEffect(() => {
@@ -67,14 +69,7 @@ const Doneren = () => {
   }
 
   const getCountryName = (code) => {
-    const countryNames = {
-      'BF': 'Burkina Faso', 'SY': 'Syrië', 'SD': 'Sudan',
-      'UA': 'Oekraïne', 'YE': 'Jemen', 'ET': 'Ethiopië',
-      'SO': 'Somalië', 'AF': 'Afghanistan', 'IQ': 'Irak',
-      'MM': 'Myanmar', 'BD': 'Bangladesh', 'PK': 'Pakistan',
-      'NG': 'Nigeria', 'CD': 'Congo', 'KE': 'Kenia',
-    }
-    return countryNames[code] || code
+    return t(`country.${code}`) || code
   }
 
   const formatCurrency = (amount) => {
@@ -139,7 +134,7 @@ const Doneren = () => {
           ? projects.find(p => p.id === parseInt(selectedProject))?.name || ''
           : ''
         navigate(`/bedankt?amount=${amount}&type=${donationType}&project=${encodeURIComponent(projectName)}`)
-        setSelectedAmount(50)
+        setSelectedAmount(20)
         setCustomAmount('')
         setGuestName('')
         setGuestEmail('')
@@ -154,11 +149,11 @@ const Doneren = () => {
 
   const getImpactMessage = (amount) => {
     const amt = customAmount ? parseFloat(customAmount) : amount
-    if (amt >= 250) return 'Voorziet een hele gemeenschap van schoon drinkwater voor een maand'
-    if (amt >= 100) return 'Helpt een gezin met noodpakketten en onderdak'
-    if (amt >= 50) return 'Geeft 10 kinderen toegang tot onderwijs voor een week'
-    if (amt >= 25) return 'Voorziet een kind van schoolmaterialen'
-    return 'Elke euro maakt verschil'
+    if (amt >= 100) return t('donate.impact-100')
+    if (amt >= 50) return t('donate.impact-50')
+    if (amt >= 20) return t('donate.impact-20')
+    if (amt >= 10) return t('donate.impact-10')
+    return t('donate.impact-default')
   }
 
   return (
@@ -175,10 +170,10 @@ const Doneren = () => {
         <div className="container">
           <div className="donate-hero-content">
             <h1 className="donate-hero-title">
-              Samen maken we het <span className="highlight">verschil</span>
+              {t('donate.hero-title')} <span className="highlight">{t('donate.hero-highlight')}</span>
             </h1>
             <p className="donate-hero-subtitle">
-              Jouw donatie verandert levens. Kies een project of steun ons algemene werk.
+              {t('donate.hero-subtitle')}
             </p>
           </div>
         </div>
@@ -201,25 +196,25 @@ const Doneren = () => {
                     }}
                   >
                     <span className="tab-icon"><GlobeIcon size={18} /></span>
-                    Algemene donatie
+                    {t('donate.tab-global')}
                   </button>
                   <button 
                     className={`donate-tab ${activeTab === 'project' ? 'active' : ''}`}
                     onClick={() => setActiveTab('project')}
                   >
                     <span className="tab-icon"><ClipboardIcon size={18} /></span>
-                    Doneer aan project
+                    {t('donate.tab-project')}
                   </button>
                 </div>
 
                 {/* Project Selection (if project tab active) */}
                 {activeTab === 'project' && (
                   <div className="project-selector">
-                    <label className="project-selector-label">Kies een project</label>
+                    <label className="project-selector-label">{t('donate.select-project')}</label>
                     {loadingProjects ? (
-                      <div className="project-loading">Projecten laden...</div>
+                      <div className="project-loading">{t('donate.projects-loading')}</div>
                     ) : projects.length === 0 ? (
-                      <div className="project-empty">Geen actieve projecten beschikbaar</div>
+                      <div className="project-empty">{t('donate.projects-empty')}</div>
                     ) : (
                       <div className="project-grid">
                         {projects.filter(p => p.status === 'active').map(project => (
@@ -264,14 +259,14 @@ const Doneren = () => {
                     className={`frequency-btn ${donationType === 'one-time' ? 'active' : ''}`}
                     onClick={() => setDonationType('one-time')}
                   >
-                    Eenmalig
+                    {t('donate.frequency-once')}
                   </button>
                   <button
                     type="button"
                     className={`frequency-btn ${donationType === 'monthly' ? 'active' : ''}`}
                     onClick={() => setDonationType('monthly')}
                   >
-                    Maandelijks
+                    {t('donate.frequency-monthly')}
                   </button>
                 </div>
 
@@ -289,20 +284,20 @@ const Doneren = () => {
                         }}
                       >
                         <span className="amount-value">€{amount}</span>
-                        {donationType === 'monthly' && <span className="amount-period">/maand</span>}
+                        {donationType === 'monthly' && <span className="amount-period">{t('donate.per-month')}</span>}
                       </button>
                     ))}
                   </div>
 
                   {/* Custom Amount */}
                   <div className="custom-amount-section">
-                    <label className="custom-label">Of kies je eigen bedrag</label>
+                    <label className="custom-label">{t('donate.custom-label')}</label>
                     <div className="custom-input-wrapper">
                       <span className="euro-sign">€</span>
                       <input
                         type="number"
                         className="custom-input"
-                        placeholder="Ander bedrag"
+                        placeholder={t('donate.custom-placeholder')}
                         min="1"
                         value={customAmount}
                         onChange={(e) => {
@@ -311,7 +306,7 @@ const Doneren = () => {
                         }}
                       />
                       {donationType === 'monthly' && (
-                        <span className="period-suffix">/maand</span>
+                        <span className="period-suffix">{t('donate.per-month')}</span>
                       )}
                     </div>
                   </div>
@@ -319,14 +314,14 @@ const Doneren = () => {
                   {/* Guest Info - Only show if not logged in */}
                   <div className="donor-info-section">
                     <label className="donor-info-label">
-                      {isLoggedIn ? 'Jouw gegevens' : 'Jouw gegevens (geen account nodig)'}
+                      {isLoggedIn ? t('donate.donor-info') : t('donate.donor-info-guest')}
                     </label>
                     <div className="donor-info-fields">
                       <div className="donor-field">
                         <input
                           type="text"
                           className="donor-input"
-                          placeholder="Je naam"
+                          placeholder={t('donate.name-placeholder')}
                           value={guestName}
                           onChange={(e) => setGuestName(e.target.value)}
                           disabled={isLoggedIn}
@@ -337,7 +332,7 @@ const Doneren = () => {
                         <input
                           type="email"
                           className="donor-input"
-                          placeholder="Je e-mailadres"
+                          placeholder={t('donate.email-placeholder')}
                           value={guestEmail}
                           onChange={(e) => setGuestEmail(e.target.value)}
                           disabled={isLoggedIn}
@@ -347,7 +342,7 @@ const Doneren = () => {
                     </div>
                     {!isLoggedIn && (
                       <p className="donor-info-note">
-                        We sturen je een bevestiging per e-mail. Je gegevens worden veilig verwerkt.
+                        {t('donate.guest-note')}
                       </p>
                     )}
                   </div>
@@ -369,11 +364,11 @@ const Doneren = () => {
                     disabled={isSubmitting || (activeTab === 'project' && selectedProject === 'global')}
                   >
                     {isSubmitting ? (
-                      <span className="loading-spinner">Verwerken...</span>
+                      <span className="loading-spinner">{t('donate.processing')}</span>
                     ) : (
                       <>
-                        Doneer {customAmount ? `€${customAmount}` : `€${selectedAmount}`}
-                        {donationType === 'monthly' ? ' per maand' : ''}
+                        {t('donate.submit', { amount: customAmount || selectedAmount })}
+                        {donationType === 'monthly' ? t('donate.submit-monthly') : ''}
                         <span className="btn-arrow">→</span>
                       </>
                     )}
@@ -383,21 +378,17 @@ const Doneren = () => {
                   <div className="trust-section">
                     <div className="trust-item">
                       <span className="trust-icon"><LockIcon size={16} /></span>
-                      <span>Veilige betaling</span>
-                    </div>
-                    <div className="trust-item">
-                      <span className="trust-icon"><CheckIcon size={16} /></span>
-                      <span>ANBI erkend</span>
+                      <span>{t('donate.trust-secure')}</span>
                     </div>
                     <div className="trust-item">
                       <span className="trust-icon"><MailIcon size={16} /></span>
-                      <span>Bevestiging per mail</span>
+                      <span>{t('donate.trust-confirm')}</span>
                     </div>
                   </div>
 
                   {/* Payment Methods */}
                   <div className="payment-methods">
-                    <span className="payment-label">Betaalmethodes:</span>
+                    <span className="payment-label">{t('donate.payment-methods')}</span>
                     <div className="payment-icons">
                       <span className="payment-method">iDEAL</span>
                       <span className="payment-method">Creditcard</span>
@@ -413,57 +404,57 @@ const Doneren = () => {
             <div className="donate-info-section">
               {/* Stats */}
               <div className="donate-stats-card">
-                <h3 className="stats-title">Jouw impact tot nu toe</h3>
+                <h3 className="stats-title">{t('donate.stats-title')}</h3>
                 <div className="stats-grid">
                   <div className="stat-item">
                     <span className="stat-number">1.2M+</span>
-                    <span className="stat-label">Mensen geholpen</span>
+                    <span className="stat-label">{t('donate.stats-people')}</span>
                   </div>
                   <div className="stat-item">
                     <span className="stat-number">25+</span>
-                    <span className="stat-label">Landen</span>
+                    <span className="stat-label">{t('donate.stats-countries')}</span>
                   </div>
                   <div className="stat-item">
                     <span className="stat-number">150+</span>
-                    <span className="stat-label">Projecten</span>
+                    <span className="stat-label">{t('donate.stats-projects')}</span>
                   </div>
                   <div className="stat-item">
                     <span className="stat-number">92%</span>
-                    <span className="stat-label">Naar projecten</span>
+                    <span className="stat-label">{t('donate.stats-percentage')}</span>
                   </div>
                 </div>
               </div>
 
               {/* Why Donate */}
               <div className="why-donate-card">
-                <h3 className="why-title">Waarom doneren?</h3>
+                <h3 className="why-title">{t('donate.why-title')}</h3>
                 <ul className="why-list">
                   <li>
                     <span className="why-icon"><HomeIcon size={24} /></span>
                     <div>
-                      <strong>Onderdak</strong>
-                      <p>We bouwen veilige huizen voor gezinnen in nood</p>
+                      <strong>{t('donate.why-shelter')}</strong>
+                      <p>{t('donate.why-shelter-text')}</p>
                     </div>
                   </li>
                   <li>
                     <span className="why-icon"><DropletIcon size={24} /></span>
                     <div>
-                      <strong>Schoon water</strong>
-                      <p>Toegang tot drinkwater voor hele gemeenschappen</p>
+                      <strong>{t('donate.why-water')}</strong>
+                      <p>{t('donate.why-water-text')}</p>
                     </div>
                   </li>
                   <li>
                     <span className="why-icon"><BookIcon size={24} /></span>
                     <div>
-                      <strong>Onderwijs</strong>
-                      <p>Kinderen krijgen de kans om te leren</p>
+                      <strong>{t('donate.why-education')}</strong>
+                      <p>{t('donate.why-education-text')}</p>
                     </div>
                   </li>
                   <li>
                     <span className="why-icon"><UtensilsIcon size={24} /></span>
                     <div>
-                      <strong>Voedsel</strong>
-                      <p>Noodhulp en duurzame voedselzekerheid</p>
+                      <strong>{t('donate.why-food')}</strong>
+                      <p>{t('donate.why-food-text')}</p>
                     </div>
                   </li>
                 </ul>
@@ -471,17 +462,17 @@ const Doneren = () => {
 
               {/* Bank Transfer Info */}
               <div className="bank-info-card">
-                <h3 className="bank-title">Liever overmaken?</h3>
+                <h3 className="bank-title">{t('donate.bank-title')}</h3>
                 <p className="bank-text">
-                  Je kunt ook direct overmaken naar:
+                  {t('donate.bank-text')}
                 </p>
                 <div className="bank-details">
                   <div className="bank-row">
-                    <span className="bank-label">IBAN:</span>
+                    <span className="bank-label">{t('donate.bank-iban')}</span>
                     <span className="bank-value">NL52 INGB 0000 0020 91</span>
                   </div>
                   <div className="bank-row">
-                    <span className="bank-label">T.n.v.:</span>
+                    <span className="bank-label">{t('donate.bank-name')}</span>
                     <span className="bank-value">Stichting Manarah</span>
                   </div>
                 </div>

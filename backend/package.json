@@ -9,7 +9,10 @@
     "dev": "nodemon server.js",
     "dev:mysql": "nodemon server-mysql.js",
     "init-db": "node database/init-db.js",
-    "init-db:mysql": "node database/init-mysql.js"
+    "init-db:mysql": "node database/init-mysql.js",
+    "delete-projects:mysql": "node database/delete-all-projects-mysql.js",
+    "delete-projects:sqlite": "node database/delete-all-projects-sqlite.js",
+    "add-palestine-project": "node database/add-palestine-project.js"
   },
   "keywords": ["foundation", "api", "donations"],
   "author": "",

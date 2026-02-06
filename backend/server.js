@@ -902,6 +902,155 @@ app.get('/api/users', authenticateToken, requireAdmin, (req, res) => {
     );
 });
 
+// ============================================
+// Comment Routes
+// ============================================
+
+// Get Comments for a Project
+app.get('/api/projects/:id/comments', (req, res) => {
+    const projectId = req.params.id;
+
+    db.all(
+        `SELECT 
+            c.*,
+            u.name as user_name
+         FROM project_comments c
+         LEFT JOIN users u ON c.user_id = u.id
+         WHERE c.project_id = ? AND c.status = 'approved'
+         ORDER BY c.created_at DESC`,
+        [projectId],
+        (err, comments) => {
+            if (err) {
+                console.error('Error fetching comments:', err);
+                return res.status(500).json({ error: 'Database error' });
+            }
+
+            // Format comments to hide email addresses
+            const formattedComments = comments.map(comment => ({
+                id: comment.id,
+                project_id: comment.project_id,
+                name: comment.user_name || comment.guest_name || 'Anoniem',
+                comment: comment.comment,
+                created_at: comment.created_at
+            }));
+
+            res.json({ success: true, comments: formattedComments });
+        }
+    );
+});
+
+// Add Comment to a Project (authenticated users)
+app.post('/api/projects/:id/comments', authenticateToken, (req, res) => {
+    const projectId = req.params.id;
+    const userId = req.user.userId;
+    const { comment } = req.body;
+
+    if (!comment || comment.trim().length === 0) {
+        return res.status(400).json({ error: 'Comment is required' });
+    }
+
+    if (comment.length > 1000) {
+        return res.status(400).json({ error: 'Comment too long (max 1000 characters)' });
+    }
+
+    // Check if project exists
+    db.get('SELECT id FROM projects WHERE id = ?', [projectId], (err, project) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database error' });
+        }
+        if (!project) {
+            return res.status(404).json({ error: 'Project not found' });
+        }
+
+        // Insert comment (auto-approved for logged-in users)
+        db.run(
+            `INSERT INTO project_comments (project_id, user_id, comment, status)
+             VALUES (?, ?, ?, 'approved')`,
+            [projectId, userId, comment.trim()],
+            function(err) {
+                if (err) {
+                    console.error('Error inserting comment:', err);
+                    return res.status(500).json({ error: 'Database error' });
+                }
+
+                // Get user name for response
+                db.get('SELECT name FROM users WHERE id = ?', [userId], (err, user) => {
+                    res.status(201).json({
+                        success: true,
+                        comment: {
+                            id: this.lastID,
+                            project_id: parseInt(projectId),
+                            name: user?.name || 'Gebruiker',
+                            comment: comment.trim(),
+                            created_at: new Date().toISOString()
+                        }
+                    });
+                });
+            }
+        );
+    });
+});
+
+// Add Comment as Guest
+app.post('/api/projects/:id/comments/guest', (req, res) => {
+    const projectId = req.params.id;
+    const { name, email, comment } = req.body;
+
+    if (!comment || comment.trim().length === 0) {
+        return res.status(400).json({ error: 'Comment is required' });
+    }
+
+    if (!name || name.trim().length === 0) {
+        return res.status(400).json({ error: 'Name is required' });
+    }
+
+    if (comment.length > 1000) {
+        return res.status(400).json({ error: 'Comment too long (max 1000 characters)' });
+    }
+
+    // Basic email validation if provided
+    if (email && email.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ error: 'Invalid email format' });
+        }
+    }
+
+    // Check if project exists
+    db.get('SELECT id FROM projects WHERE id = ?', [projectId], (err, project) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database error' });
+        }
+        if (!project) {
+            return res.status(404).json({ error: 'Project not found' });
+        }
+
+        // Insert comment (auto-approved for simplicity, can be changed to 'pending' for moderation)
+        db.run(
+            `INSERT INTO project_comments (project_id, guest_name, guest_email, comment, status)
+             VALUES (?, ?, ?, ?, 'approved')`,
+            [projectId, name.trim(), email?.trim() || null, comment.trim()],
+            function(err) {
+                if (err) {
+                    console.error('Error inserting comment:', err);
+                    return res.status(500).json({ error: 'Database error' });
+                }
+
+                res.status(201).json({
+                    success: true,
+                    comment: {
+                        id: this.lastID,
+                        project_id: parseInt(projectId),
+                        name: name.trim(),
+                        comment: comment.trim(),
+                        created_at: new Date().toISOString()
+                    }
+                });
+            }
+        );
+    });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });

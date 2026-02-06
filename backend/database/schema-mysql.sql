@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS projects (
     target_amount DECIMAL(10, 2),
     current_amount DECIMAL(10, 2) DEFAULT 0,
     status ENUM('active', 'completed', 'paused', 'cancelled') DEFAULT 'active',
+    image_url TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

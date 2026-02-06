@@ -89,30 +89,35 @@ const LandDetail = () => {
         }
       ]
     },
-    'burkina-faso': {
-      code: 'BF',
-      name: 'Burkina Faso',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    'palestina': {
+      code: 'PS',
+      name: 'Palestina',
+      image: '/assets/Al_Aqsa.jpg',
       context: [
-        'Burkina Faso wordt geconfronteerd met een complexe humanitaire crisis veroorzaakt door gewelddadige conflicten, voedselonzekerheid en klimaatverandering. Honderdduizenden mensen zijn ontheemd en hebben dringend hulp nodig.',
-        'De situatie is bijzonder ernstig in de noordelijke en oostelijke regio\'s, waar gemeenschappen regelmatig worden getroffen door aanvallen. Veel gezinnen hebben hun huizen en bronnen van inkomsten verloren.',
-        'Ons werk richt zich op het bieden van directe noodhulp, het versterken van gemeenschappen en het creëren van duurzame oplossingen voor de lange termijn.'
+        'Palestina bevindt zich in een van de langstdurende humanitaire crises ter wereld. Miljoenen Palestijnen leven onder bezetting en worden dagelijks geconfronteerd met ontheemding, verwoesting en een gebrek aan basisvoorzieningen. Gaza is het zwaarst getroffen, met een belegering die de toegang tot voedsel, water, medicijnen en elektriciteit ernstig beperkt.',
+        'Gezinnen zijn uit hun huizen verdreven, kinderen groeien op tussen puin en trauma, en ziekenhuizen kunnen de stroom gewonden nauwelijks aan. De Al-Aqsa moskee, een heilig symbool voor miljoenen moslims wereldwijd, staat onder constante druk. Het leed van het Palestijnse volk raakt ons diep.',
+        'Wij geloven dat elk mens recht heeft op waardigheid, veiligheid en een toekomst. Daarom staan we zij aan zij met het Palestijnse volk en werken we aan directe noodhulp, medische zorg, onderwijs en wederopbouw. Samen kunnen we hoop brengen waar die het hardst nodig is.'
       ],
       activities: [
         {
-          title: 'Noodhulp',
-          description: 'We bieden voedsel, onderdak en medische zorg aan ontheemde gezinnen en gemeenschappen die getroffen zijn door conflict.',
+          title: 'Noodhulp en voedselpakketten',
+          description: 'We voorzien gezinnen in Gaza en de Westelijke Jordaanoever van voedselpakketten, schoon water en essentiële levensbehoeften om te overleven in deze crisis.',
           icon: 'emergency'
         },
         {
-          title: 'Onderwijs',
-          description: 'We zorgen voor toegang tot onderwijs voor kinderen die door conflict zijn getroffen en bouwen veilige leeromgevingen.',
+          title: 'Medische hulp',
+          description: 'We ondersteunen ziekenhuizen en klinieken met medicijnen, medische apparatuur en noodhulpteams om gewonden en zieken te behandelen.',
+          icon: 'heart'
+        },
+        {
+          title: 'Onderwijs voor kinderen',
+          description: 'We creëren veilige leeromgevingen voor kinderen wier scholen zijn verwoest, zodat zij ondanks alles kunnen blijven leren en dromen.',
           icon: 'book'
         },
         {
-          title: 'Water en sanitatie',
-          description: 'We bouwen waterputten en voorzien gemeenschappen van schoon drinkwater en sanitatievoorzieningen.',
-          icon: 'droplet'
+          title: 'Wederopbouw en onderdak',
+          description: 'We helpen bij het herbouwen van verwoeste huizen en het bieden van tijdelijk onderdak aan ontheemde families die alles zijn kwijtgeraakt.',
+          icon: 'home'
         }
       ]
     },

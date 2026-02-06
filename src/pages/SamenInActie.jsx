@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../hooks/useTranslation'
 
 const SamenInActie = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,34 +16,34 @@ const SamenInActie = () => {
 
   const actionTypes = [
     {
-      title: 'Word donateur',
-      description: 'Steun structureel met een maandelijkse bijdrage en maak een blijvend verschil voor mensen in nood.',
-      details: 'Als donateur geef je maandelijks een vast bedrag. Dit geeft ons de zekerheid om langetermijnprojecten te plannen en duurzame impact te maken.'
+      title: t('help.type-donor'),
+      description: t('help.type-donor-desc'),
+      details: t('help.type-donor-details')
     },
     {
-      title: 'Word vrijwilliger',
-      description: 'Zet je tijd en talenten in voor onze missie en help direct mee aan projecten.',
-      details: 'Vrijwilligers zijn onmisbaar voor ons werk. Je kunt helpen met evenementen, fondsenwerving, administratie of andere taken die bij jouw vaardigheden passen.'
+      title: t('help.type-volunteer'),
+      description: t('help.type-volunteer-desc'),
+      details: t('help.type-volunteer-details')
     },
     {
-      title: 'Actie met school/moskee',
-      description: 'Organiseer een actie met je gemeenschap en betrek anderen bij ons werk.',
-      details: 'Scholen en moskeeën zijn belangrijke partners. Samen kunnen we bewustwording creëren en fondsen werven voor specifieke projecten.'
+      title: t('help.type-education'),
+      description: t('help.type-education-desc'),
+      details: t('help.type-education-details')
     },
     {
-      title: 'Eigen actie starten',
-      description: 'Begin je eigen fundraising actie en inspireer anderen om te geven.',
-      details: 'Organiseer een sponsorloop, verkoop, of andere creatieve actie. Wij helpen je met materialen en promotie.'
+      title: t('help.type-fundraiser'),
+      description: t('help.type-fundraiser-desc'),
+      details: t('help.type-fundraiser-details')
     },
     {
-      title: 'Grote gift',
-      description: 'Maak een substantiële bijdrage mogelijk en verander levens op grote schaal.',
-      details: 'Grote giften maken het mogelijk om hele projecten te financieren of nieuwe initiatieven te starten. Neem contact op voor persoonlijk advies.'
+      title: t('help.type-major'),
+      description: t('help.type-major-desc'),
+      details: t('help.type-major-details')
     },
     {
-      title: 'Nalaten',
-      description: 'Steun onze missie in je testament en zorg voor blijvende impact.',
-      details: 'Door ons op te nemen in je testament, zorg je ervoor dat je steun ook na je overlijden doorwerkt. Wij helpen je graag met informatie en advies.'
+      title: t('help.type-legacy'),
+      description: t('help.type-legacy-desc'),
+      details: t('help.type-legacy-details')
     }
   ]
 
@@ -74,9 +76,9 @@ const SamenInActie = () => {
     <div>
       <section className="samen-actie-hero">
         <div className="container">
-          <h1 className="samen-actie-hero-title">Samen in actie</h1>
+          <h1 className="samen-actie-hero-title">{t('help.title')}</h1>
           <p className="samen-actie-hero-subtitle">
-            Er zijn verschillende manieren om mee te doen en impact te maken. Ontdek hoe jij kunt bijdragen aan ons werk.
+            {t('help.subtitle')}
           </p>
         </div>
       </section>
@@ -84,14 +86,12 @@ const SamenInActie = () => {
       <section className="samen-actie-intro">
         <div className="container">
           <div className="samen-actie-intro-content">
-            <h2 className="section-title">Waarom jouw steun belangrijk is</h2>
+            <h2 className="section-title">{t('help.intro-title')}</h2>
             <p className="samen-actie-intro-text">
-              Wij geloven dat iedereen een verschil kan maken. Of je nu tijd, geld of expertise geeft – elke bijdrage telt. 
-              Samen kunnen we levens veranderen, gemeenschappen versterken en hoop brengen waar het hard nodig is.
+              {t('help.intro-text1')}
             </p>
             <p className="samen-actie-intro-text">
-              Door samen te werken met lokale partners en gemeenschappen, zorgen we ervoor dat hulp daar komt waar het 
-              het meest nodig is. Jouw steun maakt dit mogelijk.
+              {t('help.intro-text2')}
             </p>
           </div>
         </div>
@@ -99,14 +99,14 @@ const SamenInActie = () => {
 
       <section className="samen-actie-types">
         <div className="container">
-          <h2 className="section-title">Hoe kun je helpen?</h2>
+          <h2 className="section-title">{t('help.types-title')}</h2>
           <div className="samen-actie-grid">
             {actionTypes.map((action, index) => (
               <div key={index} className="samen-actie-card">
                 <h3 className="samen-actie-card-title">{action.title}</h3>
                 <p className="samen-actie-card-description">{action.description}</p>
                 <details className="samen-actie-details">
-                  <summary className="samen-actie-summary">Meer informatie</summary>
+                  <summary className="samen-actie-summary">{t('help.more-info')}</summary>
                   <p className="samen-actie-details-text">{action.details}</p>
                 </details>
               </div>
@@ -119,10 +119,9 @@ const SamenInActie = () => {
         <div className="container">
           <div className="samen-actie-contact-wrapper">
             <div className="samen-actie-contact-info">
-              <h2 className="section-title">Neem contact op</h2>
+              <h2 className="section-title">{t('help.contact-title')}</h2>
               <p className="samen-actie-contact-text">
-                Wil je meer weten over hoe je kunt helpen? Of heb je een specifieke vraag? 
-                Vul het contactformulier in en wij nemen zo snel mogelijk contact met je op.
+                {t('help.contact-text')}
               </p>
               <div className="samen-actie-contact-details">
                 <div className="contact-detail-item">
@@ -172,25 +171,25 @@ const SamenInActie = () => {
                       <path d="M9 12l2 2 4-4"/>
                     </svg>
                   </div>
-                  <h3>Bedankt voor je bericht!</h3>
-                  <p>We hebben je bericht ontvangen en nemen zo snel mogelijk contact met je op.</p>
+                  <h3>{t('help.form-success-title')}</h3>
+                  <p>{t('help.form-success-text')}</p>
                   <button
                     className="btn btn-outline"
                     onClick={() => setSubmitted(false)}
                   >
-                    Nieuw bericht versturen
+                    {t('help.form-success-new')}
                   </button>
                 </div>
               ) : (
                 <form className="samen-actie-contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
-                    <label htmlFor="name" className="form-label">Naam *</label>
+                    <label htmlFor="name" className="form-label">{t('help.form-name')}</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       className="form-input"
-                      placeholder="Je volledige naam"
+                      placeholder={t('help.form-name-placeholder')}
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -198,13 +197,13 @@ const SamenInActie = () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="email" className="form-label">E-mailadres *</label>
+                    <label htmlFor="email" className="form-label">{t('help.form-email')}</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       className="form-input"
-                      placeholder="jouw@email.nl"
+                      placeholder={t('help.form-email-placeholder')}
                       value={formData.email}
                       onChange={handleChange}
                       required
@@ -212,20 +211,20 @@ const SamenInActie = () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="phone" className="form-label">Telefoonnummer</label>
+                    <label htmlFor="phone" className="form-label">{t('help.form-phone')}</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       className="form-input"
-                      placeholder="+31 6 12345678"
+                      placeholder={t('help.form-phone-placeholder')}
                       value={formData.phone}
                       onChange={handleChange}
                     />
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="interest" className="form-label">Ik ben geïnteresseerd in *</label>
+                    <label htmlFor="interest" className="form-label">{t('help.form-interest')}</label>
                     <select
                       id="interest"
                       name="interest"
@@ -234,24 +233,24 @@ const SamenInActie = () => {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Selecteer een optie</option>
-                      <option value="donateur">Word donateur</option>
-                      <option value="vrijwilliger">Word vrijwilliger</option>
-                      <option value="school-moskee">Actie met school/moskee</option>
-                      <option value="eigen-actie">Eigen actie starten</option>
-                      <option value="grote-gift">Grote gift</option>
-                      <option value="nalaten">Nalaten</option>
-                      <option value="anders">Iets anders</option>
+                      <option value="">{t('help.form-interest-placeholder')}</option>
+                      <option value="donateur">{t('help.form-interest-donor')}</option>
+                      <option value="vrijwilliger">{t('help.form-interest-volunteer')}</option>
+                      <option value="onderwijs">{t('help.form-interest-education')}</option>
+                      <option value="eigen-actie">{t('help.form-interest-fundraiser')}</option>
+                      <option value="grote-gift">{t('help.form-interest-major')}</option>
+                      <option value="nalaten">{t('help.form-interest-legacy')}</option>
+                      <option value="anders">{t('help.form-interest-other')}</option>
                     </select>
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="message" className="form-label">Bericht *</label>
+                    <label htmlFor="message" className="form-label">{t('help.form-message')}</label>
                     <textarea
                       id="message"
                       name="message"
                       className="form-input form-textarea"
-                      placeholder="Vertel ons meer over je interesse of vraag..."
+                      placeholder={t('help.form-message-placeholder')}
                       rows="5"
                       value={formData.message}
                       onChange={handleChange}
@@ -264,11 +263,11 @@ const SamenInActie = () => {
                     className="btn btn-primary btn-large"
                     disabled={loading}
                   >
-                    {loading ? 'Verzenden...' : 'Verstuur bericht'}
+                    {loading ? t('help.form-submitting') : t('help.form-submit')}
                   </button>
 
                   <p className="form-note">
-                    * Verplichte velden. We behandelen je gegevens vertrouwelijk volgens ons privacybeleid.
+                    {t('help.form-note')}
                   </p>
                 </form>
               )}
@@ -280,16 +279,16 @@ const SamenInActie = () => {
       <section className="samen-actie-cta">
         <div className="container">
           <div className="samen-actie-cta-content">
-            <h2 className="samen-actie-cta-title">Klaar om direct te helpen?</h2>
+            <h2 className="samen-actie-cta-title">{t('help.cta-title')}</h2>
             <p className="samen-actie-cta-text">
-              Je kunt ook direct doneren zonder contactformulier. Elke bijdrage maakt een verschil.
+              {t('help.cta-text')}
             </p>
             <div className="samen-actie-cta-buttons">
               <Link to="/doneren" className="btn btn-primary btn-cta-large">
-                Doneer nu
+                {t('nav.doneer-nu')}
               </Link>
               <Link to="/projecten" className="btn btn-secondary">
-                Bekijk onze projecten
+                {t('help.cta-projects')}
               </Link>
             </div>
           </div>
@@ -300,4 +299,3 @@ const SamenInActie = () => {
 }
 
 export default SamenInActie
-

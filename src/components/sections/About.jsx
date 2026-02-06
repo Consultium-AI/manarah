@@ -1,7 +1,10 @@
 import React from 'react'
 import Reveal from '../Reveal'
+import { useTranslation } from '../../hooks/useTranslation'
 
 const About = () => {
+  const { t } = useTranslation()
+
   return (
     <section className="about-manarah" id="about">
       <div className="container">
@@ -9,38 +12,26 @@ const About = () => {
           {/* Pretitle */}
           <Reveal>
             <p className="about-pretitle">
-              Solidariteit · Naastenliefde · Betrokkenheid
+              {t('about.pretitle')}
             </p>
           </Reveal>
 
           {/* Title */}
           <Reveal delay={0.1}>
             <h2 className="about-manarah-title">
-              <span className="about-highlight">Wie zijn wij</span>
-              als stichting
+              <span className="about-highlight">{t('about.title')}</span>
+              {t('about.title-suffix')}
             </h2>
           </Reveal>
 
           {/* Body */}
           <Reveal delay={0.2}>
             <div className="about-manarah-text">
-              <p>
-                Stichting Manarah is een onafhankelijke, non-profit liefdadigheidsorganisatie gevestigd in Nederland. 
-                Wij zetten ons in voor het ondersteunen van kwetsbare mensen: armen, wezen en mensen met een beperking 
-                – zowel binnen Nederland als in noodlijdende gemeenschappen wereldwijd.
-              </p>
-              <p>
-                Er zijn mensen die wachten op een warme maaltijd, een beetje aandacht of een liefdevol woord. 
-                Met jouw steun kunnen wij hen hoop bieden, hun pijn verzachten en een glimlach terugbrengen 
-                op gezichten die gebukt gaan onder armoede.
-              </p>
-              <p>
-                Samen kunnen we levens veranderen.
-              </p>
+              <p>{t('about.text1')}</p>
+              <p>{t('about.text2')}</p>
+              <p>{t('about.text3')}</p>
               <p className="about-highlight-text">
-                <strong>
-                  Wees een bron van licht. Een reden voor hoop. En een verschil in het leven van een ander.
-                </strong>
+                <strong>{t('about.highlight')}</strong>
               </p>
             </div>
           </Reveal>

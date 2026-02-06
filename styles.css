@@ -233,6 +233,12 @@ p {
     width: 100%;
 }
 
+.nav-donate-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .btn-donate-nav {
     background-color: var(--color-primary);
     color: white;
@@ -244,6 +250,151 @@ p {
 
 .btn-donate-nav:hover {
     background-color: var(--color-primary-dark);
+}
+
+/* Language Switcher */
+.language-switcher {
+    position: relative;
+}
+
+.language-switcher-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+}
+
+.navbar-scrolled .language-switcher-button {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+    color: var(--color-text);
+}
+
+.language-switcher-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-scrolled .language-switcher-button:hover {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.language-flag {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.language-flag-img {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.language-arrow {
+    transition: transform 0.2s ease;
+}
+
+.language-arrow.open {
+    transform: rotate(180deg);
+}
+
+.language-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: transparent;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: left;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.language-option:hover {
+    background: var(--color-bg-light);
+}
+
+.language-option.active {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.language-name {
+    flex: 1;
+}
+
+.nav-donate-group-mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+@media (min-width: 769px) {
+    .nav-donate-group-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-donate-group {
+        display: none;
+    }
+    
+    .language-switcher-button {
+        padding: 0.5rem;
+        min-width: auto;
+    }
+    
+    .language-flag {
+        font-size: 1.125rem;
+    }
+    
+    .language-flag-img {
+        width: 20px;
+        height: 14px;
+    }
+    
+    .language-arrow {
+        display: none;
+    }
 }
 
 /* Hamburger Menu */

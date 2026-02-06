@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { donationsAPI } from '../utils/api'
 import { isAuthenticated } from '../utils/auth'
+import { useTranslation } from '../hooks/useTranslation'
 
 const MijnDonaties = () => {
+  const { t } = useTranslation()
   const [donations, setDonations] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -54,17 +56,28 @@ const MijnDonaties = () => {
 
   const { total, count, lastDonation } = calculateSummary()
 
-  const typeLabels = {
-    'one-time': 'Eenmalig',
-    'monthly': 'Maandelijks',
-    'yearly': 'Jaarlijks'
+  const getTypeLabel = (type) => {
+    switch (type) {
+      case 'one-time':
+        return t('donate.frequency-once')
+      case 'monthly':
+        return t('donate.frequency-monthly')
+      default:
+        return type
+    }
   }
 
-  const statusLabels = {
-    'completed': 'Voltooid',
-    'pending': 'In behandeling',
-    'failed': 'Mislukt',
-    'cancelled': 'Geannuleerd'
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case 'completed':
+        return t('donations.status-completed')
+      case 'pending':
+        return t('donations.status-pending')
+      case 'failed':
+        return t('donations.status-failed')
+      default:
+        return status
+    }
   }
 
   const statusColors = {
@@ -79,7 +92,7 @@ const MijnDonaties = () => {
       <section className="my-donations-section">
         <div className="container">
           <div className="donations-loading">
-            <p>Donaties laden...</p>
+            <p>{t('common.loading')}</p>
           </div>
         </div>
       </section>
@@ -92,7 +105,7 @@ const MijnDonaties = () => {
         <div className="container">
           <div className="donations-error">
             <p>{error}</p>
-            <a href="/inloggen" className="btn btn-primary">Inloggen</a>
+            <Link to="/inloggen" className="btn btn-primary">{t('nav.inloggen')}</Link>
           </div>
         </div>
       </section>
@@ -103,8 +116,8 @@ const MijnDonaties = () => {
     <section className="my-donations-section">
       <div className="container">
         <div className="my-donations-header">
-          <h1 className="my-donations-title">Mijn Donaties</h1>
-          <p className="my-donations-subtitle">Overzicht van al je donaties en hun impact</p>
+          <h1 className="my-donations-title">{t('donations.title')}</h1>
+          <p className="my-donations-subtitle">{t('donations.subtitle')}</p>
         </div>
 
         {donations.length === 0 ? (
@@ -114,11 +127,8 @@ const MijnDonaties = () => {
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
             </div>
-            <h2 className="empty-title">Nog geen donaties</h2>
-            <p className="empty-description">
-              Je hebt nog geen donaties gedaan. Start met doneren en maak het verschil!
-            </p>
-            <a href="/doneren" className="btn btn-primary">Doneer nu</a>
+            <h2 className="empty-title">{t('donations.empty')}</h2>
+            <Link to="/doneren" className="btn btn-primary">{t('donations.start')}</Link>
           </div>
         ) : (
           <>
@@ -133,7 +143,7 @@ const MijnDonaties = () => {
                   </svg>
                 </div>
                 <div className="summary-content">
-                  <h3 className="summary-label">Totaal gedoneerd</h3>
+                  <h3 className="summary-label">{t('donations.total')}</h3>
                   <p className="summary-value">€{total.toFixed(2)}</p>
                 </div>
               </div>
@@ -146,7 +156,7 @@ const MijnDonaties = () => {
                   </svg>
                 </div>
                 <div className="summary-content">
-                  <h3 className="summary-label">Aantal donaties</h3>
+                  <h3 className="summary-label">{t('donations.count')}</h3>
                   <p className="summary-value">{count}</p>
                 </div>
               </div>
@@ -160,7 +170,7 @@ const MijnDonaties = () => {
                   </svg>
                 </div>
                 <div className="summary-content">
-                  <h3 className="summary-label">Laatste donatie</h3>
+                  <h3 className="summary-label">{t('donations.date')}</h3>
                   <p className="summary-value">
                     {lastDonation ? formatDate(lastDonation.created_at) : '-'}
                   </p>
@@ -169,7 +179,7 @@ const MijnDonaties = () => {
             </div>
 
             <div className="donations-list-container">
-              <h2 className="donations-list-title">Donatiegeschiedenis</h2>
+              <h2 className="donations-list-title">{t('donations.subtitle')}</h2>
               <div className="donations-grid">
                 {donations.map(donation => (
                   <div key={donation.id} className="donation-card">
@@ -184,7 +194,7 @@ const MijnDonaties = () => {
                           color: statusColors[donation.status]
                         }}
                       >
-                        {statusLabels[donation.status]}
+                        {getStatusLabel(donation.status)}
                       </span>
                     </div>
                     <div className="donation-card-body">
@@ -192,11 +202,11 @@ const MijnDonaties = () => {
                         <div className="donation-info-item">
                           <span className="donation-info-label">Type:</span>
                           <span className="donation-info-value">
-                            {typeLabels[donation.donation_type]}
+                            {getTypeLabel(donation.donation_type)}
                           </span>
                         </div>
                         <div className="donation-info-item">
-                          <span className="donation-info-label">Datum:</span>
+                          <span className="donation-info-label">{t('donations.date')}:</span>
                           <span className="donation-info-value">
                             {formatDate(donation.created_at)}
                           </span>
@@ -209,7 +219,7 @@ const MijnDonaties = () => {
                         )}
                         {donation.project_country && (
                           <div className="donation-info-item">
-                            <span className="donation-info-label">Land:</span>
+                            <span className="donation-info-label">{t('nav.waar-we-werken')}:</span>
                             <span className="donation-info-value">{donation.project_country}</span>
                           </div>
                         )}
@@ -227,4 +237,3 @@ const MijnDonaties = () => {
 }
 
 export default MijnDonaties
-

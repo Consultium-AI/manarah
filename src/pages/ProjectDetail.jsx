@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { projectsAPI } from '../utils/api'
+import { useTranslation } from '../hooks/useTranslation'
+import ProjectComments from '../components/ProjectComments'
 
 const ProjectDetail = () => {
+  const { t } = useTranslation()
   const { projectId } = useParams()
   const [project, setProject] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -10,35 +13,20 @@ const ProjectDetail = () => {
 
   // Mapping van land codes naar landnamen
   const getCountryName = (code) => {
-    const countryNames = {
-      'BF': 'Burkina Faso',
-      'SY': 'Syrië',
-      'SD': 'Sudan',
-      'UA': 'Oekraïne',
-      'YE': 'Jemen',
-      'ET': 'Ethiopië',
-      'SO': 'Somalië',
-      'AF': 'Afghanistan',
-      'IQ': 'Irak',
-      'MM': 'Myanmar',
-      'BD': 'Bangladesh',
-      'PK': 'Pakistan',
-      'NG': 'Nigeria',
-      'CD': 'Congo',
-      'KE': 'Kenia',
-      'UG': 'Oeganda',
-      'TZ': 'Tanzania',
-      'RW': 'Rwanda',
-      'HT': 'Haïti',
-      'CO': 'Colombia',
-      'VE': 'Venezuela',
-      'GT': 'Guatemala',
-      'HN': 'Honduras',
-    }
-    return countryNames[code] || code
+    return t(`country.${code}`) || code
   }
 
-  const getCountryImage = (code) => {
+  const getProjectImage = (proj) => {
+    // Gebruik project.image_url als die bestaat
+    if (proj && proj.image_url) {
+      // Als het een relatief pad is, voeg BASE_URL toe
+      if (proj.image_url.startsWith('/assets/')) {
+        return `${import.meta.env.BASE_URL}${proj.image_url.substring(1)}`
+      }
+      return proj.image_url
+    }
+    // Fallback naar country image mapping
+    const code = proj?.country_code
     const countryImages = {
       'BF': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
       'SY': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop',
@@ -63,6 +51,7 @@ const ProjectDetail = () => {
       'VE': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'GT': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'HN': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
+      'PS': `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
     }
     return countryImages[code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }
@@ -79,6 +68,21 @@ const ProjectDetail = () => {
     return Math.min((current / target) * 100, 100)
   }
 
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case 'active':
+        return t('projects.status-active')
+      case 'completed':
+        return t('projects.status-completed')
+      case 'paused':
+        return t('projects.status-paused')
+      case 'cancelled':
+        return t('projects.status-cancelled')
+      default:
+        return status
+    }
+  }
+
   useEffect(() => {
     loadProject()
   }, [projectId])
@@ -91,10 +95,10 @@ const ProjectDetail = () => {
       if (response.data && response.data.success) {
         setProject(response.data.project)
       } else {
-        setError('Kon project niet laden.')
+        setError(t('project.error'))
       }
     } catch (err) {
-      setError('Kon project niet laden. Probeer het later opnieuw.')
+      setError(t('project.error'))
       console.error('Error loading project:', err)
     } finally {
       setLoading(false)
@@ -105,7 +109,7 @@ const ProjectDetail = () => {
     return (
       <div className="project-detail-loading">
         <div className="container">
-          <p>Project laden...</p>
+          <p>{t('project.loading')}</p>
         </div>
       </div>
     )
@@ -115,15 +119,15 @@ const ProjectDetail = () => {
     return (
       <div className="project-detail-error">
         <div className="container">
-          <p>{error || 'Project niet gevonden'}</p>
-          <Link to="/projecten" className="btn btn-primary">Terug naar projecten</Link>
+          <p>{error || t('project.not-found')}</p>
+          <Link to="/projecten" className="btn btn-primary">{t('project.back')}</Link>
         </div>
       </div>
     )
   }
 
   const countryName = getCountryName(project.country_code)
-  const countryImage = getCountryImage(project.country_code)
+  const projectImage = getProjectImage(project)
 
   return (
     <div>
@@ -131,7 +135,7 @@ const ProjectDetail = () => {
       <section className="project-detail-hero">
         <div className="project-detail-hero-background">
           <img 
-            src={countryImage}
+            src={projectImage}
             alt={countryName}
             className="project-detail-hero-img"
           />
@@ -140,7 +144,7 @@ const ProjectDetail = () => {
         <div className="project-detail-hero-content">
           <div className="container">
             <div className="project-detail-breadcrumb">
-              <Link to="/projecten">Projecten</Link>
+              <Link to="/projecten">{t('nav.projecten')}</Link>
               <span> / </span>
               <span>{countryName}</span>
             </div>
@@ -159,7 +163,7 @@ const ProjectDetail = () => {
             </p>
             <div className="project-detail-hero-actions">
               <Link to="/doneren" className="btn btn-primary btn-large">
-                Doneer nu voor dit project
+                {t('project.donate-now')}
               </Link>
             </div>
           </div>
@@ -171,59 +175,53 @@ const ProjectDetail = () => {
         <div className="container">
           <div className="project-detail-info-grid">
             <div className="project-detail-main">
-              <h2 className="project-detail-section-title">Over dit project</h2>
+              <h2 className="project-detail-section-title">{t('project.about')}</h2>
               <div className="project-detail-content">
                 <p className="project-detail-text">
                   {project.description}
                 </p>
                 
-                <h3 className="project-detail-subtitle">Waarom dit project belangrijk is</h3>
+                <h3 className="project-detail-subtitle">{t('project.why-important')}</h3>
                 <p className="project-detail-text">
-                  In {countryName} zijn veel mensen afhankelijk van hulp om te overleven. 
-                  Dit project richt zich op het bieden van directe ondersteuning aan de meest kwetsbare gemeenschappen. 
-                  Door samen te werken met lokale partners zorgen we ervoor dat hulp daar komt waar het het hardst nodig is.
+                  {t('project.why-text', { country: countryName })}
                 </p>
 
-                <h3 className="project-detail-subtitle">Wat we doen</h3>
+                <h3 className="project-detail-subtitle">{t('project.what-we-do')}</h3>
                 <ul className="project-detail-list">
-                  <li>Directe hulp aan gezinnen en gemeenschappen in nood</li>
-                  <li>Samenwerking met lokale partners voor duurzame oplossingen</li>
-                  <li>Monitoring en evaluatie om de impact te meten</li>
-                  <li>Transparante rapportage over het gebruik van donaties</li>
+                  <li>{t('project.what-1')}</li>
+                  <li>{t('project.what-2')}</li>
+                  <li>{t('project.what-3')}</li>
+                  <li>{t('project.what-4')}</li>
                 </ul>
 
-                <h3 className="project-detail-subtitle">Onze impact</h3>
+                <h3 className="project-detail-subtitle">{t('project.our-impact')}</h3>
                 <p className="project-detail-text">
-                  Met dit project helpen we duizenden mensen in {countryName}. 
-                  Elke donatie maakt een verschil en draagt bij aan het verbeteren van levensomstandigheden 
-                  en het bieden van hoop voor de toekomst.
+                  {t('project.impact-text', { country: countryName })}
                 </p>
               </div>
             </div>
 
             <div className="project-detail-sidebar">
               <div className="project-detail-card">
-                <h3 className="project-detail-card-title">Project status</h3>
+                <h3 className="project-detail-card-title">{t('project.status')}</h3>
                 <div className="project-detail-status">
                   <span className={`project-status-badge project-status-${project.status}`}>
-                    {project.status === 'active' ? 'Actief' : 
-                     project.status === 'completed' ? 'Voltooid' :
-                     project.status === 'paused' ? 'Gepauzeerd' : 'Geannuleerd'}
+                    {getStatusLabel(project.status)}
                   </span>
                 </div>
               </div>
 
               {project.target_amount && (
                 <div className="project-detail-card">
-                  <h3 className="project-detail-card-title">Financiering</h3>
+                  <h3 className="project-detail-card-title">{t('project.funding')}</h3>
                   <div className="project-detail-funding">
                     <div className="project-detail-funding-amounts">
                       <div className="project-detail-funding-item">
-                        <span className="project-detail-funding-label">Doelbedrag</span>
+                        <span className="project-detail-funding-label">{t('project.target')}</span>
                         <span className="project-detail-funding-value">{formatCurrency(project.target_amount)}</span>
                       </div>
                       <div className="project-detail-funding-item">
-                        <span className="project-detail-funding-label">Opgehaald</span>
+                        <span className="project-detail-funding-label">{t('project.raised')}</span>
                         <span className="project-detail-funding-value project-detail-funding-current">
                           {formatCurrency(project.current_amount || 0)}
                         </span>
@@ -239,7 +237,7 @@ const ProjectDetail = () => {
                         ></div>
                       </div>
                       <p className="project-detail-progress-text">
-                        {getProgressPercentage(project.current_amount, project.target_amount).toFixed(1)}% gefinancierd
+                        {t('project.funded', { percent: getProgressPercentage(project.current_amount, project.target_amount).toFixed(1) })}
                       </p>
                     </div>
                   </div>
@@ -247,15 +245,15 @@ const ProjectDetail = () => {
               )}
 
               <div className="project-detail-card">
-                <h3 className="project-detail-card-title">Statistieken</h3>
+                <h3 className="project-detail-card-title">{t('project.stats')}</h3>
                 <div className="project-detail-stats">
                   <div className="project-detail-stat-item">
-                    <span className="project-detail-stat-label">Donaties</span>
+                    <span className="project-detail-stat-label">{t('projects.donations')}</span>
                     <span className="project-detail-stat-value">{project.donation_count || 0}</span>
                   </div>
                   {project.total_sent > 0 && (
                     <div className="project-detail-stat-item">
-                      <span className="project-detail-stat-label">Uitgekeerd</span>
+                      <span className="project-detail-stat-label">{t('projects.paid-out')}</span>
                       <span className="project-detail-stat-value">{formatCurrency(project.total_sent)}</span>
                     </div>
                   )}
@@ -263,12 +261,12 @@ const ProjectDetail = () => {
               </div>
 
               <div className="project-detail-card">
-                <h3 className="project-detail-card-title">Help mee</h3>
+                <h3 className="project-detail-card-title">{t('project.help')}</h3>
                 <p className="project-detail-card-text">
-                  Elke bijdrage helpt. Doneer nu om dit project te ondersteunen en levens te veranderen.
+                  {t('project.help-text')}
                 </p>
                 <Link to="/doneren" className="btn btn-primary btn-block">
-                  Doneer nu
+                  {t('nav.doneer-nu')}
                 </Link>
               </div>
             </div>
@@ -276,20 +274,27 @@ const ProjectDetail = () => {
         </div>
       </section>
 
+      {/* Comments Section */}
+      <section className="project-detail-comments">
+        <div className="container">
+          <ProjectComments projectId={projectId} />
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="project-detail-cta">
         <div className="container">
           <div className="project-detail-cta-content">
-            <h2 className="project-detail-cta-title">Maak het verschil</h2>
+            <h2 className="project-detail-cta-title">{t('project.cta-title')}</h2>
             <p className="project-detail-cta-text">
-              Jouw steun maakt dit werk mogelijk. Samen kunnen we levens veranderen en hoop brengen waar het hard nodig is.
+              {t('project.cta-text')}
             </p>
             <div className="project-detail-cta-buttons">
               <Link to="/doneren" className="btn btn-primary btn-large">
-                Doneer nu
+                {t('nav.doneer-nu')}
               </Link>
               <Link to="/projecten" className="btn btn-secondary">
-                Bekijk andere projecten
+                {t('project.view-other')}
               </Link>
             </div>
           </div>
@@ -300,4 +305,3 @@ const ProjectDetail = () => {
 }
 
 export default ProjectDetail
-

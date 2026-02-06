@@ -111,7 +111,17 @@ export const projectsAPI = {
     api.get('/projects'),
   
   getById: (id) => 
-    api.get(`/projects/${id}`)
+    api.get(`/projects/${id}`),
+  
+  // Comments
+  getComments: (projectId) => 
+    api.get(`/projects/${projectId}/comments`),
+  
+  addComment: (projectId, comment) => 
+    api.post(`/projects/${projectId}/comments`, { comment }),
+  
+  addGuestComment: (projectId, name, email, comment) => 
+    api.post(`/projects/${projectId}/comments/guest`, { name, email, comment })
 }
 
 // Users API

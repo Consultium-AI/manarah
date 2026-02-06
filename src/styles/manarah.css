@@ -702,6 +702,96 @@
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Hero Search Bar */
+.hero-search-form {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-search-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.hero-search-wrapper:focus-within {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.hero-search-icon {
+    color: rgba(255, 255, 255, 0.7);
+    flex-shrink: 0;
+}
+
+.hero-search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: white;
+    min-width: 0;
+}
+
+.hero-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-search-btn {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.hero-search-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 640px) {
+    .hero-search-form {
+        max-width: 100%;
+    }
+    
+    .hero-search-wrapper {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+    
+    .hero-search-icon {
+        display: none;
+    }
+    
+    .hero-search-input {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+    }
+    
+    .hero-search-btn {
+        width: 100%;
+    }
+}
+
 /* Stats Card - Right Side */
 .hero-pro-stats {
     display: none;
@@ -1984,27 +2074,6 @@
     margin: 0;
 }
 
-.footer-anbi {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #6B7280;
-    font-size: 0.875rem;
-    margin: 0;
-}
-
-.anbi-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #059669, #047857);
-    color: white;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
-}
 
 /* ============================================
    Modern Auth Pages
@@ -2359,4 +2428,372 @@
 
 .form-row .form-group-modern {
     flex: 1;
+}
+
+/* ============================================
+   Project Sections (Active / Completed)
+   ============================================ */
+.projects-section-group {
+    margin-bottom: 3rem;
+}
+
+.projects-section-group:last-child {
+    margin-bottom: 0;
+}
+
+.projects-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.projects-section-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.projects-section-icon-active {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.projects-section-icon-completed {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+}
+
+.projects-section-count {
+    margin-left: auto;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+/* Completed Project Cards */
+.project-card-completed {
+    position: relative;
+}
+
+.project-card-completed .project-card-image {
+    position: relative;
+}
+
+.project-card-completed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(79, 70, 229, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card-completed:hover .project-card-completed-overlay {
+    opacity: 1;
+}
+
+.project-completed-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: #4f46e5;
+    padding: 0.75rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-progress-completed .project-progress-bar {
+    background: #e0e7ff;
+}
+
+.project-progress-fill-completed {
+    background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+}
+
+.projects-section-completed .project-card-footer {
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .projects-section-title {
+        font-size: 1.25rem;
+        flex-wrap: wrap;
+    }
+    
+    .projects-section-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .projects-section-count {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   Project Comments Section
+   ============================================ */
+.project-comments {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.project-comments-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-comments-title svg {
+    color: #6b7280;
+}
+
+/* Comment Form */
+.comment-form {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+}
+
+.comment-form-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.comment-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.comment-form-row .comment-input-group {
+    flex: 1;
+}
+
+.comment-input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.375rem;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.comment-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.comment-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.comment-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.comment-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.comment-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Comments List */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-item {
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: box-shadow 0.2s;
+}
+
+.comment-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.comment-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-author-name {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.95rem;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+.comment-content {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Comments Empty State */
+.comments-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #f9fafb;
+    border-radius: 12px;
+}
+
+.comments-empty-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    color: #9ca3af;
+}
+
+.comments-empty p {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+/* Comments Loading */
+.comments-loading {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+}
+
+/* Comments Error */
+.comments-error {
+    padding: 1rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    margin-bottom: 1rem;
+}
+
+/* Comments Success */
+.comments-success {
+    padding: 1rem;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    color: #16a34a;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Comments */
+@media (max-width: 640px) {
+    .comment-form-row {
+        flex-direction: column;
+    }
+    
+    .comment-item {
+        padding: 1rem;
+    }
+    
+    .comment-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 0.875rem;
+    }
 }

@@ -1,6 +1,6 @@
 # Stichting Manarah Website
 
-Moderne, professionele website voor Stichting Manarah - een ANBI-erkende goede doelen instelling.
+Moderne, professionele website voor Stichting Manarah - een goede doelen instelling.
 
 ## 🚀 Live Website
 
