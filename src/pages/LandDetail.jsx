@@ -126,7 +126,7 @@ const LandDetail = () => {
     'syrie': {
       code: 'SY',
       name: 'Syrië',
-      image: 'https://images.unsplash.com/photo-1658159788721-78e4e057c9aa?w=1920&h=1080&fit=crop',
+      image: 'https://images.unsplash.com/photo-1659781044995-1c68c81dcc67?w=1920&h=1080&fit=crop',
       context: [
         'Na meer dan een decennium van conflict heeft Syrië te maken met een van de grootste humanitaire crises ter wereld. Miljoenen mensen zijn ontheemd en hebben dringend hulp nodig.',
         'Veel gezinnen hebben alles verloren en zijn afhankelijk van humanitaire hulp om te overleven. De infrastructuur is grotendeels verwoest, waardoor toegang tot basisvoorzieningen zoals water, gezondheidszorg en onderwijs zeer beperkt is.',

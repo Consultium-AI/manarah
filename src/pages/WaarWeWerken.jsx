@@ -16,7 +16,7 @@ const WaarWeWerken = () => {
       slug: 'syrie',
       name: t('country.SY'),
       description: t('countries.syria-desc'),
-      image: 'https://images.unsplash.com/photo-1658159788721-78e4e057c9aa?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1659781044995-1c68c81dcc67?w=600&h=400&fit=crop'
     },
     {
       slug: 'sudan',

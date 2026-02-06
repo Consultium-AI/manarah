@@ -29,7 +29,7 @@ const ProjectDetail = () => {
     const code = proj?.country_code
     const countryImages = {
       'BF': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
-      'SY': 'https://images.unsplash.com/photo-1658159788721-78e4e057c9aa?w=1920&h=1080&fit=crop',
+      'SY': 'https://images.unsplash.com/photo-1659781044995-1c68c81dcc67?w=1920&h=1080&fit=crop',
       'SS': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
       'SD': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
       'UA': 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1920&h=1080&fit=crop',
