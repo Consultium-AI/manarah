@@ -1,20 +1,27 @@
 {
   "name": "foundation-backend",
   "version": "1.0.0",
-  "description": "Backend API for Foundation website",
+  "description": "Backend API for Stichting Manarah website",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "start": "node server.js",
+    "start": "node server-pg.js",
+    "start:sqlite": "node server.js",
     "start:mysql": "node server-mysql.js",
     "dev": "nodemon server.js",
+    "dev:pg": "nodemon server-pg.js",
     "dev:mysql": "nodemon server-mysql.js",
     "init-db": "node database/init-db.js",
+    "init-db:pg": "node database/init-pg.js",
     "init-db:mysql": "node database/init-mysql.js",
+    "render-build": "npm install && node database/init-pg.js",
     "delete-projects:mysql": "node database/delete-all-projects-mysql.js",
     "delete-projects:sqlite": "node database/delete-all-projects-sqlite.js",
     "add-palestine-project": "node database/add-palestine-project.js"
   },
-  "keywords": ["foundation", "api", "donations"],
+  "keywords": ["foundation", "api", "donations", "manarah"],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -22,6 +29,7 @@
     "cors": "^2.8.5",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
     "sqlite3": "^5.1.6",
     "mysql2": "^3.6.5",
     "dotenv": "^16.3.1",
