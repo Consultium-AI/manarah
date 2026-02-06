@@ -2260,6 +2260,7 @@ p {
 .context-content {
     max-width: 900px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .context-paragraph {
@@ -2267,7 +2268,7 @@ p {
     line-height: 1.9;
     color: var(--color-text);
     margin-bottom: var(--spacing-md);
-    text-align: justify;
+    text-align: center;
 }
 
 /* Country Activities Section */
@@ -4818,6 +4819,27 @@ details[open] .samen-actie-summary::before {
     }
 }
 
+@media (max-width: 768px) {
+    /* Adjust margin-top for shorter mobile navbar */
+    .hero-manarah,
+    .about-hero,
+    .wie-zijn-wij,
+    .donate-banner,
+    .donate-page-new {
+        margin-top: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-manarah,
+    .about-hero,
+    .wie-zijn-wij,
+    .donate-banner,
+    .donate-page-new {
+        margin-top: 60px;
+    }
+}
+
 @media (max-width: 640px) {
     :root {
         --container-padding: 1rem;
@@ -5034,7 +5056,7 @@ details[open] .samen-actie-summary::before {
     }
 
     .context-paragraph {
-        text-align: left;
+        text-align: center;
         font-size: 1rem;
     }
 

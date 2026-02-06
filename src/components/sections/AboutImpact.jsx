@@ -6,7 +6,7 @@ const AboutImpact = () => {
 
   const stats = [
     { number: '1.2M+', label: t('aboutimpact.stat1') },
-    { number: '25+', label: t('aboutimpact.stat2') },
+    { number: '3+', label: t('aboutimpact.stat2') },
     { number: '500+', label: t('aboutimpact.stat3') },
     { number: '150+', label: t('aboutimpact.stat4') }
   ]

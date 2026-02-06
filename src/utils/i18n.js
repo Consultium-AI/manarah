@@ -365,7 +365,7 @@ const translations = {
     
     // Waar we werken page
     'countries.hero-title': 'Waar we werken',
-    'countries.hero-subtitle': 'We zijn actief in meer dan 25 landen wereldwijd, waar we samen met lokale gemeenschappen werken aan duurzame oplossingen voor conflict, armoede en klimaatverandering.',
+    'countries.hero-subtitle': 'We werken samen met lokale gemeenschappen aan duurzame oplossingen voor conflict, armoede en klimaatverandering.',
     'countries.more-about': 'Meer over {name}',
     'countries.palestine-desc': 'We staan zij aan zij met het Palestijnse volk dat lijdt onder bezetting, ontheemding en een verwoestende humanitaire crisis. Samen bieden we hoop en hulp.',
     'countries.syria-desc': 'We bieden noodhulp en ondersteunen wederopbouw voor gezinnen die alles hebben verloren door jaren van conflict.',
@@ -903,7 +903,7 @@ const translations = {
     'comments.be-first': 'كن أول من يترك تعليقًا!',
     
     'countries.hero-title': 'أين نعمل',
-    'countries.hero-subtitle': 'نحن نعمل في أكثر من 25 دولة حول العالم، حيث نعمل مع المجتمعات المحلية على حلول مستدامة للنزاعات والفقر وتغير المناخ.',
+    'countries.hero-subtitle': 'نعمل مع المجتمعات المحلية على حلول مستدامة للنزاعات والفقر وتغير المناخ.',
     'countries.more-about': 'المزيد عن {name}',
     'countries.palestine-desc': 'نقف جنبًا إلى جنب مع الشعب الفلسطيني الذي يعاني من الاحتلال والتهجير وأزمة إنسانية مدمرة. معًا نقدم الأمل والمساعدة.',
     'countries.syria-desc': 'نقدم الإغاثة الطارئة وندعم إعادة البناء للعائلات التي فقدت كل شيء بسبب سنوات من الصراع.',
@@ -1344,7 +1344,7 @@ const translations = {
     'comments.be-first': 'Be the first to leave a comment!',
     
     'countries.hero-title': 'Where we work',
-    'countries.hero-subtitle': 'We are active in more than 25 countries worldwide, working with local communities on sustainable solutions for conflict, poverty, and climate change.',
+    'countries.hero-subtitle': 'We work together with local communities on sustainable solutions for conflict, poverty, and climate change.',
     'countries.more-about': 'More about {name}',
     'countries.palestine-desc': 'We stand side by side with the Palestinian people suffering from occupation, displacement, and a devastating humanitarian crisis. Together we offer hope and aid.',
     'countries.syria-desc': 'We provide emergency aid and support reconstruction for families who have lost everything due to years of conflict.',
@@ -1785,7 +1785,7 @@ const translations = {
     'comments.be-first': 'Soyez le premier à laisser un commentaire !',
     
     'countries.hero-title': 'Où nous travaillons',
-    'countries.hero-subtitle': 'Nous sommes actifs dans plus de 25 pays à travers le monde, travaillant avec les communautés locales sur des solutions durables pour les conflits, la pauvreté et le changement climatique.',
+    'countries.hero-subtitle': 'Nous travaillons avec les communautés locales sur des solutions durables pour les conflits, la pauvreté et le changement climatique.',
     'countries.more-about': 'En savoir plus sur {name}',
     'countries.palestine-desc': 'Nous sommes aux côtés du peuple palestinien qui souffre de l\'occupation, du déplacement et d\'une crise humanitaire dévastatrice.',
     'countries.syria-desc': 'Nous fournissons une aide d\'urgence et soutenons la reconstruction pour les familles qui ont tout perdu.',

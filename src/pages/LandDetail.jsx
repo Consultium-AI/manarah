@@ -194,9 +194,9 @@ const LandDetail = () => {
           <div className="country-hero-overlay"></div>
         </div>
         <div className="country-hero-content">
-          <div className="container">
-            <h1 className="country-hero-title" dangerouslySetInnerHTML={{ __html: t('land.hero-title', { name: country.name }) }} />
-            <p className="country-hero-intro" dangerouslySetInnerHTML={{ __html: t('land.hero-intro') }} />
+          <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h1 className="country-hero-title" style={{ textAlign: 'center', width: '100%' }} dangerouslySetInnerHTML={{ __html: t('land.hero-title', { name: country.name }) }} />
+            <p className="country-hero-intro" style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: t('land.hero-intro') }} />
             <Link to="/doneren" className="btn btn-primary btn-hero-cta">
               {t('land.donate-for', { name: country.name })}
             </Link>
@@ -206,11 +206,11 @@ const LandDetail = () => {
 
       {/* Context Section */}
       <section className="country-context">
-        <div className="container">
-          <div className="context-content">
-            <h2 className="section-title">{t('land.context-title')}</h2>
+        <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="context-content" style={{ textAlign: 'center', width: '100%' }}>
+            <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>{t('land.context-title')}</h2>
             {country.context.map((paragraph, index) => (
-              <p key={index} className="context-paragraph">
+              <p key={index} className="context-paragraph" style={{ textAlign: 'center' }}>
                 {paragraph}
               </p>
             ))}
@@ -221,8 +221,8 @@ const LandDetail = () => {
       {/* Activities Section */}
       {country.activities.length > 0 && (
         <section className="country-activities">
-          <div className="container">
-            <h2 className="section-title">{t('land.activities-title')}</h2>
+          <div className="container" style={{ textAlign: 'center' }}>
+            <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>{t('land.activities-title')}</h2>
             <div className="country-activities-grid">
               {country.activities.map((activity, index) => (
                 <div key={index} className="country-activity-card">
@@ -239,8 +239,8 @@ const LandDetail = () => {
       {/* Projects Section */}
       {countryProjects.length > 0 && (
         <section className="country-projects">
-          <div className="container">
-            <h2 className="section-title">{t('land.projects-title', { name: country.name })}</h2>
+          <div className="container" style={{ textAlign: 'center' }}>
+            <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>{t('land.projects-title', { name: country.name })}</h2>
             <div className="country-projects-grid">
               {countryProjects.map(project => (
                 <article key={project.id} className="country-project-card">
@@ -265,11 +265,11 @@ const LandDetail = () => {
 
       {/* CTA Section */}
       <section className="country-donation">
-        <div className="container">
-          <div className="country-donation-content">
-            <h2 className="country-donation-title">{t('land.cta-title', { name: country.name })}</h2>
-            <p className="country-donation-description" dangerouslySetInnerHTML={{ __html: t('land.cta-text') }} />
-            <div className="country-donation-actions">
+        <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="country-donation-content" style={{ textAlign: 'center', width: '100%' }}>
+            <h2 className="country-donation-title" style={{ textAlign: 'center', width: '100%' }}>{t('land.cta-title', { name: country.name })}</h2>
+            <p className="country-donation-description" style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: t('land.cta-text') }} />
+            <div className="country-donation-actions" style={{ justifyContent: 'center' }}>
               <Link to="/doneren" className="btn btn-primary btn-large">
                 {t('hero.donate')}
               </Link>

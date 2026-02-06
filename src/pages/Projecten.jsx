@@ -120,31 +120,30 @@ const Projecten = () => {
 
   return (
     <div>
-      <section className="projects-hero">
-        <div className="container">
-          <h1 className="projects-hero-title">{t('projects.title')}</h1>
-          <p className="projects-hero-subtitle">
-            {t('projects.subtitle')}
-          </p>
+      <section className="proj-hero">
+        <div className="proj-hero-bg">
+          <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1920&h=1080&fit=crop" alt="" className="proj-hero-bg-img" />
+          <div className="proj-hero-overlay" />
         </div>
-      </section>
-
-      <section className="projects-section">
-        <div className="container">
-          {/* Filters */}
-          <div className="projects-filters">
-            <div className="projects-filter-group">
-              <label htmlFor="search-filter" className="filter-label">{t('projects.search-label')}</label>
+        <div className="proj-hero-content">
+          <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h1 className="proj-hero-title" style={{ textAlign: 'center', width: '100%' }}>{t('projects.title')}</h1>
+            <p className="proj-hero-subtitle" style={{ textAlign: 'center' }}>{t('projects.subtitle')}</p>
+            <div className="proj-hero-search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <input
-                id="search-filter"
                 type="text"
-                className="filter-input"
                 placeholder={t('projects.search-placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="proj-list">
+        <div className="container">
 
           {/* Loading state */}
           {loading && (
@@ -163,7 +162,7 @@ const Projecten = () => {
           {/* Active Projects Section */}
           {!loading && !error && activeProjects.length > 0 && (
             <div className="projects-section-group">
-              <h2 className="projects-section-title">
+              <h2 className="projects-section-title" style={{ justifyContent: 'center', textAlign: 'center' }}>
                 <span className="projects-section-icon projects-section-icon-active">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"/>
@@ -252,7 +251,7 @@ const Projecten = () => {
           {/* Completed Projects Section */}
           {!loading && !error && completedProjects.length > 0 && (
             <div className="projects-section-group projects-section-completed">
-              <h2 className="projects-section-title">
+              <h2 className="projects-section-title" style={{ justifyContent: 'center', textAlign: 'center' }}>
                 <span className="projects-section-icon projects-section-icon-completed">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
@@ -357,6 +356,17 @@ const Projecten = () => {
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="proj-cta">
+        <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="proj-cta-inner" style={{ textAlign: 'center', width: '100%' }}>
+            <h2 style={{ textAlign: 'center', width: '100%' }}>{t('help.cta-title')}</h2>
+            <p style={{ textAlign: 'center' }}>{t('help.cta-text')}</p>
+            <Link to="/doneren" className="proj-cta-btn">{t('nav.doneer-nu')}</Link>
+          </div>
         </div>
       </section>
     </div>

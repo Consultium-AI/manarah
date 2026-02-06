@@ -411,7 +411,7 @@ const Doneren = () => {
                     <span className="stat-label">{t('donate.stats-people')}</span>
                   </div>
                   <div className="stat-item">
-                    <span className="stat-number">25+</span>
+                    <span className="stat-number">3+</span>
                     <span className="stat-label">{t('donate.stats-countries')}</span>
                   </div>
                   <div className="stat-item">
