@@ -5001,3 +5001,21 @@
         padding: 0.75rem;
     }
 }
+
+/* Ramadan Campaign Section */
+.ramadan-campaign {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 50%, #FFFBEB 100%);
+}
+
+@media (max-width: 768px) {
+    .ramadan-campaign {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .ramadan-campaign {
+        padding: 2.5rem 0;
+    }
+}

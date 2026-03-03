@@ -26,6 +26,20 @@ const WaarWeWerken = () => {
       description: t('countries.sudan-desc'),
       image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&h=600&fit=crop',
       accent: '#059669'
+    },
+    {
+      slug: 'jemen',
+      name: t('country.YE'),
+      description: t('countries.yemen-desc'),
+      image: 'https://images.unsplash.com/photo-1574246604907-db69e30ddb97?w=800&h=600&fit=crop',
+      accent: '#D97706'
+    },
+    {
+      slug: 'nederland',
+      name: t('country.NL'),
+      description: t('countries.netherlands-desc'),
+      image: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5571?w=800&h=600&fit=crop',
+      accent: '#F97316'
     }
   ]
 

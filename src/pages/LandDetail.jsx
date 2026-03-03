@@ -96,29 +96,29 @@ const LandDetail = () => {
       name: 'Palestina',
       image: `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
       context: [
-        'Palestina bevindt zich in een van de langstdurende humanitaire crises ter wereld. Miljoenen Palestijnen leven onder bezetting en worden dagelijks geconfronteerd met ontheemding, verwoesting en een gebrek aan basisvoorzieningen. Gaza is het zwaarst getroffen, met een belegering die de toegang tot voedsel, water, medicijnen en elektriciteit ernstig beperkt.',
-        'Gezinnen zijn uit hun huizen verdreven, kinderen groeien op tussen puin en trauma, en ziekenhuizen kunnen de stroom gewonden nauwelijks aan. De Al-Aqsa moskee, een heilig symbool voor miljoenen moslims wereldwijd, staat onder constante druk. Het leed van het Palestijnse volk raakt ons diep.',
-        'Wij geloven dat elk mens recht heeft op waardigheid, veiligheid en een toekomst. Daarom staan we zij aan zij met het Palestijnse volk en werken we aan directe noodhulp, medische zorg, onderwijs en wederopbouw. Samen kunnen we hoop brengen waar die het hardst nodig is.'
+        'Stichting Manarah voert humanitaire hulpcampagnes uit in Palestina, met bijzondere aandacht voor het ondersteunen van getroffen families die geconfronteerd worden met moeilijke humanitaire omstandigheden door conflicten, gedwongen ontheemding en een tekort aan basisvoorzieningen.',
+        'Ons doel is om een echte steun te zijn voor getroffen families en hen een helpende hand te bieden die hun waardigheid bewaart en hun dagelijks lijden verlicht. Onze campagnes omvatten: het voorzien van schoon drinkwater, het uitdelen van voedselpakketten, het bieden van financiële noodhulp, het aanschaffen van noodonderdak voor families die hun huizen zijn kwijtgeraakt, en maandelijkse ondersteuning van families die hun inkomensbronnen hebben verloren.',
+        'Tijdens de heilige maand Ramadan organiseren wij iftar-campagnes om warmte te brengen aan de tafels van vastenden en de geest van solidariteit te versterken. Deze initiatieven zijn niet slechts tijdelijke hulp, maar een boodschap van solidariteit en hoop.'
       ],
       activities: [
         {
-          title: 'Noodhulp en voedselpakketten',
-          description: 'We voorzien gezinnen in Gaza en de Westelijke Jordaanoever van voedselpakketten, schoon water en essentiële levensbehoeften om te overleven in deze crisis.',
+          title: 'Schoon drinkwater',
+          description: 'We voorzien families van schoon drinkwater via watercampagnes voor gezinnen die te kampen hebben met waterschaarste.',
+          icon: 'droplet'
+        },
+        {
+          title: 'Voedselpakketten',
+          description: 'We verdelen essentiële voedselpakketten om honger en voedselonzekerheid tegen te gaan bij getroffen families.',
+          icon: 'utensils'
+        },
+        {
+          title: 'Financiële noodhulp',
+          description: 'We bieden financiële steun aan families om in hun noodzakelijke behoeften te voorzien.',
           icon: 'emergency'
         },
         {
-          title: 'Medische hulp',
-          description: 'We ondersteunen ziekenhuizen en klinieken met medicijnen, medische apparatuur en noodhulpteams om gewonden en zieken te behandelen.',
-          icon: 'heart'
-        },
-        {
-          title: 'Onderwijs voor kinderen',
-          description: 'We creëren veilige leeromgevingen voor kinderen wier scholen zijn verwoest, zodat zij ondanks alles kunnen blijven leren en dromen.',
-          icon: 'book'
-        },
-        {
-          title: 'Wederopbouw en onderdak',
-          description: 'We helpen bij het herbouwen van verwoeste huizen en het bieden van tijdelijk onderdak aan ontheemde families die alles zijn kwijtgeraakt.',
+          title: 'Noodonderdak',
+          description: 'We voorzien families die hun huizen zijn kwijtgeraakt van tenten en onderdak om hen te beschermen tegen de moeilijke omstandigheden.',
           icon: 'home'
         }
       ]
@@ -146,6 +146,60 @@ const LandDetail = () => {
         {
           title: 'Psychosociale steun',
           description: 'We bieden counseling en psychosociale steun aan kinderen en volwassenen die trauma\'s hebben opgelopen.',
+          icon: 'heart'
+        }
+      ]
+    },
+    'jemen': {
+      code: 'YE',
+      name: 'Jemen',
+      image: 'https://images.unsplash.com/photo-1574246604907-db69e30ddb97?w=1920&h=1080&fit=crop',
+      context: [
+        'Vanuit onze humanitaire missie om de meest kwetsbare groepen te ondersteunen, heeft Stichting Manarah programma\'s uitgevoerd in Jemen gericht op het bijstaan van families die hun inkomensbronnen zijn kwijtgeraakt en niet in staat zijn hun basisbehoeften te voorzien vanwege de moeilijke economische en humanitaire omstandigheden.',
+        'Onze inspanningen omvatten maandelijkse bijstand aan gezinnen door het dekken van huurkosten en het voorzien in basislevensbehoeften, om hun bestaanszekerheid te waarborgen en hen in waardigheid te laten leven.',
+        'Vanuit ons geloof dat duurzaamheid de basis is van echt humanitair werk, heeft de stichting gewerkt aan het economisch empoweren van families die kunnen werken, zodat zij zelfredzaam worden in plaats van afhankelijk van voortdurende hulp. Dit omvat het verstrekken van gereedschap en werkmiddelen, zoals naaimachines voor mensen met naaivaardigheid.'
+      ],
+      activities: [
+        {
+          title: 'Maandelijkse gezinsbijstand',
+          description: 'We dekken huurkosten en basislevensbehoeften voor families die hun inkomen zijn kwijtgeraakt.',
+          icon: 'home'
+        },
+        {
+          title: 'Economische empowerment',
+          description: 'We voorzien families van gereedschap en middelen om een eigen inkomen op te bouwen, zoals naaimachines.',
+          icon: 'handshake'
+        },
+        {
+          title: 'Voedselsteun',
+          description: 'We bieden voedselhulp aan gezinnen die niet in staat zijn hun dagelijkse maaltijden te voorzien.',
+          icon: 'utensils'
+        }
+      ]
+    },
+    'nederland': {
+      code: 'NL',
+      name: 'Nederland',
+      image: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5571?w=1920&h=1080&fit=crop',
+      context: [
+        'In Nederland richt Stichting Manarah zich op het helpen van mensen bij het integreren in de Nederlandse samenleving. We bieden ondersteuning bij taalcursussen, culturele oriëntatie en het opbouwen van een nieuw bestaan.',
+        'Daarnaast organiseren wij activiteiten voor jongeren om hen te verbinden met elkaar en met de samenleving. Door middel van sport, educatie en sociale evenementen creëren we een veilige omgeving waar jongeren zich kunnen ontwikkelen.',
+        'Ons doel is om bruggen te bouwen tussen gemeenschappen en bij te dragen aan een inclusieve samenleving waarin iedereen de kans krijgt om te groeien en bij te dragen.'
+      ],
+      activities: [
+        {
+          title: 'Integratieondersteuning',
+          description: 'We helpen nieuwkomers bij het integreren in de Nederlandse samenleving door taalcursussen en culturele begeleiding.',
+          icon: 'handshake'
+        },
+        {
+          title: 'Jongerenactiviteiten',
+          description: 'We organiseren sport, educatie en sociale evenementen voor jongeren om hen te verbinden en te versterken.',
+          icon: 'book'
+        },
+        {
+          title: 'Gemeenschapsopbouw',
+          description: 'We bouwen bruggen tussen gemeenschappen door dialoog, samenwerking en gezamenlijke activiteiten te faciliteren.',
           icon: 'heart'
         }
       ]

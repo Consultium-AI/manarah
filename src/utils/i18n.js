@@ -50,6 +50,11 @@ const translations = {
     'hero.trust.founded': '2024',
     'hero.trust.founded-label': 'Opgericht',
     
+    // Ramadan
+    'home.ramadan-title': 'Ramadan Campagne',
+    'home.ramadan-text': 'Tijdens de heilige maand Ramadan willen wij ons inzetten voor gezinnen die in armoede en moeilijke omstandigheden leven. Onze speciale aandacht gaat uit naar arme families die nog in kampen wonen en dagelijks met grote uitdagingen worden geconfronteerd. Daarom zullen wij gedurende de Ramadan elke dag 100 families voorzien van een warme maaltijd, zodat niemand met een lege maag hoeft te vasten.',
+    'home.ramadan-btn': 'Doneer voor Ramadan',
+    
     // About
     'about.pretitle': 'Solidariteit · Naastenliefde · Betrokkenheid',
     'about.title': 'Wie zijn wij',
@@ -342,7 +347,8 @@ const translations = {
     'country.GT': 'Guatemala',
     'country.HN': 'Honduras',
     'country.PS': 'Palestina',
-    
+    'country.NL': 'Nederland',
+
     // Comments
     'comments.title': 'Reacties',
     'comments.leave-comment': 'Laat een reactie achter',
@@ -367,10 +373,12 @@ const translations = {
     'countries.hero-title': 'Waar we werken',
     'countries.hero-subtitle': 'We werken samen met lokale gemeenschappen aan duurzame oplossingen voor conflict, armoede en klimaatverandering.',
     'countries.more-about': 'Meer over {name}',
-    'countries.palestine-desc': 'We staan zij aan zij met het Palestijnse volk dat lijdt onder bezetting, ontheemding en een verwoestende humanitaire crisis. Samen bieden we hoop en hulp.',
+    'countries.palestine-desc': 'Stichting Manarah biedt humanitaire hulp aan getroffen families in Palestina, waaronder schoon drinkwater, voedselpakketten, noodonderdak en financiële steun.',
     'countries.syria-desc': 'We bieden noodhulp en ondersteunen wederopbouw voor gezinnen die alles hebben verloren door jaren van conflict.',
     'countries.sudan-desc': 'We werken aan voedselzekerheid, watertoegang en vredesopbouw in een van de meest kwetsbare regio\'s ter wereld.',
-    
+    'countries.yemen-desc': 'Stichting Manarah ondersteunt families in Jemen die hun inkomensbronnen zijn kwijtgeraakt, door maandelijkse bijstand, huisvestingskosten en economische empowerment.',
+    'countries.netherlands-desc': 'In Nederland helpen wij mensen integreren in de Nederlandse samenleving en organiseren wij activiteiten voor jongeren om hen te verbinden en te versterken.',
+
     // Land detail page
     'land.hero-title': 'We zijn er in <span class="highlight">{name}</span>',
     'land.hero-intro': 'Samen met lokale partners werken we aan <strong>duurzame oplossingen</strong> voor de meest kwetsbare gemeenschappen. Ons werk richt zich op het bieden van hoop en het versterken van weerbaarheid.',
@@ -386,9 +394,9 @@ const translations = {
     'whoarewe.hero-title': 'Samen geven we <span class="highlight">hoop</span> in tijden van crisis',
     'whoarewe.hero-desc': 'Wij zijn een stichting die zich inzet voor mensen die getroffen zijn door conflict, rampen en armoede. Met respect, medemenselijkheid en een onwrikbaar geloof in de kracht van samenwerking, bouwen we aan een betere toekomst voor iedereen.',
     'whoarewe.origin-title': 'Onze oorsprong',
-    'whoarewe.origin-p1': 'Het begon met een ontmoeting die alles veranderde. In 2015 reisde onze oprichter naar een vluchtelingenkamp in het Midden-Oosten, waar hij een Syrische familie ontmoette die alles had verloren. De moeder, Fatima, vertelde over haar droom om haar kinderen weer naar school te sturen. Haar verhaal raakte hem diep: <span class="text-highlight">hier waren mensen met hoop, met dromen, met moed</span> – maar zonder de middelen om hun toekomst op te bouwen.',
-    'whoarewe.origin-p2': 'Die ontmoeting werd het begin van onze missie. We besloten niet alleen te kijken, maar te handelen. Niet alleen te luisteren, maar te helpen. <span class="text-highlight">We geloven dat iedereen recht heeft op veiligheid, onderwijs en de kans om een waardig leven op te bouwen</span>, ongeacht waar ze vandaan komen of wat ze hebben meegemaakt.',
-    'whoarewe.origin-p3': 'Vandaag de dag werken we in meer dan twintig landen, samen met lokale gemeenschappen, partners en vrijwilligers. Ons werk is gebaseerd op het principe dat <span class="text-highlight">echte verandering van binnenuit komt</span> – door mensen de tools en kansen te geven om hun eigen toekomst vorm te geven. We zijn er niet om te redden, maar om te versterken. Niet om te geven, maar om samen te bouwen.',
+    'whoarewe.origin-p1': 'Het idee voor Stichting Manarah ontstond in 2018, opgericht door een groep jonge Syriërs die de verantwoordelijkheid op zich namen om hun broeders en zusters – vluchtelingen en ontheemden – bij te staan. Zij hadden de enorme menselijke lijden van dichtbij meegemaakt, met name in het noorden van Syrië, waar de omstandigheden van ontheemding verergerden en de armoede toenam. Veel families leefden in tenten die hen niet beschermden tegen de zomerhitte noch de winterkou.',
+    'whoarewe.origin-p2': 'De stichting begon met eenvoudige middelen en puur vrijwillige inspanningen, met een helder doel voor ogen: het verlichten van het lijden van hulpbehoevenden en het voorzien in hun basisbehoeften aan voedsel, medicijnen en onderdak, om hun menselijke waardigheid te behouden en hun veerkracht te versterken tegen de moeilijke omstandigheden. Het team begon met twintig vrijwilligers die als één team werkten en hun tijd en energie wijdden aan het dienen van de gemeenschap.',
+    'whoarewe.origin-p3': 'Met het groeiende aantal intern en extern ontheemden en de toenemende behoefte, breidde het humanitaire werk van de stichting zich uit naar een breder bereik van begunstigden en gebieden. Stichting Manarah bekroonde haar traject met de oprichting van een officiële organisatie, gevestigd in Nederland, met ook een wettelijke vergunning in Syrië. Dit institutionele kader is gericht op het organiseren van liefdadigheidswerk volgens internationale professionele normen, het bevorderen van transparantie en geloofwaardigheid, en het opbouwen van vertrouwensbruggen met supporters en donateurs wereldwijd.',
     
     // Values
     'values.intro': 'We werken vanuit principes die <span class="text-highlight">hoop</span> en <span class="text-highlight">waardigheid</span> herstellen. Deze waarden drijven ons om elke dag klaar te staan voor mensen die het hard nodig hebben.',
@@ -588,6 +596,11 @@ const translations = {
     'hero.trust.transparent-label': 'شفاف',
     'hero.trust.founded': '2024',
     'hero.trust.founded-label': 'تأسست',
+    
+    // Ramadan
+    'home.ramadan-title': 'حملة رمضان',
+    'home.ramadan-text': 'خلال شهر رمضان المبارك، نسعى لخدمة العائلات التي تعيش في فقر وظروف صعبة. نولي اهتماماً خاصاً للعائلات الفقيرة التي لا تزال تعيش في المخيمات وتواجه تحديات كبيرة يومياً. لذلك سنقوم خلال رمضان بتوفير وجبة ساخنة لـ 100 عائلة يومياً حتى لا يضطر أحد للصيام بمعدة فارغة.',
+    'home.ramadan-btn': 'تبرع لرمضان',
     
     // About
     'about.pretitle': 'التضامن · المحبة · المشاركة',
@@ -881,7 +894,8 @@ const translations = {
     'country.GT': 'غواتيمالا',
     'country.HN': 'هندوراس',
     'country.PS': 'فلسطين',
-    
+    'country.NL': 'هولندا',
+
     // Comments
     'comments.title': 'التعليقات',
     'comments.leave-comment': 'اترك تعليقًا',
@@ -905,9 +919,11 @@ const translations = {
     'countries.hero-title': 'أين نعمل',
     'countries.hero-subtitle': 'نعمل مع المجتمعات المحلية على حلول مستدامة للنزاعات والفقر وتغير المناخ.',
     'countries.more-about': 'المزيد عن {name}',
-    'countries.palestine-desc': 'نقف جنبًا إلى جنب مع الشعب الفلسطيني الذي يعاني من الاحتلال والتهجير وأزمة إنسانية مدمرة. معًا نقدم الأمل والمساعدة.',
+    'countries.palestine-desc': 'تقدم جمعية منارة المساعدات الإنسانية للعائلات المتضررة في فلسطين، بما في ذلك مياه الشرب النظيفة والسلال الغذائية والمأوى الطارئ والدعم المالي.',
     'countries.syria-desc': 'نقدم الإغاثة الطارئة وندعم إعادة البناء للعائلات التي فقدت كل شيء بسبب سنوات من الصراع.',
     'countries.sudan-desc': 'نعمل على الأمن الغذائي والوصول إلى المياه وبناء السلام في واحدة من أكثر المناطق هشاشة في العالم.',
+    'countries.yemen-desc': 'تدعم جمعية منارة العائلات في اليمن التي فقدت مصادر دخلها، من خلال المساعدة الشهرية وتكاليف السكن والتمكين الاقتصادي.',
+    'countries.netherlands-desc': 'في هولندا، نساعد الناس على الاندماج في المجتمع الهولندي وننظم أنشطة للشباب لربطهم وتمكينهم.',
     'land.hero-title': 'نحن موجودون في <span class="highlight">{name}</span>',
     'land.hero-intro': 'مع الشركاء المحليين نعمل على <strong>حلول مستدامة</strong> للمجتمعات الأكثر ضعفًا. يركز عملنا على تقديم الأمل وتعزيز المرونة.',
     'land.donate-for': 'تبرع الآن لـ {name}',
@@ -920,9 +936,9 @@ const translations = {
     'whoarewe.hero-title': 'معًا نعطي <span class="highlight">الأمل</span> في أوقات الأزمات',
     'whoarewe.hero-desc': 'نحن مؤسسة تعمل من أجل الأشخاص المتضررين من النزاعات والكوارث والفقر. بالاحترام والإنسانية والإيمان الراسخ بقوة التعاون، نبني مستقبلاً أفضل للجميع.',
     'whoarewe.origin-title': 'أصلنا',
-    'whoarewe.origin-p1': 'بدأ الأمر بلقاء غيّر كل شيء. في عام 2015 سافر مؤسسنا إلى مخيم للاجئين في الشرق الأوسط، حيث التقى بعائلة سورية فقدت كل شيء. أخبرته الأم فاطمة عن حلمها بإعادة أطفالها إلى المدرسة. قصتها أثرت فيه بعمق: <span class="text-highlight">هنا أشخاص لديهم أمل وأحلام وشجاعة</span> – لكن بدون الموارد لبناء مستقبلهم.',
-    'whoarewe.origin-p2': 'ذلك اللقاء كان بداية مهمتنا. قررنا ألا نكتفي بالمشاهدة بل بالعمل. ألا نكتفي بالاستماع بل بالمساعدة. <span class="text-highlight">نؤمن بأن كل شخص له الحق في الأمان والتعليم وفرصة بناء حياة كريمة</span>، بغض النظر عن مكان مجيئه أو ما مر به.',
-    'whoarewe.origin-p3': 'اليوم نعمل في أكثر من عشرين دولة، مع المجتمعات المحلية والشركاء والمتطوعين. عملنا يقوم على مبدأ أن <span class="text-highlight">التغيير الحقيقي يأتي من الداخل</span> – بإعطاء الناس الأدوات والفرص لتشكيل مستقبلهم. نحن لسنا هنا لإنقاذ بل لتمكين. لسنا هنا للعطاء بل للبناء معًا.',
+    'whoarewe.origin-p1': 'تأسست فكرة جمعية منارة عام 2018 على يد مجموعة من الشباب السوريين الذين حملوا على عاتقهم مسؤولية الوقوف إلى جانب إخوتهم اللاجئين والنازحين، بعد أن عايشوا عن قرب حجم المعاناة الإنسانية، لا سيما في شمال سوريا حيث تفاقمت ظروف النزوح واشتد الفقر، وكان كثير من العائلات يعيشون في خيام لا تقي حر الصيف ولا برد الشتاء.',
+    'whoarewe.origin-p2': 'انطلقت الجمعية بإمكانات بسيطة وجهود تطوعية خالصة، واضعةً نصب عينيها هدفاً واضحاً: تخفيف معاناة المحتاجين وتأمين احتياجاتهم الأساسية من الغذاء والدواء والمأوى، بما يحفظ كرامتهم الإنسانية ويعزز صمودهم في وجه الظروف القاسية. بدأ الفريق بعشرين متطوعاً عملوا بروح الفريق الواحد، مكرّسين أوقاتهم وجهودهم لخدمة المجتمع.',
+    'whoarewe.origin-p3': 'ومع تزايد أعداد المهجّرين داخلياً وخارجياً واتساع رقعة الاحتياج، تطور العمل الإنساني للجمعية ليشمل نطاقاً أوسع من المستفيدين والمناطق. وتوّجت جمعية منارة مسيرتها بتأسيس منظمة رسمية تحمل اسمها، مقرها في هولندا، ولها ترخيص قانوني في سوريا أيضاً. ويهدف هذا الإطار المؤسسي إلى تنظيم العمل الخيري وفق معايير مهنية عالمية، وتعزيز الشفافية والمصداقية، وبناء جسور الثقة مع الداعمين والمتبرعين في مختلف أنحاء العالم.',
     'values.intro': 'نعمل من مبادئ تعيد <span class="text-highlight">الأمل</span> و<span class="text-highlight">الكرامة</span>. هذه القيم تدفعنا لنكون جاهزين كل يوم للأشخاص الذين يحتاجوننا.',
     'values.title': 'قيمنا',
     'values.integrity': 'النزاهة', 'values.integrity-desc': 'نريد العيش وفقًا لقيمنا ومبادئنا على كل مستوى من مؤسستنا وفي كل موقع.',
@@ -1029,6 +1045,11 @@ const translations = {
     'hero.trust.transparent-label': 'Transparent',
     'hero.trust.founded': '2024',
     'hero.trust.founded-label': 'Founded',
+    
+    // Ramadan
+    'home.ramadan-title': 'Ramadan Campaign',
+    'home.ramadan-text': 'During the holy month of Ramadan, we want to serve families living in poverty and difficult circumstances. Our special attention goes to poor families still living in camps who face great challenges daily. Therefore, during Ramadan we will provide 100 families with a warm meal every day, so that no one has to fast on an empty stomach.',
+    'home.ramadan-btn': 'Donate for Ramadan',
     
     // About
     'about.pretitle': 'Solidarity · Compassion · Engagement',
@@ -1322,7 +1343,8 @@ const translations = {
     'country.GT': 'Guatemala',
     'country.HN': 'Honduras',
     'country.PS': 'Palestine',
-    
+    'country.NL': 'Netherlands',
+
     // Comments
     'comments.title': 'Comments',
     'comments.leave-comment': 'Leave a comment',
@@ -1346,9 +1368,11 @@ const translations = {
     'countries.hero-title': 'Where we work',
     'countries.hero-subtitle': 'We work together with local communities on sustainable solutions for conflict, poverty, and climate change.',
     'countries.more-about': 'More about {name}',
-    'countries.palestine-desc': 'We stand side by side with the Palestinian people suffering from occupation, displacement, and a devastating humanitarian crisis. Together we offer hope and aid.',
+    'countries.palestine-desc': 'Stichting Manarah provides humanitarian aid to affected families in Palestine, including clean drinking water, food packages, emergency shelter, and financial support.',
     'countries.syria-desc': 'We provide emergency aid and support reconstruction for families who have lost everything due to years of conflict.',
     'countries.sudan-desc': 'We work on food security, water access, and peacebuilding in one of the most vulnerable regions in the world.',
+    'countries.yemen-desc': 'Stichting Manarah supports families in Yemen who have lost their income sources, through monthly assistance, housing costs, and economic empowerment.',
+    'countries.netherlands-desc': 'In the Netherlands, we help people integrate into Dutch society and organize activities for young people to connect and empower them.',
     'land.hero-title': 'We are there in <span class="highlight">{name}</span>',
     'land.hero-intro': 'Together with local partners, we work on <strong>sustainable solutions</strong> for the most vulnerable communities. Our work focuses on offering hope and strengthening resilience.',
     'land.donate-for': 'Donate now for {name}',
@@ -1360,10 +1384,10 @@ const translations = {
     'land.view-all-projects': 'View all projects',
     'whoarewe.hero-title': 'Together we give <span class="highlight">hope</span> in times of crisis',
     'whoarewe.hero-desc': 'We are a foundation dedicated to people affected by conflict, disasters, and poverty. With respect, compassion, and an unwavering belief in the power of cooperation, we build a better future for everyone.',
-    'whoarewe.origin-title': 'Our origin',
-    'whoarewe.origin-p1': 'It started with an encounter that changed everything. In 2015, our founder traveled to a refugee camp in the Middle East, where he met a Syrian family that had lost everything. The mother, Fatima, told him about her dream to send her children back to school. Her story deeply moved him: <span class="text-highlight">here were people with hope, with dreams, with courage</span> – but without the means to build their future.',
-    'whoarewe.origin-p2': 'That encounter became the beginning of our mission. We decided not just to watch, but to act. Not just to listen, but to help. <span class="text-highlight">We believe everyone has the right to safety, education, and the chance to build a dignified life</span>, regardless of where they come from or what they have experienced.',
-    'whoarewe.origin-p3': 'Today we work in more than twenty countries, together with local communities, partners, and volunteers. Our work is based on the principle that <span class="text-highlight">real change comes from within</span> – by giving people the tools and opportunities to shape their own future. We are not here to rescue, but to empower. Not to give, but to build together.',
+    'whoarewe.origin-title': 'Our Origin',
+    'whoarewe.origin-p1': 'The idea for Stichting Manarah was born in 2018, founded by a group of young Syrians who took upon themselves the responsibility of standing alongside their brothers and sisters – refugees and displaced people. Having witnessed the enormous human suffering firsthand, particularly in northern Syria where displacement conditions worsened and poverty intensified, with many families living in tents that offered no protection from summer heat or winter cold.',
+    'whoarewe.origin-p2': 'The foundation started with simple means and purely voluntary efforts, with a clear goal in mind: alleviating the suffering of those in need and providing their basic necessities of food, medicine, and shelter, preserving their human dignity and strengthening their resilience against harsh conditions. The team began with twenty volunteers who worked as one, dedicating their time and energy to serving the community.',
+    'whoarewe.origin-p3': 'As the number of internally and externally displaced people grew and the scope of need expanded, the foundation\'s humanitarian work evolved to encompass a wider range of beneficiaries and regions. Stichting Manarah crowned its journey by establishing an official organization bearing its name, headquartered in the Netherlands, with a legal license in Syria as well. This institutional framework aims to organize charitable work according to international professional standards, promote transparency and credibility, and build bridges of trust with supporters and donors worldwide.',
     'values.intro': 'We work from principles that restore <span class="text-highlight">hope</span> and <span class="text-highlight">dignity</span>. These values drive us to be ready every day for people who desperately need it.',
     'values.title': 'Our values',
     'values.integrity': 'Integrity', 'values.integrity-desc': 'We want to live from our values and principles at every level of our organization and in every location.',
@@ -1470,6 +1494,11 @@ const translations = {
     'hero.trust.transparent-label': 'Transparent',
     'hero.trust.founded': '2024',
     'hero.trust.founded-label': 'Fondé',
+    
+    // Ramadan
+    'home.ramadan-title': 'Campagne Ramadan',
+    'home.ramadan-text': 'Pendant le mois sacré du Ramadan, nous voulons servir les familles vivant dans la pauvreté et des circonstances difficiles. Notre attention particulière va aux familles pauvres vivant encore dans des camps qui font face à de grands défis quotidiens. C\'est pourquoi, pendant le Ramadan, nous fournirons chaque jour un repas chaud à 100 familles, afin que personne n\'ait à jeûner le ventre vide.',
+    'home.ramadan-btn': 'Donnez pour le Ramadan',
     
     // About
     'about.pretitle': 'Solidarité · Compassion · Engagement',
@@ -1763,7 +1792,8 @@ const translations = {
     'country.GT': 'Guatemala',
     'country.HN': 'Honduras',
     'country.PS': 'Palestine',
-    
+    'country.NL': 'Pays-Bas',
+
     // Comments
     'comments.title': 'Commentaires',
     'comments.leave-comment': 'Laisser un commentaire',
@@ -1787,9 +1817,11 @@ const translations = {
     'countries.hero-title': 'Où nous travaillons',
     'countries.hero-subtitle': 'Nous travaillons avec les communautés locales sur des solutions durables pour les conflits, la pauvreté et le changement climatique.',
     'countries.more-about': 'En savoir plus sur {name}',
-    'countries.palestine-desc': 'Nous sommes aux côtés du peuple palestinien qui souffre de l\'occupation, du déplacement et d\'une crise humanitaire dévastatrice.',
+    'countries.palestine-desc': 'Stichting Manarah fournit une aide humanitaire aux familles touchées en Palestine, notamment de l\'eau potable, des colis alimentaires, un abri d\'urgence et un soutien financier.',
     'countries.syria-desc': 'Nous fournissons une aide d\'urgence et soutenons la reconstruction pour les familles qui ont tout perdu.',
     'countries.sudan-desc': 'Nous travaillons sur la sécurité alimentaire, l\'accès à l\'eau et la consolidation de la paix.',
+    'countries.yemen-desc': 'Stichting Manarah soutient les familles au Yémen qui ont perdu leurs sources de revenus, par une aide mensuelle, des frais de logement et l\'autonomisation économique.',
+    'countries.netherlands-desc': 'Aux Pays-Bas, nous aidons les gens à s\'intégrer dans la société néerlandaise et organisons des activités pour les jeunes afin de les connecter et les autonomiser.',
     'land.hero-title': 'Nous sommes présents en <span class="highlight">{name}</span>',
     'land.hero-intro': 'Avec des partenaires locaux, nous travaillons sur des <strong>solutions durables</strong> pour les communautés les plus vulnérables.',
     'land.donate-for': 'Faire un don pour {name}',
@@ -1802,9 +1834,9 @@ const translations = {
     'whoarewe.hero-title': 'Ensemble, nous donnons <span class="highlight">l\'espoir</span> en temps de crise',
     'whoarewe.hero-desc': 'Nous sommes une fondation dédiée aux personnes touchées par les conflits, les catastrophes et la pauvreté. Avec respect et compassion, nous construisons un avenir meilleur.',
     'whoarewe.origin-title': 'Notre origine',
-    'whoarewe.origin-p1': 'Tout a commencé par une rencontre qui a tout changé. En 2015, notre fondateur s\'est rendu dans un camp de réfugiés au Moyen-Orient, où il a rencontré une famille syrienne qui avait tout perdu. <span class="text-highlight">Des gens avec de l\'espoir, des rêves, du courage</span> – mais sans les moyens de construire leur avenir.',
-    'whoarewe.origin-p2': 'Cette rencontre fut le début de notre mission. <span class="text-highlight">Nous croyons que chacun a droit à la sécurité, à l\'éducation et à la chance de construire une vie digne</span>.',
-    'whoarewe.origin-p3': 'Aujourd\'hui, nous travaillons dans plus de vingt pays. Notre travail repose sur le principe que <span class="text-highlight">le vrai changement vient de l\'intérieur</span>.',
+    'whoarewe.origin-p1': 'L\'idée de Stichting Manarah est née en 2018, fondée par un groupe de jeunes Syriens qui ont pris la responsabilité de se tenir aux côtés de leurs frères et sœurs – réfugiés et déplacés. Ayant été témoins de l\'énorme souffrance humaine de près, notamment dans le nord de la Syrie où les conditions de déplacement se sont aggravées et la pauvreté s\'est intensifiée, de nombreuses familles vivant dans des tentes qui ne les protégeaient ni de la chaleur estivale ni du froid hivernal.',
+    'whoarewe.origin-p2': 'La fondation a démarré avec des moyens simples et des efforts purement bénévoles, avec un objectif clair : soulager la souffrance des personnes dans le besoin et leur fournir les nécessités de base en nourriture, médicaments et abri, préservant leur dignité humaine et renforçant leur résilience face aux conditions difficiles. L\'équipe a commencé avec vingt bénévoles qui travaillaient comme un seul, consacrant leur temps et leur énergie au service de la communauté.',
+    'whoarewe.origin-p3': 'Avec l\'augmentation du nombre de personnes déplacées internes et externes et l\'élargissement du besoin, le travail humanitaire de la fondation a évolué pour englober un plus large éventail de bénéficiaires et de régions. Stichting Manarah a couronné son parcours en établissant une organisation officielle portant son nom, basée aux Pays-Bas, avec également une licence légale en Syrie. Ce cadre institutionnel vise à organiser le travail caritatif selon des normes professionnelles internationales, promouvoir la transparence et la crédibilité, et construire des ponts de confiance avec les supporters et donateurs du monde entier.',
     'values.intro': 'Nous travaillons à partir de principes qui restaurent <span class="text-highlight">l\'espoir</span> et la <span class="text-highlight">dignité</span>.',
     'values.title': 'Nos valeurs',
     'values.integrity': 'Intégrité', 'values.integrity-desc': 'Nous vivons selon nos valeurs à tous les niveaux.',
