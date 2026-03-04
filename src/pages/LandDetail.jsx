@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { projectsAPI } from '../utils/api'
+import { getStaticProjects } from '../data/projects'
 import { useTranslation } from '../hooks/useTranslation'
 
 // Simple SVG icons for activities
@@ -54,8 +54,6 @@ const ActivityIcon = ({ type }) => {
 const LandDetail = () => {
   const { countrySlug } = useParams()
   const { t } = useTranslation()
-  const [countryProjects, setCountryProjects] = useState([])
-  const [loading, setLoading] = useState(true)
 
   // Mapping van slugs naar land codes en informatie
   const countryData = {
@@ -214,26 +212,7 @@ const LandDetail = () => {
     activities: []
   }
 
-  useEffect(() => {
-    loadCountryProjects()
-  }, [countrySlug])
-
-  const loadCountryProjects = async () => {
-    try {
-      setLoading(true)
-      const response = await projectsAPI.getAll()
-      if (response.data && response.data.success) {
-        const projects = response.data.projects || []
-        // Filter projects for this country
-        const filtered = projects.filter(p => p.country_code === country.code)
-        setCountryProjects(filtered)
-      }
-    } catch (err) {
-      console.error('Error loading projects:', err)
-    } finally {
-      setLoading(false)
-    }
-  }
+  const countryProjects = getStaticProjects(t).filter(p => p.country_code === country.code)
 
   return (
     <div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { donationsAPI, projectsAPI } from '../utils/api'
+import { donationsAPI } from '../utils/api'
+import { getStaticProjects } from '../data/projects'
 import { isAuthenticated, getUser } from '../utils/auth'
 import { useTranslation } from '../hooks/useTranslation'
 import { 
@@ -16,8 +17,6 @@ const Doneren = () => {
   const [selectedAmount, setSelectedAmount] = useState(20)
   const [customAmount, setCustomAmount] = useState('')
   const [selectedProject, setSelectedProject] = useState('global')
-  const [projects, setProjects] = useState([])
-  const [loadingProjects, setLoadingProjects] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [activeTab, setActiveTab] = useState('global')
   
@@ -42,11 +41,8 @@ const Doneren = () => {
 
   const amounts = [10, 20, 50, 100]
 
-  // Load projects on mount
+  // Check if project is specified in URL
   useEffect(() => {
-    loadProjects()
-    
-    // Check if project is specified in URL
     const projectId = searchParams.get('project')
     if (projectId) {
       setSelectedProject(projectId)
@@ -54,19 +50,7 @@ const Doneren = () => {
     }
   }, [searchParams])
 
-  const loadProjects = async () => {
-    try {
-      setLoadingProjects(true)
-      const response = await projectsAPI.getAll()
-      if (response.data && response.data.success) {
-        setProjects(response.data.projects || [])
-      }
-    } catch (err) {
-      console.error('Error loading projects:', err)
-    } finally {
-      setLoadingProjects(false)
-    }
-  }
+  const projects = getStaticProjects(t).filter((p) => p.status === 'active')
 
   const getCountryName = (code) => {
     return t(`country.${code}`) || code
@@ -131,7 +115,7 @@ const Doneren = () => {
 
       if (result.data.success) {
         const projectName = selectedProject !== 'global' 
-          ? projects.find(p => p.id === parseInt(selectedProject))?.name || ''
+          ? projects.find(p => p.id === selectedProject)?.name || ''
           : ''
         navigate(`/bedankt?amount=${amount}&type=${donationType}&project=${encodeURIComponent(projectName)}`)
         setSelectedAmount(20)
@@ -211,13 +195,11 @@ const Doneren = () => {
                 {activeTab === 'project' && (
                   <div className="project-selector">
                     <label className="project-selector-label">{t('donate.select-project')}</label>
-                    {loadingProjects ? (
-                      <div className="project-loading">{t('donate.projects-loading')}</div>
-                    ) : projects.length === 0 ? (
+                    {projects.length === 0 ? (
                       <div className="project-empty">{t('donate.projects-empty')}</div>
                     ) : (
                       <div className="project-grid">
-                        {projects.filter(p => p.status === 'active').map(project => (
+                        {projects.map(project => (
                           <div 
                             key={project.id}
                             className={`project-option ${selectedProject === String(project.id) ? 'selected' : ''}`}

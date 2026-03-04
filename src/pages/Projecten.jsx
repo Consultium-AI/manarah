@@ -1,100 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { projectsAPI } from '../utils/api'
+import { getStaticProjects } from '../data/projects'
 import { useTranslation } from '../hooks/useTranslation'
 
 const Projecten = () => {
   const { t } = useTranslation()
-  const [projects, setProjects] = useState([])
   const [activeProjects, setActiveProjects] = useState([])
   const [completedProjects, setCompletedProjects] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    loadProjects()
-  }, [])
-
-  useEffect(() => {
     filterProjects()
-  }, [projects, searchTerm, t])
-
-  const loadProjects = async () => {
-    try {
-      setLoading(true)
-      setError('')
-      const response = await projectsAPI.getAll()
-      console.log('Projects API response:', response.data)
-      if (response.data && response.data.success) {
-        const projectsList = response.data.projects || []
-        console.log('Loaded projects:', projectsList.length)
-        setProjects(projectsList)
-        if (projectsList.length === 0) {
-          setError(t('projects.empty'))
-        }
-      } else {
-        setError(t('projects.error'))
-      }
-    } catch (err) {
-      const errorMessage = err.response?.data?.error || err.response?.data?.details || err.message || t('projects.error')
-      setError(errorMessage)
-      console.error('Error loading projects:', err)
-      console.error('Error response:', err.response)
-      console.error('Error details:', err.response?.data)
-      // Set empty array on error so UI doesn't break
-      setProjects([])
-    } finally {
-      setLoading(false)
-    }
-  }
+  }, [searchTerm, t])
 
   const filterProjects = () => {
-    let filtered = [...projects]
-
-    // Static oude projecten (frontend only) - altijd tonen als voltooid
-    const staticOldProjects = [
-      {
-        id: 'static-yemen',
-        name: t('projects.old-yemen-title'),
-        country_code: 'YE',
-        description: t('projects.old-yemen-description'),
-        status: 'completed',
-      },
-      {
-        id: 'static-palestine',
-        name: t('projects.old-palestine-title'),
-        country_code: 'PS',
-        description: t('projects.old-palestine-description'),
-        status: 'completed',
-      },
-    ]
+    const projects = getStaticProjects(t)
 
     // Filter op zoekterm (land naam of project naam)
+    let filtered = projects
     if (searchTerm.trim() !== '') {
       const searchLower = searchTerm.toLowerCase()
-      filtered = filtered.filter(project => {
+      filtered = projects.filter(project => {
         const projectName = (project.name || '').toLowerCase()
         const countryName = getCountryName(project.country_code).toLowerCase()
         return projectName.includes(searchLower) || countryName.includes(searchLower)
       })
-      // Filter ook static projects op zoekterm
-      const staticFiltered = staticOldProjects.filter(p => {
-        const projectName = (p.name || '').toLowerCase()
-        const countryName = getCountryName(p.country_code).toLowerCase()
-        return projectName.includes(searchLower) || countryName.includes(searchLower)
-      })
-      const active = filtered.filter(p => p.status === 'active' || p.status === 'paused')
-      const completed = [...filtered.filter(p => p.status === 'completed' || p.status === 'cancelled'), ...staticFiltered]
-      setActiveProjects(active)
-      setCompletedProjects(completed)
-      return
     }
 
     // Split into active and completed projects
     const active = filtered.filter(p => p.status === 'active' || p.status === 'paused')
-    const completed = [...filtered.filter(p => p.status === 'completed' || p.status === 'cancelled'), ...staticOldProjects]
-    
+    const completed = filtered.filter(p => p.status === 'completed' || p.status === 'cancelled')
+
     setActiveProjects(active)
     setCompletedProjects(completed)
   }
@@ -175,22 +111,8 @@ const Projecten = () => {
       <section className="proj-list">
         <div className="container">
 
-          {/* Loading state */}
-          {loading && (
-            <div className="projects-loading">
-              <p>{t('projects.loading')}</p>
-            </div>
-          )}
-
-          {/* Error state */}
-          {error && (
-            <div className="projects-error">
-              <p>{error}</p>
-            </div>
-          )}
-
           {/* Active Projects Section */}
-          {!loading && !error && activeProjects.length > 0 && (
+          {activeProjects.length > 0 && (
             <div className="projects-section-group">
               <h2 className="projects-section-title" style={{ justifyContent: 'center', textAlign: 'center' }}>
                 <span className="projects-section-icon projects-section-icon-active">
@@ -279,7 +201,7 @@ const Projecten = () => {
           )}
 
           {/* Completed Projects Section */}
-          {!loading && !error && completedProjects.length > 0 && (
+          {completedProjects.length > 0 && (
             <div className="projects-section-group projects-section-completed">
               <h2 className="projects-section-title" style={{ justifyContent: 'center', textAlign: 'center' }}>
                 <span className="projects-section-icon projects-section-icon-completed">
@@ -361,13 +283,11 @@ const Projecten = () => {
                         )}
                       </div>
                     </div>
-                    {!project.id?.startsWith('static-') && (
-                      <div className="project-card-footer">
-                        <Link to={`/project/${project.id}`} className="btn btn-outline">
-                          {t('common.read-more')}
-                        </Link>
-                      </div>
-                    )}
+                    <div className="project-card-footer">
+                      <Link to={`/project/${project.id}`} className="btn btn-outline">
+                        {t('common.read-more')}
+                      </Link>
+                    </div>
                   </article>
                 ))}
               </div>
@@ -375,7 +295,7 @@ const Projecten = () => {
           )}
 
           {/* Empty state */}
-          {!loading && !error && activeProjects.length === 0 && completedProjects.length === 0 && (
+          {activeProjects.length === 0 && completedProjects.length === 0 && (
             <div className="projects-empty">
               <p>{t('projects.filter-empty')}</p>
               <button

@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { projectsAPI } from '../utils/api'
+import { getStaticProjects } from '../data/projects'
 import { useTranslation } from '../hooks/useTranslation'
-import ProjectComments from '../components/ProjectComments'
 
 const ProjectDetail = () => {
   const { t } = useTranslation()
   const { projectId } = useParams()
-  const [project, setProject] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const projects = getStaticProjects(t)
+  const project = projects.find((p) => p.id === projectId)
 
   // Mapping van land codes naar landnamen
   const getCountryName = (code) => {
@@ -84,43 +82,11 @@ const ProjectDetail = () => {
     }
   }
 
-  useEffect(() => {
-    loadProject()
-  }, [projectId])
-
-  const loadProject = async () => {
-    try {
-      setLoading(true)
-      setError('')
-      const response = await projectsAPI.getById(projectId)
-      if (response.data && response.data.success) {
-        setProject(response.data.project)
-      } else {
-        setError(t('project.error'))
-      }
-    } catch (err) {
-      setError(t('project.error'))
-      console.error('Error loading project:', err)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  if (loading) {
-    return (
-      <div className="project-detail-loading">
-        <div className="container">
-          <p>{t('project.loading')}</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (error || !project) {
+  if (!project) {
     return (
       <div className="project-detail-error">
         <div className="container">
-          <p>{error || t('project.not-found')}</p>
+          <p>{t('project.not-found')}</p>
           <Link to="/projecten" className="btn btn-primary">{t('project.back')}</Link>
         </div>
       </div>
@@ -275,12 +241,7 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Comments Section */}
-      <section className="project-detail-comments">
-        <div className="container">
-          <ProjectComments projectId={projectId} />
-        </div>
-      </section>
+      {/* Comments Section - hidden for static projects (no backend) */}
 
       {/* CTA Section */}
       <section className="project-detail-cta">

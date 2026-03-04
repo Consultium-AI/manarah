@@ -136,6 +136,10 @@ const translations = {
     'projects.old-yemen-description': 'We hebben maandelijkse ondersteuning geboden aan gezinnen die hun inkomen verloren, inclusief huur en basisbehoeften. Daarnaast hebben we economische empowerment gesteund met naaimachines voor gezinnen die konden werken.',
     'projects.old-palestine-title': 'Humanitaire campagnes in Palestina',
     'projects.old-palestine-description': 'In Gaza hebben we schoon drinkwater, voedingspakketten, financiële steun, tenten voor ontheemde gezinnen, maandelijkse adoptie en iftar-campagnes tijdens Ramadan geleverd.',
+    'projects.ramadan-2025-name': 'Ramadan Project 2025',
+    'projects.ramadan-2025-description': 'Het Ramadan Project 2025 is succesvol afgerond! Met jullie steun hebben we €1.900 opgehaald en 675 warme familiemaaltijden uitgedeeld tijdens de gezegende maand Ramadan. Gezinnen in nood ontvingen voedselpakketten, iftar-maaltijden en steun om deze heilige maand waardig door te komen.',
+    'projects.ramadan-2026-name': 'Ramadan Project 2026',
+    'projects.ramadan-2026-description': 'Help ons dit jaar nog meer gezinnen te bereiken tijdens de heilige maand Ramadan. Met jouw donatie kunnen we voedselpakketten, iftar-maaltijden en essentiële hulpgoederen leveren aan families in nood. Ons doel is om 1000 warme maaltijden uit te delen.',
     
     // Project Detail
     'project.loading': 'Project laden...',
@@ -687,6 +691,10 @@ const translations = {
     'projects.old-yemen-description': 'قدّمنا تكفلاً شهرياً للأسر، إيجارات المساكن، ومستلزمات الحياة الأساسية، وتمكيناً اقتصادياً عبر ماكينات خياطة للأسر القادرة على العمل.',
     'projects.old-palestine-title': 'حملاتنا الإنسانية في فلسطين',
     'projects.old-palestine-description': 'وفي غزة، وفرنا مياه الشرب النظيفة، سلال غذائية، مساعدات مالية، خيام إيواء، تكفلاً شهرياً، وحملات إفطار صائم في رمضان.',
+    'projects.ramadan-2025-name': 'مشروع رمضان 2025',
+    'projects.ramadan-2025-description': 'تم إنجاز مشروع رمضان 2025 بنجاح! بفضل دعمكم جمعنا 1.900 يورو ووزعنا 675 وجبة عائلية دافئة خلال الشهر الكريم. استلمت الأسر المحتاجة حزم غذائية ووجبات إفطار ودعماً لاجتياز هذا الشهر الكريم بكرامة.',
+    'projects.ramadan-2026-name': 'مشروع رمضان 2026',
+    'projects.ramadan-2026-description': 'ساعدنا في الوصول إلى المزيد من الأسر هذا العام خلال شهر رمضان المبارك. بتبرعك نوفر حزم غذائية ووجبات إفطار ومساعدات أساسية للأسر المحتاجة. هدفنا توزيع 1000 وجبة دافئة.',
     
     // Project Detail
     'project.loading': 'جاري تحميل المشروع...',
@@ -1140,6 +1148,10 @@ const translations = {
     'projects.old-yemen-description': 'We provided monthly support to families who lost their income, including rent and basic needs, and economic empowerment through sewing machines for families able to work.',
     'projects.old-palestine-title': 'Our humanitarian campaigns in Palestine',
     'projects.old-palestine-description': 'In Gaza we delivered clean drinking water, food baskets, financial aid, shelter tents for displaced families, monthly sponsorship, and Ramadan iftar campaigns.',
+    'projects.ramadan-2025-name': 'Ramadan Project 2025',
+    'projects.ramadan-2025-description': 'The Ramadan Project 2025 has been successfully completed! With your support we raised €1,900 and distributed 675 warm family meals during the blessed month of Ramadan. Families in need received food packages, iftar meals and support to observe this holy month with dignity.',
+    'projects.ramadan-2026-name': 'Ramadan Project 2026',
+    'projects.ramadan-2026-description': 'Help us reach even more families this year during the holy month of Ramadan. Your donation enables us to provide food packages, iftar meals and essential aid to families in need. Our goal is to distribute 1000 warm meals.',
     
     // Project Detail
     'project.loading': 'Loading project...',
@@ -1593,6 +1605,10 @@ const translations = {
     'projects.old-yemen-description': 'Nous avons fourni un soutien mensuel aux familles ayant perdu leurs revenus, y compris le loyer et les besoins de base, et une autonomisation économique via des machines à coudre pour les familles capables de travailler.',
     'projects.old-palestine-title': 'Nos campagnes humanitaires en Palestine',
     'projects.old-palestine-description': 'À Gaza, nous avons fourni de l\'eau potable, des colis alimentaires, une aide financière, des tentes pour les familles déplacées, un parrainage mensuel et des campagnes d\'iftar Ramadan.',
+    'projects.ramadan-2025-name': 'Projet Ramadan 2025',
+    'projects.ramadan-2025-description': 'Le projet Ramadan 2025 a été mené à bien ! Grâce à votre soutien, nous avons collecté 1 900 € et distribué 675 repas familiaux chauds pendant le mois béni du Ramadan. Les familles dans le besoin ont reçu des colis alimentaires, des repas d\'iftar et un soutien pour vivre ce mois sacré dans la dignité.',
+    'projects.ramadan-2026-name': 'Projet Ramadan 2026',
+    'projects.ramadan-2026-description': 'Aidez-nous à atteindre encore plus de familles cette année pendant le mois sacré du Ramadan. Votre don nous permet de fournir des colis alimentaires, des repas d\'iftar et une aide essentielle aux familles dans le besoin. Notre objectif est de distribuer 1000 repas chauds.',
     
     // Project Detail
     'project.loading': 'Chargement du projet...',
