@@ -128,7 +128,7 @@ const MijnDonaties = () => {
               </svg>
             </div>
             <h2 className="empty-title">{t('donations.empty')}</h2>
-            <Link to="/doneren" className="btn btn-primary">{t('donations.start')}</Link>
+            <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary">{t('donations.start')}</a>
           </div>
         ) : (
           <>

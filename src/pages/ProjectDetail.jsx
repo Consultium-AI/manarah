@@ -163,9 +163,9 @@ const ProjectDetail = () => {
               {project.description}
             </p>
             <div className="project-detail-hero-actions">
-              <Link to="/doneren" className="btn btn-primary btn-large">
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
                 {t('project.donate-now')}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -266,9 +266,9 @@ const ProjectDetail = () => {
                 <p className="project-detail-card-text">
                   {t('project.help-text')}
                 </p>
-                <Link to="/doneren" className="btn btn-primary btn-block">
+                <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block">
                   {t('nav.doneer-nu')}
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -291,9 +291,9 @@ const ProjectDetail = () => {
               {t('project.cta-text')}
             </p>
             <div className="project-detail-cta-buttons">
-              <Link to="/doneren" className="btn btn-primary btn-large">
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
                 {t('nav.doneer-nu')}
-              </Link>
+              </a>
               <Link to="/projecten" className="btn btn-secondary">
                 {t('project.view-other')}
               </Link>

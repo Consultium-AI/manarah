@@ -38,7 +38,7 @@ const WaarWeWerken = () => {
       slug: 'nederland',
       name: t('country.NL'),
       description: t('countries.netherlands-desc'),
-      image: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5571?w=800&h=600&fit=crop',
+      image: 'https://images.unsplash.com/photo-1558551649-e44c8f992010?w=800&h=600&fit=crop',
       accent: '#F97316'
     }
   ]
@@ -95,7 +95,7 @@ const WaarWeWerken = () => {
             <h2 style={{ textAlign: 'center', width: '100%' }}>{t('help.cta-title')}</h2>
             <p style={{ textAlign: 'center' }}>{t('help.cta-text')}</p>
             <div className="wwwork-cta-btns" style={{ justifyContent: 'center' }}>
-              <Link to="/doneren" className="wwwork-cta-btn-primary">{t('nav.doneer-nu')}</Link>
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="wwwork-cta-btn-primary">{t('nav.doneer-nu')}</a>
               <Link to="/projecten" className="wwwork-cta-btn-secondary">{t('help.cta-projects')}</Link>
             </div>
           </div>

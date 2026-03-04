@@ -238,9 +238,9 @@ const Projecten = () => {
                       <Link to={`/project/${project.id}`} className="btn btn-outline">
                         {t('common.read-more')}
                       </Link>
-                      <Link to="/doneren" className="btn btn-primary">
+                      <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                         {t('nav.doneer-nu')}
-                      </Link>
+                      </a>
                     </div>
                   </article>
                 ))}
@@ -365,7 +365,7 @@ const Projecten = () => {
           <div className="proj-cta-inner" style={{ textAlign: 'center', width: '100%' }}>
             <h2 style={{ textAlign: 'center', width: '100%' }}>{t('help.cta-title')}</h2>
             <p style={{ textAlign: 'center' }}>{t('help.cta-text')}</p>
-            <Link to="/doneren" className="proj-cta-btn">{t('nav.doneer-nu')}</Link>
+            <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="proj-cta-btn">{t('nav.doneer-nu')}</a>
           </div>
         </div>
       </section>

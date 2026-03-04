@@ -16,13 +16,13 @@ const Footer = () => {
               <h3>{t('footer.cta-title')}</h3>
               <p>{t('footer.cta-text')}</p>
             </div>
-            <Link to="/doneren" className="footer-cta-btn">
+            <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="footer-cta-btn">
               {t('nav.doneer-nu')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12"/>
                 <polyline points="12 5 19 12 12 19"/>
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@ const Footer = () => {
                 <li><Link to="/waar-we-werken">{t('nav.waar-we-werken')}</Link></li>
                 <li><Link to="/projecten">{t('nav.projecten')}</Link></li>
                 <li><Link to="/samen-in-actie">{t('nav.help-mee')}</Link></li>
-                <li><Link to="/doneren">{t('nav.doneer')}</Link></li>
+                <li><a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer">{t('nav.doneer')}</a></li>
               </ul>
             </div>
 

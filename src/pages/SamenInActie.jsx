@@ -95,7 +95,7 @@ const SamenInActie = () => {
                 {t('help.types-title')}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
               </a>
-              <Link to="/doneren" className="help-hero-btn-secondary">{t('nav.doneer-nu')}</Link>
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="help-hero-btn-secondary">{t('nav.doneer-nu')}</a>
             </div>
           </div>
         </div>
@@ -256,7 +256,7 @@ const SamenInActie = () => {
             <h2 style={{ textAlign: 'center', width: '100%' }}>{t('help.cta-title')}</h2>
             <p style={{ textAlign: 'center' }}>{t('help.cta-text')}</p>
             <div className="help-cta-buttons" style={{ justifyContent: 'center' }}>
-              <Link to="/doneren" className="help-cta-btn-primary">{t('nav.doneer-nu')}</Link>
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="help-cta-btn-primary">{t('nav.doneer-nu')}</a>
               <Link to="/projecten" className="help-cta-btn-secondary">{t('help.cta-projects')}</Link>
             </div>
           </div>

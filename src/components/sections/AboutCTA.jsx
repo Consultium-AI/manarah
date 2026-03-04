@@ -12,7 +12,7 @@ const AboutCTA = () => {
           <h2 className="cta-about-title">{t('aboutcta.title')}</h2>
           <p className="cta-about-description" dangerouslySetInnerHTML={{ __html: t('aboutcta.text') }} />
           <div className="cta-about-buttons">
-            <Link to="/doneren" className="btn btn-primary btn-cta-large">{t('hero.donate')}</Link>
+            <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-cta-large">{t('hero.donate')}</a>
             <Link to="/projecten" className="btn btn-secondary">{t('aboutcta.projects')}</Link>
             <Link to="/samen-in-actie" className="btn btn-outline">{t('aboutcta.volunteer')}</Link>
           </div>

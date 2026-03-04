@@ -130,7 +130,7 @@ const LandDetail = () => {
       context: [
         'Na meer dan een decennium van conflict heeft Syrië te maken met een van de grootste humanitaire crises ter wereld. Miljoenen mensen zijn ontheemd en hebben dringend hulp nodig.',
         'Veel gezinnen hebben alles verloren en zijn afhankelijk van humanitaire hulp om te overleven. De infrastructuur is grotendeels verwoest, waardoor toegang tot basisvoorzieningen zoals water, gezondheidszorg en onderwijs zeer beperkt is.',
-        'We werken aan het bieden van noodhulp en het ondersteunen van wederopbouw, met focus op het helpen van de meest kwetsbare gemeenschappen.'
+        'We werken aan het bieden van noodhulp en het ondersteunen van wederopbouw, met focus op het helpen van de meest kwetsbare gemeenschappen. Doneren is mogelijk via de volgende <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" style="color: #2563EB; text-decoration: underline; font-weight: 600;">link</a>.'
       ],
       activities: [
         {
@@ -180,7 +180,7 @@ const LandDetail = () => {
     'nederland': {
       code: 'NL',
       name: 'Nederland',
-      image: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5571?w=1920&h=1080&fit=crop',
+      image: 'https://images.unsplash.com/photo-1558551649-e44c8f992010?w=1920&h=1080&fit=crop',
       context: [
         'In Nederland richt Stichting Manarah zich op het helpen van mensen bij het integreren in de Nederlandse samenleving. We bieden ondersteuning bij taalcursussen, culturele oriëntatie en het opbouwen van een nieuw bestaan.',
         'Daarnaast organiseren wij activiteiten voor jongeren om hen te verbinden met elkaar en met de samenleving. Door middel van sport, educatie en sociale evenementen creëren we een veilige omgeving waar jongeren zich kunnen ontwikkelen.',
@@ -251,9 +251,9 @@ const LandDetail = () => {
           <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h1 className="country-hero-title" style={{ textAlign: 'center', width: '100%' }} dangerouslySetInnerHTML={{ __html: t('land.hero-title', { name: country.name }) }} />
             <p className="country-hero-intro" style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: t('land.hero-intro') }} />
-            <Link to="/doneren" className="btn btn-primary btn-hero-cta">
+            <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-hero-cta">
               {t('land.donate-for', { name: country.name })}
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -264,9 +264,7 @@ const LandDetail = () => {
           <div className="context-content" style={{ textAlign: 'center', width: '100%' }}>
             <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>{t('land.context-title')}</h2>
             {country.context.map((paragraph, index) => (
-              <p key={index} className="context-paragraph" style={{ textAlign: 'center' }}>
-                {paragraph}
-              </p>
+              <p key={index} className="context-paragraph" style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: paragraph }} />
             ))}
           </div>
         </div>
@@ -305,9 +303,9 @@ const LandDetail = () => {
                       <Link to={`/project/${project.id}`} className="btn btn-outline">
                         {t('common.read-more')}
                       </Link>
-                      <Link to="/doneren" className="btn btn-primary">
+                      <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                         {t('hero.donate')}
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </article>
@@ -324,9 +322,9 @@ const LandDetail = () => {
             <h2 className="country-donation-title" style={{ textAlign: 'center', width: '100%' }}>{t('land.cta-title', { name: country.name })}</h2>
             <p className="country-donation-description" style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: t('land.cta-text') }} />
             <div className="country-donation-actions" style={{ justifyContent: 'center' }}>
-              <Link to="/doneren" className="btn btn-primary btn-large">
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
                 {t('hero.donate')}
-              </Link>
+              </a>
               <Link to="/projecten" className="btn btn-secondary">
                 {t('land.view-all-projects')}
               </Link>
