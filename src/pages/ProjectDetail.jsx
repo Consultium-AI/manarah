@@ -83,6 +83,7 @@ const ProjectDetail = () => {
 
   const countryName = getCountryName(project.country_code)
   const projectImage = getProjectImage(project)
+  const isCompleted = project.status === 'completed' || project.status === 'cancelled'
 
   return (
     <div>
@@ -116,11 +117,13 @@ const ProjectDetail = () => {
             <p className="project-detail-hero-description">
               {project.description}
             </p>
-            <div className="project-detail-hero-actions">
-              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
-                {t('project.donate-now')}
-              </a>
-            </div>
+            {!isCompleted && (
+              <div className="project-detail-hero-actions">
+                <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
+                  {t('project.donate-now')}
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -166,15 +169,17 @@ const ProjectDetail = () => {
                 </div>
               </div>
 
-              <div className="project-detail-card">
-                <h3 className="project-detail-card-title">{t('project.help')}</h3>
-                <p className="project-detail-card-text">
-                  {t('project.help-text')}
-                </p>
-                <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block">
-                  {t('nav.doneer-nu')}
-                </a>
-              </div>
+              {!isCompleted && (
+                <div className="project-detail-card">
+                  <h3 className="project-detail-card-title">{t('project.help')}</h3>
+                  <p className="project-detail-card-text">
+                    {t('project.help-text')}
+                  </p>
+                  <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block">
+                    {t('nav.doneer-nu')}
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -191,9 +196,11 @@ const ProjectDetail = () => {
               {t('project.cta-text')}
             </p>
             <div className="project-detail-cta-buttons">
-              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
-                {t('nav.doneer-nu')}
-              </a>
+              {!isCompleted && (
+                <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
+                  {t('nav.doneer-nu')}
+                </a>
+              )}
               <Link to="/projecten" className="btn btn-secondary">
                 {t('project.view-other')}
               </Link>

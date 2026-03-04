@@ -282,9 +282,11 @@ const LandDetail = () => {
                       <Link to={`/project/${project.id}`} className="btn btn-outline">
                         {t('common.read-more')}
                       </Link>
-                      <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                        {t('hero.donate')}
-                      </a>
+                      {(project.status === 'active' || project.status === 'paused') && (
+                        <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                          {t('hero.donate')}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </article>
