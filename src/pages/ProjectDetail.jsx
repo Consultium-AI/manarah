@@ -55,18 +55,6 @@ const ProjectDetail = () => {
     return countryImages[code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('nl-NL', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(amount || 0)
-  }
-
-  const getProgressPercentage = (current, target) => {
-    if (!target || target === 0) return 0
-    return Math.min((current / target) * 100, 100)
-  }
-
   const getStatusLabel = (status) => {
     switch (status) {
       case 'active':
@@ -175,55 +163,6 @@ const ProjectDetail = () => {
                   <span className={`project-status-badge project-status-${project.status}`}>
                     {getStatusLabel(project.status)}
                   </span>
-                </div>
-              </div>
-
-              {project.target_amount && (
-                <div className="project-detail-card">
-                  <h3 className="project-detail-card-title">{t('project.funding')}</h3>
-                  <div className="project-detail-funding">
-                    <div className="project-detail-funding-amounts">
-                      <div className="project-detail-funding-item">
-                        <span className="project-detail-funding-label">{t('project.target')}</span>
-                        <span className="project-detail-funding-value">{formatCurrency(project.target_amount)}</span>
-                      </div>
-                      <div className="project-detail-funding-item">
-                        <span className="project-detail-funding-label">{t('project.raised')}</span>
-                        <span className="project-detail-funding-value project-detail-funding-current">
-                          {formatCurrency(project.current_amount || 0)}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="project-detail-progress">
-                      <div className="project-detail-progress-bar">
-                        <div
-                          className="project-detail-progress-fill"
-                          style={{
-                            width: `${getProgressPercentage(project.current_amount, project.target_amount)}%`
-                          }}
-                        ></div>
-                      </div>
-                      <p className="project-detail-progress-text">
-                        {t('project.funded', { percent: getProgressPercentage(project.current_amount, project.target_amount).toFixed(1) })}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="project-detail-card">
-                <h3 className="project-detail-card-title">{t('project.stats')}</h3>
-                <div className="project-detail-stats">
-                  <div className="project-detail-stat-item">
-                    <span className="project-detail-stat-label">{t('projects.donations')}</span>
-                    <span className="project-detail-stat-value">{project.donation_count || 0}</span>
-                  </div>
-                  {project.total_sent > 0 && (
-                    <div className="project-detail-stat-item">
-                      <span className="project-detail-stat-label">{t('projects.paid-out')}</span>
-                      <span className="project-detail-stat-value">{formatCurrency(project.total_sent)}</span>
-                    </div>
-                  )}
                 </div>
               </div>
 

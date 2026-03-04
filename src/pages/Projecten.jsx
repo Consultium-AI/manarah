@@ -57,18 +57,6 @@ const Projecten = () => {
     return countryImages[project.country_code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('nl-NL', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(amount || 0)
-  }
-
-  const getProgressPercentage = (current, target) => {
-    if (!target || target === 0) return 0
-    return Math.min((current / target) * 100, 100)
-  }
-
   const getStatusLabel = (status) => {
     switch (status) {
       case 'active':
@@ -155,36 +143,6 @@ const Projecten = () => {
                       <p className="project-card-description">
                         {project.description || t('projects.no-description')}
                       </p>
-                      {project.target_amount && (
-                        <div className="project-card-progress">
-                          <div className="project-progress-info">
-                            <span className="project-progress-current">
-                              {formatCurrency(project.current_amount || 0)}
-                            </span>
-                            <span className="project-progress-target">
-                              {t('projects.of-target', { target: formatCurrency(project.target_amount) })}
-                            </span>
-                          </div>
-                          <div className="project-progress-bar">
-                            <div
-                              className="project-progress-fill"
-                              style={{
-                                width: `${getProgressPercentage(project.current_amount, project.target_amount)}%`
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                      )}
-                      <div className="project-card-stats">
-                        <span className="project-stat">
-                          <strong>{project.donation_count || 0}</strong> {t('projects.donations')}
-                        </span>
-                        {project.total_sent > 0 && (
-                          <span className="project-stat">
-                            <strong>{formatCurrency(project.total_sent)}</strong> {t('projects.paid-out')}
-                          </span>
-                        )}
-                      </div>
                     </div>
                     <div className="project-card-footer">
                       <Link to={`/project/${project.id}`} className="btn btn-outline">
@@ -252,36 +210,6 @@ const Projecten = () => {
                       <p className="project-card-description">
                         {project.description || t('projects.no-description')}
                       </p>
-                      {project.target_amount && (
-                        <div className="project-card-progress project-progress-completed">
-                          <div className="project-progress-info">
-                            <span className="project-progress-current">
-                              {formatCurrency(project.current_amount || 0)}
-                            </span>
-                            <span className="project-progress-target">
-                              {t('projects.of-target', { target: formatCurrency(project.target_amount) })}
-                            </span>
-                          </div>
-                          <div className="project-progress-bar">
-                            <div
-                              className="project-progress-fill project-progress-fill-completed"
-                              style={{
-                                width: `${getProgressPercentage(project.current_amount, project.target_amount)}%`
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                      )}
-                      <div className="project-card-stats">
-                        <span className="project-stat">
-                          <strong>{project.donation_count || 0}</strong> {t('projects.donations')}
-                        </span>
-                        {project.total_sent > 0 && (
-                          <span className="project-stat">
-                            <strong>{formatCurrency(project.total_sent)}</strong> {t('projects.paid-out')}
-                          </span>
-                        )}
-                      </div>
                     </div>
                     <div className="project-card-footer">
                       <Link to={`/project/${project.id}`} className="btn btn-outline">

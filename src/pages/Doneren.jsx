@@ -56,19 +56,6 @@ const Doneren = () => {
     return t(`country.${code}`) || code
   }
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('nl-NL', {
-      style: 'currency',
-      currency: 'EUR',
-      minimumFractionDigits: 0
-    }).format(amount || 0)
-  }
-
-  const getProgressPercentage = (current, target) => {
-    if (!target || target === 0) return 0
-    return Math.min((current / target) * 100, 100)
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -214,19 +201,6 @@ const Doneren = () => {
                               )}
                             </div>
                             <h4 className="project-option-name">{project.name}</h4>
-                            {project.target_amount && (
-                              <div className="project-option-progress">
-                                <div className="progress-bar-mini">
-                                  <div 
-                                    className="progress-fill-mini"
-                                    style={{ width: `${getProgressPercentage(project.current_amount, project.target_amount)}%` }}
-                                  ></div>
-                                </div>
-                                <span className="progress-text-mini">
-                                  {formatCurrency(project.current_amount || 0)} / {formatCurrency(project.target_amount)}
-                                </span>
-                              </div>
-                            )}
                           </div>
                         ))}
                       </div>
