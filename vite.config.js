@@ -14,7 +14,7 @@ export default defineConfig({
       }
     }
   ],
-  base: '/manarah/',  // GitHub Pages subpath
+  base: '/',  // Custom domain stichtingmanarah.com
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
