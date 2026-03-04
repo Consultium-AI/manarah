@@ -1,6 +1,5 @@
 import React from 'react'
 import ValuesTimeline from '../components/sections/ValuesTimeline'
-import AboutQuote from '../components/sections/AboutQuote'
 import AboutImpact from '../components/sections/AboutImpact'
 import AboutCTA from '../components/sections/AboutCTA'
 import { useTranslation } from '../hooks/useTranslation'
@@ -43,7 +42,6 @@ const WieZijnWij = () => {
       </section>
 
       <ValuesTimeline />
-      <AboutQuote />
       <AboutImpact />
       <AboutCTA />
     </div>

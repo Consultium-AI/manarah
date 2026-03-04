@@ -18,7 +18,7 @@ const Projecten = () => {
 
   useEffect(() => {
     filterProjects()
-  }, [projects, searchTerm])
+  }, [projects, searchTerm, t])
 
   const loadProjects = async () => {
     try {
@@ -52,6 +52,24 @@ const Projecten = () => {
   const filterProjects = () => {
     let filtered = [...projects]
 
+    // Static oude projecten (frontend only) - altijd tonen als voltooid
+    const staticOldProjects = [
+      {
+        id: 'static-yemen',
+        name: t('projects.old-yemen-title'),
+        country_code: 'YE',
+        description: t('projects.old-yemen-description'),
+        status: 'completed',
+      },
+      {
+        id: 'static-palestine',
+        name: t('projects.old-palestine-title'),
+        country_code: 'PS',
+        description: t('projects.old-palestine-description'),
+        status: 'completed',
+      },
+    ]
+
     // Filter op zoekterm (land naam of project naam)
     if (searchTerm.trim() !== '') {
       const searchLower = searchTerm.toLowerCase()
@@ -60,11 +78,22 @@ const Projecten = () => {
         const countryName = getCountryName(project.country_code).toLowerCase()
         return projectName.includes(searchLower) || countryName.includes(searchLower)
       })
+      // Filter ook static projects op zoekterm
+      const staticFiltered = staticOldProjects.filter(p => {
+        const projectName = (p.name || '').toLowerCase()
+        const countryName = getCountryName(p.country_code).toLowerCase()
+        return projectName.includes(searchLower) || countryName.includes(searchLower)
+      })
+      const active = filtered.filter(p => p.status === 'active' || p.status === 'paused')
+      const completed = [...filtered.filter(p => p.status === 'completed' || p.status === 'cancelled'), ...staticFiltered]
+      setActiveProjects(active)
+      setCompletedProjects(completed)
+      return
     }
 
     // Split into active and completed projects
     const active = filtered.filter(p => p.status === 'active' || p.status === 'paused')
-    const completed = filtered.filter(p => p.status === 'completed' || p.status === 'cancelled')
+    const completed = [...filtered.filter(p => p.status === 'completed' || p.status === 'cancelled'), ...staticOldProjects]
     
     setActiveProjects(active)
     setCompletedProjects(completed)
@@ -87,6 +116,7 @@ const Projecten = () => {
     const countryImages = {
       'PS': `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
       'SD': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
+      'YE': 'https://images.unsplash.com/photo-1580502304784-8985b7eb7260?w=1920&h=1080&fit=crop',
     }
     return countryImages[project.country_code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }
@@ -331,11 +361,13 @@ const Projecten = () => {
                         )}
                       </div>
                     </div>
-                    <div className="project-card-footer">
-                      <Link to={`/project/${project.id}`} className="btn btn-outline">
-                        {t('common.read-more')}
-                      </Link>
-                    </div>
+                    {!project.id?.startsWith('static-') && (
+                      <div className="project-card-footer">
+                        <Link to={`/project/${project.id}`} className="btn btn-outline">
+                          {t('common.read-more')}
+                        </Link>
+                      </div>
+                    )}
                   </article>
                 ))}
               </div>

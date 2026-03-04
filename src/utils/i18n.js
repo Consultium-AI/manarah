@@ -132,6 +132,10 @@ const translations = {
     'projects.no-description': 'Geen beschrijving beschikbaar.',
     'projects.filter-empty': 'Geen projecten gevonden die voldoen aan je filters.',
     'projects.clear-filter': 'Filter wissen',
+    'projects.old-yemen-title': 'Support voor getroffen gezinnen in Jemen',
+    'projects.old-yemen-description': 'We hebben maandelijkse ondersteuning geboden aan gezinnen die hun inkomen verloren, inclusief huur en basisbehoeften. Daarnaast hebben we economische empowerment gesteund met naaimachines voor gezinnen die konden werken.',
+    'projects.old-palestine-title': 'Humanitaire campagnes in Palestina',
+    'projects.old-palestine-description': 'In Gaza hebben we schoon drinkwater, voedingspakketten, financiële steun, tenten voor ontheemde gezinnen, maandelijkse adoptie en iftar-campagnes tijdens Ramadan geleverd.',
     
     // Project Detail
     'project.loading': 'Project laden...',
@@ -679,6 +683,10 @@ const translations = {
     'projects.no-description': 'لا يوجد وصف متاح.',
     'projects.filter-empty': 'لم يتم العثور على مشاريع تطابق المرشحات الخاصة بك.',
     'projects.clear-filter': 'مسح الفلتر',
+    'projects.old-yemen-title': 'دعم الأسر المتضررة في اليمن',
+    'projects.old-yemen-description': 'قدّمنا تكفلاً شهرياً للأسر، إيجارات المساكن، ومستلزمات الحياة الأساسية، وتمكيناً اقتصادياً عبر ماكينات خياطة للأسر القادرة على العمل.',
+    'projects.old-palestine-title': 'حملاتنا الإنسانية في فلسطين',
+    'projects.old-palestine-description': 'وفي غزة، وفرنا مياه الشرب النظيفة، سلال غذائية، مساعدات مالية، خيام إيواء، تكفلاً شهرياً، وحملات إفطار صائم في رمضان.',
     
     // Project Detail
     'project.loading': 'جاري تحميل المشروع...',
@@ -1128,6 +1136,10 @@ const translations = {
     'projects.no-description': 'No description available.',
     'projects.filter-empty': 'No projects found matching your filters.',
     'projects.clear-filter': 'Clear filter',
+    'projects.old-yemen-title': 'Support for affected families in Yemen',
+    'projects.old-yemen-description': 'We provided monthly support to families who lost their income, including rent and basic needs, and economic empowerment through sewing machines for families able to work.',
+    'projects.old-palestine-title': 'Our humanitarian campaigns in Palestine',
+    'projects.old-palestine-description': 'In Gaza we delivered clean drinking water, food baskets, financial aid, shelter tents for displaced families, monthly sponsorship, and Ramadan iftar campaigns.',
     
     // Project Detail
     'project.loading': 'Loading project...',
@@ -1577,6 +1589,10 @@ const translations = {
     'projects.no-description': 'Aucune description disponible.',
     'projects.filter-empty': 'Aucun projet trouvé correspondant à vos filtres.',
     'projects.clear-filter': 'Effacer le filtre',
+    'projects.old-yemen-title': 'Soutien aux familles touchées au Yémen',
+    'projects.old-yemen-description': 'Nous avons fourni un soutien mensuel aux familles ayant perdu leurs revenus, y compris le loyer et les besoins de base, et une autonomisation économique via des machines à coudre pour les familles capables de travailler.',
+    'projects.old-palestine-title': 'Nos campagnes humanitaires en Palestine',
+    'projects.old-palestine-description': 'À Gaza, nous avons fourni de l\'eau potable, des colis alimentaires, une aide financière, des tentes pour les familles déplacées, un parrainage mensuel et des campagnes d\'iftar Ramadan.',
     
     // Project Detail
     'project.loading': 'Chargement du projet...',
