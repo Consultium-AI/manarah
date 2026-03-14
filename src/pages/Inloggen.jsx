@@ -23,7 +23,6 @@ const Inloggen = () => {
   const [registerPassword, setRegisterPassword] = useState('')
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('')
   const [registerTerms, setRegisterTerms] = useState(false)
-  const [registerNewsletter, setRegisterNewsletter] = useState(false)
   const [registerError, setRegisterError] = useState('')
   const [registerSuccess, setRegisterSuccess] = useState(false)
 
@@ -90,7 +89,7 @@ const Inloggen = () => {
         registerName,
         registerEmail,
         registerPassword,
-        registerNewsletter
+        false
       )
       if (response.data.success) {
         if (response.data.requiresVerification) {
@@ -354,18 +353,6 @@ const Inloggen = () => {
                   />
                   <label htmlFor="registerTerms">
                     {t('donate-banner.terms')} <a href="https://stichtingmanarah.nl/assets/docs/voorwaarden.pdf" target="_blank" rel="noreferrer">{t('donate-banner.terms-link')}</a> en <a href="https://stichtingmanarah.nl/assets/docs/privacyverklaring.pdf" target="_blank" rel="noreferrer">{t('donate-banner.privacy')}</a>
-                  </label>
-                </div>
-                
-                <div className="form-checkbox-modern">
-                  <input
-                    type="checkbox"
-                    id="registerNewsletter"
-                    checked={registerNewsletter}
-                    onChange={(e) => setRegisterNewsletter(e.target.checked)}
-                  />
-                  <label htmlFor="registerNewsletter">
-                    {t('register.newsletter')}
                   </label>
                 </div>
                 

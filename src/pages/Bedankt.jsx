@@ -112,9 +112,9 @@ const Bedankt = () => {
                 <p className="thank-you-card-text">
                   {t('newsletter.text')}
                 </p>
-                <Link to="/#newsletter" className="btn btn-secondary btn-block">
-                  {t('newsletter.button')}
-                </Link>
+                <a href="https://chat.whatsapp.com/GKb3l0Fi67H4YhayEDnBLX" className="btn btn-secondary btn-block" target="_blank" rel="noreferrer">
+                  {t('newsletter.whatsapp')}
+                </a>
               </div>
             </div>
           </div>

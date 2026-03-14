@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { getAuthToken, getUser, logout } from '../utils/auth'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useTranslation } from '../hooks/useTranslation'
 
@@ -8,8 +7,6 @@ const Navbar = () => {
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [user, setUser] = useState(null)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const searchInputRef = useRef(null)
@@ -27,13 +24,6 @@ const Navbar = () => {
   }, [])
 
   useEffect(() => {
-    const token = getAuthToken()
-    const userData = getUser()
-    setIsLoggedIn(!!token)
-    setUser(userData)
-  }, [location])
-
-  useEffect(() => {
     setIsMenuOpen(false)
     setSearchOpen(false)
     setSearchQuery('')
@@ -44,16 +34,6 @@ const Navbar = () => {
       searchInputRef.current.focus()
     }
   }, [searchOpen])
-
-  const handleLogout = () => {
-    if (window.confirm(t('logout.confirm'))) {
-      logout()
-      sessionStorage.removeItem('adminLoggedIn')
-      setIsLoggedIn(false)
-      setUser(null)
-      navigate('/')
-    }
-  }
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -102,17 +82,15 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link to="/contact" className={`nav-link ${isActive('/contact')}`}>
+              {t('nav.contact')}
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link to="/samen-in-actie" className={`nav-link ${isActive('/samen-in-actie')}`}>
               {t('nav.help-mee')}
             </Link>
           </li>
-          {isLoggedIn && (
-            <li className="nav-item">
-              <Link to="/mijn-donaties" className={`nav-link ${isActive('/mijn-donaties')}`}>
-                {t('nav.mijn-donaties')}
-              </Link>
-            </li>
-          )}
           
           {/* Mobile search */}
           <li className="nav-item nav-item-mobile">
@@ -137,19 +115,6 @@ const Navbar = () => {
               </a>
             </div>
           </li>
-          {!isLoggedIn ? (
-            <li className="nav-item nav-item-mobile">
-              <Link to="/inloggen" className="nav-link">
-                {t('nav.inloggen')}
-              </Link>
-            </li>
-          ) : (
-            <li className="nav-item nav-item-mobile">
-              <button className="btn-logout-mobile" onClick={handleLogout}>
-                {t('nav.uitloggen')}
-              </button>
-            </li>
-          )}
         </ul>
 
         <div className="nav-actions">
@@ -181,24 +146,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {isLoggedIn ? (
-            <div className="user-dropdown">
-              <button className="user-button">
-                <span className="user-avatar">
-                  {(user?.name || user?.email || 'U').charAt(0).toUpperCase()}
-                </span>
-              </button>
-              <div className="user-dropdown-menu">
-                <span className="user-dropdown-name">{user?.name || user?.email}</span>
-                <Link to="/mijn-donaties" className="user-dropdown-item">{t('nav.mijn-donaties')}</Link>
-                <button className="user-dropdown-item" onClick={handleLogout}>{t('nav.uitloggen')}</button>
-              </div>
-            </div>
-          ) : (
-            <Link to="/inloggen" className="btn-login-nav">
-              {t('nav.inloggen')}
-            </Link>
-          )}
           <div className="nav-donate-group">
             <LanguageSwitcher />
             <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn-donate-nav">

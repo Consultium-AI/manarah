@@ -23,12 +23,6 @@ const Newsletter = () => {
           <Reveal delay={0.2}>
             <div className="newsletter-manarah-buttons">
               <a
-                href="https://stichtingmanarah.nl/nieuwsbrief.php"
-                className="btn-newsletter"
-              >
-                {t('newsletter.button')}
-              </a>
-              <a
                 href="https://chat.whatsapp.com/GKb3l0Fi67H4YhayEDnBLX"
                 className="btn-newsletter"
                 target="_blank"

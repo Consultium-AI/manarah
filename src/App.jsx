@@ -18,6 +18,7 @@ import Doneren from './pages/Doneren'
 import Projecten from './pages/Projecten'
 import ProjectDetail from './pages/ProjectDetail'
 import SamenInActie from './pages/SamenInActie'
+import Contact from './pages/Contact'
 import './App.css'
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             <Route path="/projecten" element={<Projecten />} />
             <Route path="/project/:projectId" element={<ProjectDetail />} />
             <Route path="/samen-in-actie" element={<SamenInActie />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />

@@ -2,14 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../../hooks/useTranslation'
 
+const HERO_IMAGES = [
+  'syrie-2025-3.jpeg',
+  'huidig-project-foto.jpeg',
+  'almanarah.jpg',
+]
+
 const Hero = () => {
   const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
+  const [slideIndex, setSlideIndex] = useState(0)
 
   useEffect(() => {
-    // Trigger animations after mount
     const timer = setTimeout(() => setIsVisible(true), 100)
     return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+    }, 7000)
+    return () => clearInterval(interval)
   }, [])
 
   const scrollToContent = () => {
@@ -19,16 +32,34 @@ const Hero = () => {
     })
   }
 
+  const baseUrl = import.meta.env.BASE_URL
+
   return (
     <section className="hero-pro">
-      {/* Background Image with Ken Burns effect */}
-      <div className="hero-pro-bg">
-        <div 
-          className="hero-pro-bg-image" 
-          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/almanarah.jpg')` }}
-        />
+      {/* Slideshow Background */}
+      <div className="hero-pro-bg hero-pro-slideshow">
+        {HERO_IMAGES.map((img, i) => (
+          <div
+            key={img}
+            className={`hero-pro-bg-image hero-pro-slide ${i === slideIndex ? 'active' : ''}`}
+            style={{ backgroundImage: `url('${baseUrl}assets/${img}')` }}
+          />
+        ))}
       </div>
       
+      {/* Slide indicators */}
+      <div className="hero-pro-dots" aria-hidden="true">
+        {HERO_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            className={`hero-pro-dot ${i === slideIndex ? 'active' : ''}`}
+            onClick={() => setSlideIndex(i)}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
       {/* Gradient Overlays */}
       <div className="hero-pro-overlay" />
       <div className="hero-pro-gradient" />

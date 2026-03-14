@@ -136,7 +136,7 @@ const ProjectDetail = () => {
               <h2 className="project-detail-section-title">{t('project.about')}</h2>
               <div className="project-detail-content">
                 <p className="project-detail-text">
-                  {project.description}
+                  {project.about || project.description}
                 </p>
                 
                 <h3 className="project-detail-subtitle">{t('project.why-important')}</h3>

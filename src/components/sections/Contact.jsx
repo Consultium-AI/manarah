@@ -12,7 +12,7 @@ const Contact = () => {
     e.preventDefault()
     const subject = `Nieuw bericht van ${name || 'website bezoeker'}`
     const body = `${message}\n\nNaam: ${name}\nE-mail: ${email}`
-    window.location.href = `mailto:info@stichtingmanarah.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = `mailto:stichtingmanarah@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
@@ -72,7 +72,7 @@ const Contact = () => {
               </button>
               <span className="contact-email-note">
                 {t('contact.or-email')}{' '}
-                <a href="mailto:info@stichtingmanarah.nl">info@stichtingmanarah.nl</a>
+                <a href="mailto:stichtingmanarah@gmail.com">stichtingmanarah@gmail.com</a>
               </span>
             </div>
 
