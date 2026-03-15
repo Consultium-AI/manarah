@@ -82,11 +82,6 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className={`nav-link ${isActive('/contact')}`}>
-              {t('nav.contact')}
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link to="/samen-in-actie" className={`nav-link ${isActive('/samen-in-actie')}`}>
               {t('nav.help-mee')}
             </Link>
