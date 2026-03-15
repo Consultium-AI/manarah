@@ -110,7 +110,7 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-actions">
-          {/* Compact search */}
+          {/* Compact search - desktop only */}
           <div className={`nav-search ${searchOpen ? 'nav-search-open' : ''}`}>
             {searchOpen ? (
               <form onSubmit={handleSearch} className="nav-search-form">
@@ -138,27 +138,28 @@ const Navbar = () => {
             )}
           </div>
 
-          <div className="nav-donate-group">
-            <LanguageSwitcher />
-            <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn-donate-nav">
-              <span>{t('nav.doneer')}</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-              </svg>
-            </a>
+          <div className="nav-right-group">
+            <div className="nav-donate-group">
+              <LanguageSwitcher />
+              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="btn-donate-nav">
+                <span>{t('nav.doneer')}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </a>
+            </div>
+            <button 
+              className={`hamburger ${isMenuOpen ? 'active' : ''}`} 
+              onClick={toggleMenu}
+              aria-label="Menu"
+              aria-expanded={isMenuOpen}
+            >
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </button>
           </div>
         </div>
-
-        <button 
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`} 
-          onClick={toggleMenu}
-          aria-label="Menu"
-          aria-expanded={isMenuOpen}
-        >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </button>
       </div>
 
       {isMenuOpen && (

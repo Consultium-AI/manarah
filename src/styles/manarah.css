@@ -175,6 +175,12 @@
     flex-shrink: 0;
 }
 
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 /* Navbar Search */
 .nav-search {
     display: none;
@@ -492,7 +498,8 @@
     .nav-menu {
         position: fixed;
         top: 80px;
-        right: 0;
+        left: 100%;
+        right: auto;
         width: 280px;
         height: calc(100vh - 80px);
         background: #ffffff;
@@ -502,13 +509,14 @@
         padding: 1.25rem;
         gap: 0.125rem;
         box-shadow: -10px 0 40px rgba(0, 0, 0, 0.12);
-        transform: translateX(100%);
+        transform: translateX(0);
         transition: transform 0.3s ease;
         overflow-y: auto;
+        z-index: 1001;
     }
 
     .nav-menu.active {
-        transform: translateX(0);
+        transform: translateX(-100%);
     }
 
     /* Mobile menu: altijd zwarte, leesbare tekst */
@@ -586,6 +594,12 @@
         display: flex;
     }
 
+    .nav-right-group {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
     .nav-overlay {
         display: block;
         position: fixed;
@@ -594,7 +608,7 @@
         right: 0;
         bottom: 0;
         background: rgba(0, 0, 0, 0.3);
-        z-index: -1;
+        z-index: 1000;
     }
 
     .btn-donate-nav {
@@ -4310,6 +4324,8 @@
 
     .nav-menu {
         top: 70px;
+        left: 100%;
+        right: auto;
         height: calc(100vh - 70px);
         width: min(300px, 85vw);
     }
@@ -4345,6 +4361,8 @@
 
     .nav-menu {
         top: 64px;
+        left: 100%;
+        right: auto;
         height: calc(100vh - 64px);
     }
 
@@ -4727,6 +4745,8 @@
 
     .nav-menu {
         top: 60px;
+        left: 100%;
+        right: auto;
         height: calc(100vh - 60px);
         width: min(280px, 90vw);
         padding: 1rem;
