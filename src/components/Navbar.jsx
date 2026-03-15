@@ -105,9 +105,6 @@ const Navbar = () => {
           <li className="nav-item nav-item-mobile">
             <div className="nav-donate-group-mobile">
               <LanguageSwitcher />
-              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="nav-link-donate-mobile">
-                {t('nav.doneer-nu')}
-              </a>
             </div>
           </li>
         </ul>
