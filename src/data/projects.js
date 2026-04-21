@@ -18,18 +18,18 @@ export const STATIC_PROJECTS = [
     total_sent: 6500,
     image_url: '/assets/syrie-2025-3.jpeg',
   },
-  // Ramadan 2026 - Actief (Syrië)
+  // Ramadan 2026 - Voltooid (Syrië)
   {
     id: 'ramadan-2026',
     nameKey: 'projects.ramadan-2026-name',
     descriptionKey: 'projects.ramadan-2026-description',
     aboutKey: 'projects.ramadan-2026-about',
     country_code: 'SY',
-    status: 'active',
+    status: 'completed',
     target_amount: 2500,
-    current_amount: 350,
+    current_amount: 2500,
     donation_count: 0,
-    total_sent: 0,
+    total_sent: 2500,
     image_url: '/assets/huidig-project-foto.jpeg',
   },
   // Jemen - Voltooid

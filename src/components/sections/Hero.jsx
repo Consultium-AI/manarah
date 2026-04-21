@@ -88,12 +88,12 @@ const Hero = () => {
             
             {/* CTA Buttons */}
             <div className="hero-pro-actions">
-              <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AWZYa7itRfygou-rc7v5zw" target="_blank" rel="noopener noreferrer" className="hero-pro-btn-primary">
+              <Link to="/doneren" className="hero-pro-btn-primary">
                 <span>{t('hero.donate')}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-              </a>
+              </Link>
               <Link to="/projecten" className="hero-pro-btn-secondary">
                 <span>{t('hero.view-projects')}</span>
               </Link>

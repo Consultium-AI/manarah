@@ -36,10 +36,10 @@ const translations = {
     'logout.confirm': 'Weet je zeker dat je wilt uitloggen?',
     
     // Hero
-    'hero.badge': 'Lopend Project',
-    'hero.title': 'Ramadan Project',
-    'hero.year': '2026',
-    'hero.description': 'Help ons dit jaar <strong>1000 warme maaltijden</strong> uit te delen aan gezinnen in nood tijdens de heilige maand Ramadan. Samen kunnen we ervoor zorgen dat niemand met een lege maag hoeft te vasten.',
+    'hero.badge': 'Stichting Manarah',
+    'hero.title': 'Samen een bron van',
+    'hero.year': 'licht',
+    'hero.description': 'Stichting Manarah zet zich in voor <strong>armen, wezen en kwetsbare mensen</strong> – in Nederland en wereldwijd. Met jouw steun brengen we hoop, warmte en een glimlach terug op gezichten die het hard nodig hebben.',
     'hero.donate': 'Doneer nu',
     'hero.view-projects': 'Bekijk projecten',
     'hero.search-placeholder': 'Zoek een project of land...',
@@ -143,8 +143,8 @@ const translations = {
     'projects.ramadan-2025-description': 'Het Ramadan Project 2025 is een initiatief dat tijdens de gezegende maand Ramadan gezinnen in nood ondersteunt met voedsel en warme iftar-maaltijden. Dankzij de vrijgevigheid van de gemeenschap hebben we €6.500 opgehaald en 1600 warme familiemaaltijden kunnen uitdelen.',
     'projects.ramadan-2025-about': 'Het Ramadan Project is opgezet om mensen die het financieel moeilijk hebben extra steun te geven tijdens Ramadan, een maand die draait om barmhartigheid, delen en zorg voor elkaar. Met de opgehaalde donaties hebben we voedselpakketten samengesteld, warme iftar-maaltijden bereid en deze uitgedeeld aan gezinnen en individuen die hulp nodig hadden. Vrijwilligers hebben geholpen met het inzamelen van donaties, het voorbereiden van de maaltijden en het uitdelen van de pakketten. Door deze gezamenlijke inzet konden veel families toch samen aan tafel zitten voor iftar en de Ramadan op een waardige manier beleven. Dit project laat zien wat er mogelijk is wanneer een gemeenschap samenkomt om anderen te helpen.',
     'projects.ramadan-2026-name': 'Ramadan Project 2026',
-    'projects.ramadan-2026-description': 'Het Ramadan Project 2026 ondersteunt gezinnen in nood in vluchtelingenkampen in Syrië met voedsel en warme iftar-maaltijden. Wij streven ernaar om dit jaar 1000 gezinnen te helpen met maaltijden of voedselpakketten.',
-    'projects.ramadan-2026-about': 'Het Ramadan Project is opgezet om mensen die al jaren in slechte omstandigheden leven extra steun te geven tijdens Ramadan, een maand die draait om barmhartigheid, delen en zorg voor elkaar. Met de opgehaalde donaties kopen en bereiden wij iftar-maaltijden en voedselpakketten, en delen deze uit aan gezinnen die dit het meest nodig hebben. Vrijwilligers helpen met het inzamelen van donaties, het voorbereiden van de maaltijden en het uitdelen van de pakketten. Dit project laat zien wat er mogelijk is wanneer een gemeenschap samenkomt om anderen te helpen.',
+    'projects.ramadan-2026-description': 'Alhamdulillah! Dankzij jullie steun is het Ramadan Project 2026 succesvol afgerond. Samen hebben wij gezinnen in nood voorzien van warme iftar-maaltijden en voedselpakketten in Syrië. Jazakum Allahu khayran voor jullie vrijgevigheid.',
+    'projects.ramadan-2026-about': 'Het Ramadan Project 2026 is voltooid. Dankzij de donaties, het harde werk van de vrijwilligers en jullie duaas hebben wij tijdens de gezegende maand Ramadan warme iftar-maaltijden en voedselpakketten kunnen uitdelen aan gezinnen die dit het meest nodig hadden. Bedankt aan iedereen die heeft bijgedragen – jullie hebben het verschil gemaakt in het leven van vele families. Moge Allah jullie inzet en giften rijkelijk belonen. Houd onze projectenpagina in de gaten voor nieuwe initiatieven, in shaa Allah.',
     
     // Project Detail
     'project.loading': 'Project laden...',
@@ -596,10 +596,10 @@ const translations = {
     'logout.confirm': 'هل أنت متأكد أنك تريد تسجيل الخروج؟',
     
     // Hero
-    'hero.badge': 'مشروع جاري',
-    'hero.title': 'مشروع رمضان',
-    'hero.year': '2026',
-    'hero.description': 'ساعدنا هذا العام في توزيع <strong>1000 وجبة دافئة</strong> للعائلات المحتاجة خلال شهر رمضان المبارك. معًا يمكننا ضمان ألا يصوم أحد على معدة فارغة.',
+    'hero.badge': 'مؤسسة منارة',
+    'hero.title': 'معًا نكون منارةً من',
+    'hero.year': 'النور',
+    'hero.description': 'تلتزم مؤسسة منارة بدعم <strong>الفقراء والأيتام والفئات المستضعفة</strong> – في هولندا وحول العالم. بدعمك، نعيد الأمل والدفء والابتسامة إلى وجوه هي في أمسّ الحاجة إليها.',
     'hero.donate': 'تبرع الآن',
     'hero.view-projects': 'عرض المشاريع',
     'hero.search-placeholder': 'ابحث عن مشروع أو بلد...',
@@ -703,8 +703,8 @@ const translations = {
     'projects.ramadan-2025-description': 'مشروع رمضان 2025 دعم الأسر المحتاجة بطعام ووجبات إفطار دافئة. بفضل كرمكم جمعنا 6.500 يورو ووزعنا 1600 وجبة عائلية.',
     'projects.ramadan-2025-about': 'أُنشئ مشروع رمضان لمساعدة من يعانون مالياً خلال شهر الرحمة والتضامن. بفضل التبرعات قدّمنا حزم غذائية ووجبات إفطار للأسر المحتاجة. ساعد المتطوعون في جمع التبرعات وإعداد وتوزيع الوجبات. أظهر المشروع ما يمكن تحقيقه عندما تتحد المجتمعات لمساعدة الآخرين.',
     'projects.ramadan-2026-name': 'مشروع رمضان 2026',
-    'projects.ramadan-2026-description': 'مشروع رمضان 2026 يدعم الأسر في مخيمات اللاجئين في سوريا. هدفنا مساعدة 1000 أسرة بوجبات أو حزم غذائية.',
-    'projects.ramadan-2026-about': 'أُنشئ المشروع لدعم من يعيشون منذ سنوات في أوضاع صعبة خلال رمضان. نشتري ونعد وجبات إفطار وحزم غذائية ونوزعها على الأسر الأكثر احتياجاً. المتطوعون يساعدون في الجمع والإعداد والتوزيع.',
+    'projects.ramadan-2026-description': 'الحمد لله! بفضل دعمكم، تم إنجاز مشروع رمضان 2026 بنجاح. معًا قمنا بتوزيع وجبات إفطار دافئة وحزم غذائية على الأسر المحتاجة في سوريا. جزاكم الله خيرًا على كرمكم.',
+    'projects.ramadan-2026-about': 'اكتمل مشروع رمضان 2026. بفضل تبرعاتكم وجهود المتطوعين ودعائكم، تمكنّا من توزيع وجبات إفطار وحزم غذائية على الأسر الأشد حاجة خلال شهر رمضان المبارك. شكرًا لكل من ساهم – لقد أحدثتم فرقًا حقيقيًا في حياة كثير من الأسر. نسأل الله أن يتقبل منكم ويبارك في عطائكم. تابعوا صفحة مشاريعنا للاطلاع على المبادرات القادمة إن شاء الله.',
     
     // Project Detail
     'project.loading': 'جاري تحميل المشروع...',
@@ -1058,10 +1058,10 @@ const translations = {
     'logout.confirm': 'Are you sure you want to logout?',
     
     // Hero
-    'hero.badge': 'Active Project',
-    'hero.title': 'Ramadan Project',
-    'hero.year': '2026',
-    'hero.description': 'Help us distribute <strong>1000 warm meals</strong> to families in need during the holy month of Ramadan. Together we can ensure no one has to fast on an empty stomach.',
+    'hero.badge': 'Stichting Manarah',
+    'hero.title': 'Together a beacon of',
+    'hero.year': 'light',
+    'hero.description': 'Stichting Manarah supports <strong>the poor, orphans and vulnerable people</strong> – in the Netherlands and worldwide. With your help we bring hope, warmth and a smile back to those who need it most.',
     'hero.donate': 'Donate now',
     'hero.view-projects': 'View projects',
     'hero.search-placeholder': 'Search for a project or country...',
@@ -1165,8 +1165,8 @@ const translations = {
     'projects.ramadan-2025-description': 'The Ramadan Project 2025 supported families in need with food and warm iftar meals. Thanks to your generosity we raised €6,500 and distributed 1600 warm family meals.',
     'projects.ramadan-2025-about': 'The Ramadan Project was set up to give extra support during Ramadan to those facing financial hardship. With the donations we assembled food packages, prepared warm iftar meals and distributed them to families and individuals in need. Volunteers helped with collecting donations, preparing meals and distributing packages. This project shows what is possible when a community comes together to help others.',
     'projects.ramadan-2026-name': 'Ramadan Project 2026',
-    'projects.ramadan-2026-description': 'The Ramadan Project 2026 supports families in refugee camps in Syria. Our goal is to help 1000 families with meals or food packages.',
-    'projects.ramadan-2026-about': 'The project was set up to support people who have lived in difficult circumstances for years during Ramadan. We purchase and prepare iftar meals and food packages and distribute them to families most in need. Volunteers help with collecting, preparing and distributing.',
+    'projects.ramadan-2026-description': 'Alhamdulillah! Thanks to your support, the Ramadan Project 2026 has been successfully completed. Together we provided warm iftar meals and food packages to families in need in Syria. Jazakum Allahu khayran for your generosity.',
+    'projects.ramadan-2026-about': 'The Ramadan Project 2026 is complete. Thanks to your donations, the dedication of our volunteers and your duas, we were able to distribute warm iftar meals and food packages to the families most in need during the blessed month of Ramadan. Thank you to everyone who contributed – you have made a real difference in the lives of many families. May Allah reward you abundantly. Keep an eye on our projects page for new initiatives, in shaa Allah.',
     
     // Project Detail
     'project.loading': 'Loading project...',
@@ -1520,11 +1520,11 @@ const translations = {
     'logout.confirm': 'Êtes-vous sûr de vouloir vous déconnecter ?',
     
     // Hero
-    'hero.badge': 'Projet en cours',
-    'hero.title': 'Projet Ramadan',
-    'hero.year': '2026',
-    'hero.description': 'Aidez-nous à distribuer <strong>1000 repas chauds</strong> aux familles dans le besoin pendant le mois sacré du Ramadan. Ensemble, nous pouvons garantir que personne ne jeûne le ventre vide.',
-    'hero.donate': 'Faire un don maintenant',
+    'hero.badge': 'Fondation Manarah',
+    'hero.title': 'Ensemble, un phare de',
+    'hero.year': 'lumière',
+    'hero.description': 'La Fondation Manarah soutient <strong>les pauvres, les orphelins et les personnes vulnérables</strong> – aux Pays-Bas et dans le monde entier. Avec votre soutien, nous redonnons espoir, chaleur et sourire à ceux qui en ont le plus besoin.',
+    'hero.donate': 'Faire un don',
     'hero.view-projects': 'Voir les projets',
     'hero.search-placeholder': 'Rechercher un projet ou un pays...',
     'hero.search-btn': 'Rechercher',
@@ -1627,8 +1627,8 @@ const translations = {
     'projects.ramadan-2025-description': 'Le projet Ramadan 2025 a soutenu les familles dans le besoin avec nourriture et repas d\'iftar chauds. Grâce à vous nous avons collecté 6 500 € et distribué 1600 repas familiaux.',
     'projects.ramadan-2025-about': 'Le projet Ramadan a été créé pour soutenir ceux en difficulté financière pendant le Ramadan. Avec les dons nous avons préparé des colis alimentaires et des repas d\'iftar. Les bénévoles ont aidé à la collecte, préparation et distribution. Ce projet montre ce qui est possible quand une communauté se rassemble.',
     'projects.ramadan-2026-name': 'Projet Ramadan 2026',
-    'projects.ramadan-2026-description': 'Le projet Ramadan 2026 soutient les familles dans les camps de réfugiés en Syrie. Notre objectif : aider 1000 familles avec des repas ou colis alimentaires.',
-    'projects.ramadan-2026-about': 'Le projet soutient ceux qui vivent depuis des années dans des conditions difficiles pendant le Ramadan. Nous achetons et préparons des repas d\'iftar et colis alimentaires que nous distribuons aux familles les plus dans le besoin.',
+    'projects.ramadan-2026-description': 'Alhamdulillah ! Grâce à votre soutien, le Projet Ramadan 2026 a été mené à bien. Ensemble, nous avons distribué des repas d\'iftar chauds et des colis alimentaires aux familles dans le besoin en Syrie. Jazakum Allahu khayran pour votre générosité.',
+    'projects.ramadan-2026-about': 'Le Projet Ramadan 2026 est terminé. Grâce à vos dons, au dévouement des bénévoles et à vos duas, nous avons pu distribuer des repas d\'iftar chauds et des colis alimentaires aux familles les plus dans le besoin pendant le mois béni du Ramadan. Merci à tous ceux qui ont contribué – vous avez fait une réelle différence dans la vie de nombreuses familles. Que Dieu vous récompense abondamment. Restez informés de nos nouvelles initiatives sur la page projets, in shaa Allah.',
     
     // Project Detail
     'project.loading': 'Chargement du projet...',
