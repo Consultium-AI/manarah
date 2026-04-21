@@ -10,6 +10,7 @@ import Donate from './components/Donate';
 // import FloatingDonate from './components/FloatingDonate';
 import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
+import Projects from './components/Projects';
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -66,6 +67,7 @@ function App() {
       <main id="main">
         <Hero />
         <About />
+        <Projects />
         <Donate />
         <Contact />
         <Newsletter />
