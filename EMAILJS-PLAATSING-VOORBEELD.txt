@@ -1,0 +1,20 @@
+EmailJS.com → Account → API keys
+────────────────────────────────
+Public key:  …………………………
+Private/secret key:  …………………………  →  NIEHIER in de website, NIEHIER in .env voor Vite, NIEHIER in GitHub Actions. Alleen in het EmailJS-dashboard.
+
+
+Bestand: .env  (in de root van het project, naast package.json)
+────────────────────────────────
+VITE_EMAILJS_PUBLIC_KEY=…….………
+VITE_EMAILJS_SERVICE_ID=service_….……
+VITE_EMAILJS_TEMPLATE_ID=template_….……
+
+
+GitHub → deze repo → Settings → Secrets and variables → Actions
+────────────────────────────────
+Naam: VITE_EMAILJS_PUBLIC_KEY     Waarde: (zelfde als public key)
+Naam: VITE_EMAILJS_SERVICE_ID    Waarde: service_….
+Naam: VITE_EMAILJS_TEMPLATE_ID   Waarde: template_….
+
+(Geen secret aanmaken voor de private/secret key — die bouw je niet in.)

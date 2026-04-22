@@ -1,17 +1,45 @@
 import Reveal from './Reveal';
 import { useState } from 'react';
+import { isEmailJsReady, sendSiteEmail, TO_EMAIL, EMAILJS_FORM_TITLE } from '../utils/emailjs';
 
 export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const quickChoices: string[] = [];
+  const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState<'success' | 'error' | null>(null);
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const openMailtoFallback = () => {
     const subject = `Nieuw bericht van ${name || 'website bezoeker'}`;
     const body = `${message}\n\nNaam: ${name}\nE-mail: ${email}`;
-    window.location.href = `mailto:info@stichtingmanarah.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFeedback(null);
+    if (!isEmailJsReady()) {
+      openMailtoFallback();
+      return;
+    }
+    setSending(true);
+    try {
+      await sendSiteEmail({
+        formName: EMAILJS_FORM_TITLE.manarahLandingspagina,
+        fromName: name,
+        fromEmail: email,
+        message,
+      });
+      setFeedback('success');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (err) {
+      console.error(err);
+      setFeedback('error');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -29,9 +57,18 @@ export default function Contact() {
         </Reveal>
 
         <div className="grid gap-8">
-          {/* Form card */}
           <Reveal delay={0.1}>
             <form onSubmit={onSubmit} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8 max-w-4xl mx-auto">
+              {feedback === 'success' && (
+                <p className="mb-4 p-3 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200" role="status">
+                  Bedankt! Je bericht is verzonden.
+                </p>
+              )}
+              {feedback === 'error' && (
+                <p className="mb-4 p-3 rounded-lg bg-red-50 text-red-900 border border-red-200" role="alert">
+                  Verzenden mislukt. Probeer opnieuw of stuur een mail naar {TO_EMAIL}.
+                </p>
+              )}
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -46,13 +83,14 @@ export default function Contact() {
 
               <div className="mt-4">
                 <label className="block text-sm font-medium text-gray-800 mb-1">Bericht <span className="text-red-500">*</span></label>
-                {/* Snelle keuzes verwijderd op verzoek */}
                 <textarea required value={message} onChange={(e) => setMessage(e.target.value)} rows={6} className="w-full rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-300 px-4 py-3" placeholder="Stel hier je vraag..." />
               </div>
 
               <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
-                <button type="submit" className="inline-flex items-center justify-center w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:opacity-95 text-white px-6 py-3 rounded-xl font-semibold shadow">Versturen</button>
-                <span className="text-sm text-gray-500">of stuur direct een mail naar <a href="mailto:info@stichtingmanarah.nl" className="text-blue-600 hover:underline">info@stichtingmanarah.nl</a></span>
+                <button type="submit" disabled={sending} className="inline-flex items-center justify-center w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:opacity-95 text-white px-6 py-3 rounded-xl font-semibold shadow disabled:opacity-70">
+                  {sending ? 'Verzenden...' : 'Versturen'}
+                </button>
+                <span className="text-sm text-gray-500">of stuur direct een mail naar <a href={`mailto:${TO_EMAIL}`} className="text-blue-600 hover:underline">{TO_EMAIL}</a></span>
               </div>
 
               <p className="text-xs text-gray-500 mt-3">
@@ -84,5 +122,3 @@ export default function Contact() {
     </section>
   );
 }
-
-

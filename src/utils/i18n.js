@@ -81,6 +81,9 @@ const translations = {
     'contact.privacy-link': 'privacyverklaring',
     'contact.whatsapp': 'Of neem direct contact op via WhatsApp',
     'contact.whatsapp-button': 'WhatsApp Nu',
+    'contact.sending': 'Verzenden...',
+    'contact.success': 'Bedankt! Je bericht is verzonden.',
+    'contact.error': 'Verzenden mislukt. Probeer het opnieuw of stuur een mail naar stichtingmanarah@gmail.com.',
     
     // Newsletter
     'newsletter.title': 'Doe mee',
@@ -274,6 +277,7 @@ const translations = {
     'help.form-success-text': 'We hebben je bericht ontvangen en nemen zo snel mogelijk contact met je op.',
     'help.form-success-new': 'Nieuw bericht versturen',
     'help.form-note': '* Verplichte velden. We behandelen je gegevens vertrouwelijk volgens ons privacybeleid.',
+    'help.form-error-send': 'Verzenden mislukt. Probeer het opnieuw of mail naar stichtingmanarah@gmail.com.',
     'help.cta-title': 'Klaar om direct te helpen?',
     'help.cta-text': 'Je kunt ook direct doneren zonder contactformulier. Elke bijdrage maakt een verschil.',
     'help.cta-projects': 'Bekijk onze projecten',
@@ -641,6 +645,9 @@ const translations = {
     'contact.privacy-link': 'إعلان الخصوصية',
     'contact.whatsapp': 'أو اتصل مباشرة عبر WhatsApp',
     'contact.whatsapp-button': 'WhatsApp الآن',
+    'contact.sending': 'جاري الإرسال...',
+    'contact.success': 'شكرًا! تم إرسال رسالتك.',
+    'contact.error': 'فشل الإرسال. حاول مرة أخرى أو أرسل بريدًا إلى stichtingmanarah@gmail.com.',
     
     // Newsletter
     'newsletter.title': 'انضم',
@@ -834,6 +841,7 @@ const translations = {
     'help.form-success-text': 'لقد تلقينا رسالتك وسنتصل بك في أقرب وقت ممكن.',
     'help.form-success-new': 'إرسال رسالة جديدة',
     'help.form-note': '* الحقول المطلوبة. نتعامل مع بياناتك بسرية وفقًا لسياسة الخصوصية الخاصة بنا.',
+    'help.form-error-send': 'فشل الإرسال. حاول مرة أخرى أو أرسل بريدًا إلى stichtingmanarah@gmail.com.',
     'help.cta-title': 'جاهز للمساعدة مباشرة؟',
     'help.cta-text': 'يمكنك أيضًا التبرع مباشرة دون نموذج الاتصال. كل مساهمة تحدث فرقًا.',
     'help.cta-projects': 'عرض مشاريعنا',
@@ -1103,6 +1111,9 @@ const translations = {
     'contact.privacy-link': 'privacy statement',
     'contact.whatsapp': 'Or contact us directly via WhatsApp',
     'contact.whatsapp-button': 'WhatsApp Now',
+    'contact.sending': 'Sending...',
+    'contact.success': 'Thank you! Your message has been sent.',
+    'contact.error': 'Could not send. Please try again or email stichtingmanarah@gmail.com.',
     
     // Newsletter
     'newsletter.title': 'Join',
@@ -1296,6 +1307,7 @@ const translations = {
     'help.form-success-text': 'We have received your message and will contact you as soon as possible.',
     'help.form-success-new': 'Send new message',
     'help.form-note': '* Required fields. We treat your data confidentially according to our privacy policy.',
+    'help.form-error-send': 'Could not send. Please try again or email stichtingmanarah@gmail.com.',
     'help.cta-title': 'Ready to help directly?',
     'help.cta-text': 'You can also donate directly without a contact form. Every contribution makes a difference.',
     'help.cta-projects': 'View our projects',
@@ -1565,6 +1577,9 @@ const translations = {
     'contact.privacy-link': 'déclaration de confidentialité',
     'contact.whatsapp': 'Ou contactez-nous directement via WhatsApp',
     'contact.whatsapp-button': 'WhatsApp Maintenant',
+    'contact.sending': 'Envoi...',
+    'contact.success': 'Merci ! Votre message a été envoyé.',
+    'contact.error': 'Échec de l\'envoi. Réessayez ou écrivez à stichtingmanarah@gmail.com.',
     
     // Newsletter
     'newsletter.title': 'Rejoignez',
@@ -1758,6 +1773,7 @@ const translations = {
     'help.form-success-text': 'Nous avons reçu votre message et vous contacterons dans les plus brefs délais.',
     'help.form-success-new': 'Envoyer un nouveau message',
     'help.form-note': '* Champs obligatoires. Nous traitons vos données de manière confidentielle conformément à notre politique de confidentialité.',
+    'help.form-error-send': 'Échec de l\'envoi. Réessayez ou écrivez à stichtingmanarah@gmail.com.',
     'help.cta-title': 'Prêt à aider directement ?',
     'help.cta-text': 'Vous pouvez également faire un don directement sans formulaire de contact. Chaque contribution fait la différence.',
     'help.cta-projects': 'Voir nos projets',

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../hooks/useTranslation'
+import { isEmailJsReady, sendSiteEmail, TO_EMAIL, EMAILJS_FORM_TITLE } from '../utils/emailjs'
 
 const SamenInActie = () => {
   const { t } = useTranslation()
@@ -13,6 +14,7 @@ const SamenInActie = () => {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [sendError, setSendError] = useState(null)
   const [expandedCard, setExpandedCard] = useState(null)
 
   const icons = {
@@ -64,14 +66,48 @@ const SamenInActie = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const openMailtoFallback = () => {
+    const subject = `Samen in actie: ${formData.interest}`
+    const body = `Interesse: ${formData.interest}\n\n${formData.message}\n\nNaam: ${formData.name}\nE-mail: ${formData.email}\nTelefoon: ${formData.phone || '—'}`
+    window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setSendError(null)
+    if (!isEmailJsReady()) {
+      openMailtoFallback()
+      return
+    }
+    const interestLabelMap = {
+      donateur: t('help.form-interest-donor'),
+      vrijwilliger: t('help.form-interest-volunteer'),
+      onderwijs: t('help.form-interest-education'),
+      'eigen-actie': t('help.form-interest-fundraiser'),
+      'grote-gift': t('help.form-interest-major'),
+      nalaten: t('help.form-interest-legacy'),
+      anders: t('help.form-interest-other')
+    }
+    const interestForEmail = interestLabelMap[formData.interest] || formData.interest
+
     setLoading(true)
-    setTimeout(() => {
+    try {
+      await sendSiteEmail({
+        formName: EMAILJS_FORM_TITLE.samenInActie,
+        fromName: formData.name,
+        fromEmail: formData.email,
+        message: formData.message,
+        phone: formData.phone,
+        interest: interestForEmail
+      })
       setSubmitted(true)
-      setLoading(false)
       setFormData({ name: '', email: '', phone: '', interest: '', message: '' })
-    }, 1000)
+    } catch (err) {
+      console.error(err)
+      setSendError(t('help.form-error-send'))
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -157,13 +193,13 @@ const SamenInActie = () => {
               <p className="help-contact-text">{t('help.contact-text')}</p>
 
               <div className="help-contact-items">
-                <a href="mailto:stichtingmanarah@gmail.com" className="help-contact-item">
+                <a href={`mailto:${TO_EMAIL}`} className="help-contact-item">
                   <div className="help-contact-icon">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                   </div>
                   <div>
                     <strong>Email</strong>
-                    <span>stichtingmanarah@gmail.com</span>
+                    <span>{TO_EMAIL}</span>
                   </div>
                 </a>
                 <a href="https://wa.me/31103602862" target="_blank" rel="noreferrer" className="help-contact-item">
@@ -195,12 +231,15 @@ const SamenInActie = () => {
                   </div>
                   <h3>{t('help.form-success-title')}</h3>
                   <p>{t('help.form-success-text')}</p>
-                  <button className="help-form-btn-outline" onClick={() => setSubmitted(false)}>
+                  <button className="help-form-btn-outline" onClick={() => { setSubmitted(false); setSendError(null) }}>
                     {t('help.form-success-new')}
                   </button>
                 </div>
               ) : (
                 <form className="help-form" onSubmit={handleSubmit}>
+                  {sendError && (
+                    <p className="help-form-error" role="alert">{sendError}</p>
+                  )}
                   <div className="help-form-row">
                     <div className="help-form-group">
                       <label htmlFor="name">{t('help.form-name')}</label>

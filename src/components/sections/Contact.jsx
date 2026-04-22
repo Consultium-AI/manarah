@@ -1,18 +1,47 @@
 import React, { useState } from 'react'
 import Reveal from '../Reveal'
 import { useTranslation } from '../../hooks/useTranslation'
+import { isEmailJsReady, sendSiteEmail, TO_EMAIL, EMAILJS_FORM_TITLE } from '../../utils/emailjs'
 
 const Contact = () => {
   const { t } = useTranslation()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [sending, setSending] = useState(false)
+  const [feedback, setFeedback] = useState(null)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const openMailtoFallback = () => {
     const subject = `Nieuw bericht van ${name || 'website bezoeker'}`
     const body = `${message}\n\nNaam: ${name}\nE-mail: ${email}`
-    window.location.href = `mailto:stichtingmanarah@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setFeedback(null)
+    if (!isEmailJsReady()) {
+      openMailtoFallback()
+      return
+    }
+    setSending(true)
+    try {
+      await sendSiteEmail({
+        formName: EMAILJS_FORM_TITLE.contactHomeEnPagina,
+        fromName: name,
+        fromEmail: email,
+        message
+      })
+      setFeedback('success')
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch (err) {
+      console.error(err)
+      setFeedback('error')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -31,6 +60,16 @@ const Contact = () => {
 
         <Reveal delay={0.1}>
           <form onSubmit={handleSubmit} className="contact-manarah-form">
+            {feedback === 'success' && (
+              <p className="contact-form-feedback contact-form-feedback--success" role="status">
+                {t('contact.success')}
+              </p>
+            )}
+            {feedback === 'error' && (
+              <p className="contact-form-feedback contact-form-feedback--error" role="alert">
+                {t('contact.error')}
+              </p>
+            )}
             <div className="contact-form-grid">
               <div className="form-group">
                 <label className="form-label">{t('contact.name')}</label>
@@ -67,12 +106,12 @@ const Contact = () => {
             </div>
 
             <div className="contact-form-actions">
-              <button type="submit" className="btn-contact-submit">
-                {t('contact.submit')}
+              <button type="submit" className="btn-contact-submit" disabled={sending}>
+                {sending ? t('contact.sending') : t('contact.submit')}
               </button>
               <span className="contact-email-note">
                 {t('contact.or-email')}{' '}
-                <a href="mailto:stichtingmanarah@gmail.com">stichtingmanarah@gmail.com</a>
+                <a href={`mailto:${TO_EMAIL}`}>{TO_EMAIL}</a>
               </span>
             </div>
 
