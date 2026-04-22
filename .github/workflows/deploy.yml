@@ -23,10 +23,11 @@ jobs:
           node-version: '18'
           cache: 'npm'
           
-      # lockfile gemaakt op Windows bevat soms geen @rollup/rollup-linux-*; schone install op Linux oplost dat
+      # lockfile gemaakt op Windows mist vaak @rollup/rollup-linux-*; zie npm/cli#4828
       - name: Install dependencies
         run: |
           rm -rf node_modules
+          rm -f package-lock.json
           npm install
         
       - name: Build frontend
