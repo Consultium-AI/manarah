@@ -60,7 +60,7 @@ const translations = {
     'about.pretitle': 'Solidariteit · Naastenliefde · Betrokkenheid',
     'about.title': 'Wie zijn wij',
     'about.title-suffix': 'als stichting',
-    'about.text1': 'Stichting Manarah is een onafhankelijke, non-profit liefdadigheidsorganisatie gevestigd in Nederland. Wij zetten ons in voor het ondersteunen van kwetsbare mensen: armen, wezen en mensen met een beperking – zowel binnen Nederland als in noodlijdende gemeenschappen wereldwijd.',
+    'about.text1': 'Stichting Manarah is een onafhankelijke, non-profit liefdadigheidsorganisatie gevestigd in Nederland. Wij zetten ons in voor het ondersteunen van kwetsbare mensen: armen, wezen en mensen met een beperking, zowel binnen Nederland als in noodlijdende gemeenschappen wereldwijd.',
     'about.text2': 'Overal ter wereld zijn er mensen die wachten op een warme maaltijd, een beetje aandacht of een liefdevol woord. Met jouw steun kunnen wij hen hoop bieden, hun pijn verzachten en een glimlach terugbrengen op gezichten die gebukt gaan onder armoede.',
     'about.text3': 'Samen kunnen we levens veranderen.',
     'about.highlight': 'Wees een bron van licht. Een reden voor hoop. En een verschil in het leven van een ander.',
@@ -147,7 +147,7 @@ const translations = {
     'projects.ramadan-2025-about': 'Het Ramadan Project is opgezet om mensen die het financieel moeilijk hebben extra steun te geven tijdens Ramadan, een maand die draait om barmhartigheid, delen en zorg voor elkaar. Met de opgehaalde donaties hebben we voedselpakketten samengesteld, warme iftar-maaltijden bereid en deze uitgedeeld aan gezinnen en individuen die hulp nodig hadden. Vrijwilligers hebben geholpen met het inzamelen van donaties, het voorbereiden van de maaltijden en het uitdelen van de pakketten. Door deze gezamenlijke inzet konden veel families toch samen aan tafel zitten voor iftar en de Ramadan op een waardige manier beleven. Dit project laat zien wat er mogelijk is wanneer een gemeenschap samenkomt om anderen te helpen.',
     'projects.ramadan-2026-name': 'Ramadan Project 2026',
     'projects.ramadan-2026-description': 'Alhamdulillah! Dankzij jullie steun is het Ramadan Project 2026 succesvol afgerond. Samen hebben wij gezinnen in nood voorzien van warme iftar-maaltijden en voedselpakketten in Syrië. Jazakum Allahu khayran voor jullie vrijgevigheid.',
-    'projects.ramadan-2026-about': 'Het Ramadan Project 2026 is voltooid. Dankzij de donaties, het harde werk van de vrijwilligers en jullie duaas hebben wij tijdens de gezegende maand Ramadan warme iftar-maaltijden en voedselpakketten kunnen uitdelen aan gezinnen die dit het meest nodig hadden. Bedankt aan iedereen die heeft bijgedragen – jullie hebben het verschil gemaakt in het leven van vele families. Moge Allah jullie inzet en giften rijkelijk belonen. Houd onze projectenpagina in de gaten voor nieuwe initiatieven, in shaa Allah.',
+    'projects.ramadan-2026-about': 'Het Ramadan Project 2026 is voltooid. Dankzij de donaties, het harde werk van de vrijwilligers en jullie duaas hebben wij tijdens de gezegende maand Ramadan warme iftar-maaltijden en voedselpakketten kunnen uitdelen aan gezinnen die dit het meest nodig hadden. Bedankt aan iedereen die heeft bijgedragen, jullie hebben het verschil gemaakt in het leven van vele families. Moge Allah jullie inzet en giften rijkelijk belonen. Houd onze projectenpagina in de gaten voor nieuwe initiatieven, in shaa Allah.',
     
     // Project Detail
     'project.loading': 'Project laden...',
@@ -230,7 +230,7 @@ const translations = {
     'help.title': 'Help mee',
     'help.subtitle': 'Er zijn verschillende manieren om mee te doen en impact te maken. Ontdek hoe jij kunt bijdragen aan ons werk.',
     'help.intro-title': 'Waarom jouw steun belangrijk is',
-    'help.intro-text1': 'Wij geloven dat iedereen een verschil kan maken. Of je nu tijd, geld of expertise geeft – elke bijdrage telt. Samen kunnen we levens veranderen, gemeenschappen versterken en hoop brengen waar het hard nodig is.',
+    'help.intro-text1': 'Wij geloven dat iedereen een verschil kan maken. Of je nu tijd, geld of expertise geeft, elke bijdrage telt. Samen kunnen we levens veranderen, gemeenschappen versterken en hoop brengen waar het hard nodig is.',
     'help.intro-text2': 'Door samen te werken met lokale partners en gemeenschappen, zorgen we ervoor dat hulp daar komt waar het het meest nodig is. Jouw steun maakt dit mogelijk.',
     'help.types-title': 'Hoe kun je helpen?',
     'help.type-donor': 'Word donateur',
@@ -300,7 +300,7 @@ const translations = {
     'footer.data': 'Gegevens',
     'footer.documents': 'Documenten',
     'footer.copyright': '© {year} Stichting Manarah. Alle rechten voorbehouden.',
-    'footer.description': 'Wij zetten ons in voor kwetsbare mensen: armen, wezen en mensen met een beperking — in Nederland en wereldwijd.',
+    'footer.description': 'Wij zetten ons in voor kwetsbare mensen: armen, wezen en mensen met een beperking, in Nederland en wereldwijd.',
     
     // Login
     'login.title': 'Inloggen',
@@ -409,11 +409,11 @@ const translations = {
     
     // Wie zijn wij page
     'whoarewe.hero-title': 'Samen geven we <span class="highlight">hoop</span> in tijden van crisis',
-    'whoarewe.hero-desc': 'Wij zijn een stichting die zich wereldwijd inzet voor mensen die getroffen zijn door conflict, rampen en armoede – in Nederland en ver daarbuiten. Met respect, medemenselijkheid en een onwrikbaar geloof in de kracht van samenwerking bouwen we aan een betere toekomst.',
+    'whoarewe.hero-desc': 'Wij zijn een stichting die zich wereldwijd inzet voor mensen die getroffen zijn door conflict, rampen en armoede, in Nederland en ver daarbuiten. Met respect, medemenselijkheid en een onwrikbaar geloof in de kracht van samenwerking bouwen we aan een betere toekomst.',
     'whoarewe.origin-title': 'Onze oorsprong',
-    'whoarewe.origin-p1': 'Het idee voor Stichting Manarah ontstond in 2018, toen een groep jonge vrijwilligers de verantwoordelijkheid op zich nam om naast mensen in nood te staan: vluchtelingen, ontheemden en gezinnen die getroffen zijn door conflict en armoede. Vanuit die eerste hulp in crisisgebieden groeide het besef dat steun nodig is – niet op één plek, maar overal waar mensen kwetsbaar zijn.',
+    'whoarewe.origin-p1': 'Het idee voor Stichting Manarah ontstond in 2018, toen een groep jonge vrijwilligers de verantwoordelijkheid op zich nam om naast mensen in nood te staan: vluchtelingen, ontheemden en gezinnen die getroffen zijn door conflict en armoede. Vanuit die eerste hulp in crisisgebieden groeide het besef dat steun nodig is, niet op één plek, maar overal waar mensen kwetsbaar zijn.',
     'whoarewe.origin-p2': 'De stichting begon met eenvoudige middelen en puur vrijwillige inspanningen, met een helder doel voor ogen: het verlichten van het lijden van hulpbehoevenden en het voorzien in hun basisbehoeften aan voedsel, medicijnen en onderdak, waar ter wereld die nodig zijn. Het team begon met twintig vrijwilligers die als één team werkten en hun tijd en energie wijdden aan het dienen van mensen in nood.',
-    'whoarewe.origin-p3': 'Naarmate de behoefte groeide, breidde het humanitaire werk van de stichting zich uit naar steeds meer landen en regio\'s – van het Midden-Oosten en Afrika tot Europa en andere gebieden waar gemeenschappen hulp hard nodig hebben. Stichting Manarah is inmiddels een officiële organisatie gevestigd in Nederland, gericht op liefdadigheidswerk volgens internationale professionele normen, transparantie, geloofwaardigheid en vertrouwensbruggen met supporters en donateurs wereldwijd.',
+    'whoarewe.origin-p3': 'Naarmate de behoefte groeide, breidde het humanitaire werk van de stichting zich uit naar steeds meer landen en regio\'s, van het Midden-Oosten en Afrika tot Europa en andere gebieden waar gemeenschappen hulp hard nodig hebben. Stichting Manarah is inmiddels een officiële organisatie gevestigd in Nederland, gericht op liefdadigheidswerk volgens internationale professionele normen, transparantie, geloofwaardigheid en vertrouwensbruggen met supporters en donateurs wereldwijd.',
     
     // Values
     'values.intro': 'We werken vanuit principes die <span class="text-highlight">hoop</span> en <span class="text-highlight">waardigheid</span> herstellen. Deze waarden drijven ons om elke dag klaar te staan voor mensen die het hard nodig hebben.',
@@ -436,7 +436,7 @@ const translations = {
     'values.volunteer': 'Word vrijwilliger',
     
     // About quote
-    'aboutquote.text': 'Ik heb gezien hoe een simpele waterput een heel dorp transformeerde. Niet alleen omdat mensen nu schoon water hebben, maar omdat het hen hoop gaf. Hoop dat er een toekomst is. Hoop dat ze zelf iets kunnen veranderen. Dat is waarom ik hier ben – om die hoop te delen en te versterken.',
+    'aboutquote.text': 'Ik heb gezien hoe een simpele waterput een heel dorp transformeerde. Niet alleen omdat mensen nu schoon water hebben, maar omdat het hen hoop gaf. Hoop dat er een toekomst is. Hoop dat ze zelf iets kunnen veranderen. Dat is waarom ik hier ben, om die hoop te delen en te versterken.',
     'aboutquote.author-name': 'Maria van der Berg',
     'aboutquote.author-role': 'Projectcoördinator Sudan',
     
@@ -506,7 +506,7 @@ const translations = {
     
     // Quote section (home)
     'quote.text': '"Elke dag zie ik hoe onze hulp levens verandert. Kinderen die weer naar school kunnen, families die toegang krijgen tot schoon water, en gemeenschappen die samenwerken aan vrede. Dit is waarom ik hier ben."',
-    'quote.author': '— Sarah, Hulpverlener in Sudan',
+    'quote.author': 'Sarah, Hulpverlener in Sudan',
     'quote.button': 'Lees meer over de hulp in Sudan',
     
     // Footer documents
@@ -711,7 +711,7 @@ const translations = {
     'projects.ramadan-2025-about': 'أُنشئ مشروع رمضان لمساعدة من يعانون مالياً خلال شهر الرحمة والتضامن. بفضل التبرعات قدّمنا حزم غذائية ووجبات إفطار للأسر المحتاجة. ساعد المتطوعون في جمع التبرعات وإعداد وتوزيع الوجبات. أظهر المشروع ما يمكن تحقيقه عندما تتحد المجتمعات لمساعدة الآخرين.',
     'projects.ramadan-2026-name': 'مشروع رمضان 2026',
     'projects.ramadan-2026-description': 'الحمد لله! بفضل دعمكم، تم إنجاز مشروع رمضان 2026 بنجاح. معًا قمنا بتوزيع وجبات إفطار دافئة وحزم غذائية على الأسر المحتاجة في سوريا. جزاكم الله خيرًا على كرمكم.',
-    'projects.ramadan-2026-about': 'اكتمل مشروع رمضان 2026. بفضل تبرعاتكم وجهود المتطوعين ودعائكم، تمكنّا من توزيع وجبات إفطار وحزم غذائية على الأسر الأشد حاجة خلال شهر رمضان المبارك. شكرًا لكل من ساهم – لقد أحدثتم فرقًا حقيقيًا في حياة كثير من الأسر. نسأل الله أن يتقبل منكم ويبارك في عطائكم. تابعوا صفحة مشاريعنا للاطلاع على المبادرات القادمة إن شاء الله.',
+    'projects.ramadan-2026-about': 'اكتمل مشروع رمضان 2026. بفضل تبرعاتكم وجهود المتطوعين ودعائكم، تمكنّا من توزيع وجبات إفطار وحزم غذائية على الأسر الأشد حاجة خلال شهر رمضان المبارك. شكرًا لكل من ساهم, لقد أحدثتم فرقًا حقيقيًا في حياة كثير من الأسر. نسأل الله أن يتقبل منكم ويبارك في عطائكم. تابعوا صفحة مشاريعنا للاطلاع على المبادرات القادمة إن شاء الله.',
     
     // Project Detail
     'project.loading': 'جاري تحميل المشروع...',
@@ -968,11 +968,11 @@ const translations = {
     'land.cta-text': 'دعمك يجعل عملنا ممكنًا. كل مساهمة تساعد في تغيير الأرواح وإحضار الأمل للمجتمعات التي تحتاجه بشدة. <strong>معًا يمكننا إحداث فرق.</strong>',
     'land.view-all-projects': 'عرض جميع المشاريع',
     'whoarewe.hero-title': 'معًا نعطي <span class="highlight">الأمل</span> في أوقات الأزمات',
-    'whoarewe.hero-desc': 'نحن مؤسسة تعمل على مستوى العالم من أجل الأشخاص المتضررين من النزاعات والكوارث والفقر – في هولندا وخارجها. بالاحترام والإنسانية والإيمان الراسخ بقوة التعاون، نبني مستقبلاً أفضل.',
+    'whoarewe.hero-desc': 'نحن مؤسسة تعمل على مستوى العالم من أجل الأشخاص المتضررين من النزاعات والكوارث والفقر, في هولندا وخارجها. بالاحترام والإنسانية والإيمان الراسخ بقوة التعاون، نبني مستقبلاً أفضل.',
     'whoarewe.origin-title': 'أصلنا',
-    'whoarewe.origin-p1': 'وُلدت فكرة جمعية منارة عام 2018 عندما تحمّل مجموعة من الشباب المتطوعين مسؤولية الوقوف إلى جانب من هم في حاجة: اللاجئين والنازحين والعائلات المتضررة من النزاع والفقر. من تلك البدايات في مناطق الأزمات نشأت قناعة بأن الدعم مطلوب – ليس في مكان واحد فقط، بل في كل مكان يعيش فيه الناس في وضع ضعيف.',
+    'whoarewe.origin-p1': 'وُلدت فكرة جمعية منارة عام 2018 عندما تحمّل مجموعة من الشباب المتطوعين مسؤولية الوقوف إلى جانب من هم في حاجة: اللاجئين والنازحين والعائلات المتضررة من النزاع والفقر. من تلك البدايات في مناطق الأزمات نشأت قناعة بأن الدعم مطلوب, ليس في مكان واحد فقط، بل في كل مكان يعيش فيه الناس في وضع ضعيف.',
     'whoarewe.origin-p2': 'انطلقت الجمعية بإمكانات بسيطة وجهود تطوعية خالصة، واضعةً نصب عينيها هدفاً واضحاً: تخفيف معاناة المحتاجين وتأمين احتياجاتهم الأساسية من الغذاء والدواء والمأوى، حيثما كانت هناك حاجة في العالم. بدأ الفريق بعشرين متطوعاً عملوا بروح الفريق الواحد، مكرّسين أوقاتهم وجهودهم لخدمة من هم في حاجة.',
-    'whoarewe.origin-p3': 'ومع تزايد الاحتياج، توسّع العمل الإنساني للجمعية إلى المزيد من البلدان والمناطق – من الشرق الأوسط وأفريقيا إلى أوروبا ومناطق أخرى حيث المجتمعات بحاجة ماسة إلى الدعم. أصبحت جمعية منارة اليوم منظمة رسمية مقرها في هولندا، ملتزمة بمعايير مهنية عالمية، والشفافية، والمصداقية، وبناء جسور الثقة مع الداعمين والمتبرعين في مختلف أنحاء العالم.',
+    'whoarewe.origin-p3': 'ومع تزايد الاحتياج، توسّع العمل الإنساني للجمعية إلى المزيد من البلدان والمناطق, من الشرق الأوسط وأفريقيا إلى أوروبا ومناطق أخرى حيث المجتمعات بحاجة ماسة إلى الدعم. أصبحت جمعية منارة اليوم منظمة رسمية مقرها في هولندا، ملتزمة بمعايير مهنية عالمية، والشفافية، والمصداقية، وبناء جسور الثقة مع الداعمين والمتبرعين في مختلف أنحاء العالم.',
     'values.intro': 'نعمل من مبادئ تعيد <span class="text-highlight">الأمل</span> و<span class="text-highlight">الكرامة</span>. هذه القيم تدفعنا لنكون جاهزين كل يوم للأشخاص الذين يحتاجوننا.',
     'values.title': 'قيمنا',
     'values.integrity': 'النزاهة', 'values.integrity-desc': 'نريد العيش وفقًا لقيمنا ومبادئنا على كل مستوى من مؤسستنا وفي كل موقع.',
@@ -1014,7 +1014,7 @@ const translations = {
     'stories.story3-title': 'آبار المياه تجلب الأمل في السودان', 'stories.story3-excerpt': 'بفضل آبار المياه الجديدة، أصبح لدى القرى الآن وصول إلى مياه شرب نظيفة.',
     'impact.title': 'تأثير عالمي', 'impact.text': 'نحن نعمل في مناطق الأزمات حول العالم. بدعمك نساعد <strong>أكثر من مليون شخص سنويًا</strong>.', 'impact.button': 'شاهد ما نفعله',
     'quote.text': '"كل يوم أرى كيف تغير مساعدتنا الأرواح. أطفال يعودون إلى المدرسة، عائلات تحصل على مياه نظيفة، ومجتمعات تعمل معًا من أجل السلام."',
-    'quote.author': '— سارة، عاملة إغاثة في السودان', 'quote.button': 'اقرأ المزيد عن المساعدة في السودان',
+    'quote.author': 'سارة، عاملة إغاثة في السودان', 'quote.button': 'اقرأ المزيد عن المساعدة في السودان',
     'footer.doc-beleidsplan': 'خطة السياسة', 'footer.doc-privacy': 'إعلان الخصوصية', 'footer.doc-terms': 'الشروط العامة', 'footer.doc-donation-policy': 'سياسة التبرع', 'footer.location': 'الموقع',
     'donate.alert-select-amount': 'اختر مبلغًا أو أدخل مبلغًا.', 'donate.alert-name': 'أدخل اسمك.', 'donate.alert-email': 'أدخل عنوان بريد إلكتروني صالح.', 'donate.alert-error': 'حدث خطأ أثناء معالجة تبرعك.',
     'login.error-unverified': 'لم يتم التحقق من بريدك الإلكتروني بعد. تحقق من صندوق الوارد أو اطلب إعادة إرسال بريد التحقق.',
@@ -1090,7 +1090,7 @@ const translations = {
     'about.pretitle': 'Solidarity · Compassion · Engagement',
     'about.title': 'Who we are',
     'about.title-suffix': 'as a foundation',
-    'about.text1': 'Stichting Manarah is an independent, non-profit charitable organization based in the Netherlands. We are committed to supporting vulnerable people: the poor, orphans, and people with disabilities – both in the Netherlands and in needy communities worldwide.',
+    'about.text1': 'Stichting Manarah is an independent, non-profit charitable organization based in the Netherlands. We are committed to supporting vulnerable people: the poor, orphans, and people with disabilities, both in the Netherlands and in needy communities worldwide.',
     'about.text2': 'Around the world, people are waiting for a warm meal, a bit of attention, or a loving word. With your support, we can give them hope, ease their pain, and bring a smile back to faces burdened by poverty.',
     'about.text3': 'Together we can change lives.',
     'about.highlight': 'Be a source of light. A reason for hope. And a difference in someone\'s life.',
@@ -1177,7 +1177,7 @@ const translations = {
     'projects.ramadan-2025-about': 'The Ramadan Project was set up to give extra support during Ramadan to those facing financial hardship. With the donations we assembled food packages, prepared warm iftar meals and distributed them to families and individuals in need. Volunteers helped with collecting donations, preparing meals and distributing packages. This project shows what is possible when a community comes together to help others.',
     'projects.ramadan-2026-name': 'Ramadan Project 2026',
     'projects.ramadan-2026-description': 'Alhamdulillah! Thanks to your support, the Ramadan Project 2026 has been successfully completed. Together we provided warm iftar meals and food packages to families in need in Syria. Jazakum Allahu khayran for your generosity.',
-    'projects.ramadan-2026-about': 'The Ramadan Project 2026 is complete. Thanks to your donations, the dedication of our volunteers and your duas, we were able to distribute warm iftar meals and food packages to the families most in need during the blessed month of Ramadan. Thank you to everyone who contributed – you have made a real difference in the lives of many families. May Allah reward you abundantly. Keep an eye on our projects page for new initiatives, in shaa Allah.',
+    'projects.ramadan-2026-about': 'The Ramadan Project 2026 is complete. Thanks to your donations, the dedication of our volunteers and your duas, we were able to distribute warm iftar meals and food packages to the families most in need during the blessed month of Ramadan. Thank you to everyone who contributed, you have made a real difference in the lives of many families. May Allah reward you abundantly. Keep an eye on our projects page for new initiatives, in shaa Allah.',
     
     // Project Detail
     'project.loading': 'Loading project...',
@@ -1260,7 +1260,7 @@ const translations = {
     'help.title': 'Help out',
     'help.subtitle': 'There are different ways to get involved and make an impact. Discover how you can contribute to our work.',
     'help.intro-title': 'Why your support matters',
-    'help.intro-text1': 'We believe that everyone can make a difference. Whether you give time, money, or expertise – every contribution counts. Together we can change lives, strengthen communities, and bring hope where it\'s most needed.',
+    'help.intro-text1': 'We believe that everyone can make a difference. Whether you give time, money, or expertise, every contribution counts. Together we can change lives, strengthen communities, and bring hope where it\'s most needed.',
     'help.intro-text2': 'By working together with local partners and communities, we ensure that help reaches where it\'s most needed. Your support makes this possible.',
     'help.types-title': 'How can you help?',
     'help.type-donor': 'Become a donor',
@@ -1330,7 +1330,7 @@ const translations = {
     'footer.data': 'Data',
     'footer.documents': 'Documents',
     'footer.copyright': '© {year} Stichting Manarah. All rights reserved.',
-    'footer.description': 'We are committed to supporting vulnerable people: the poor, orphans, and people with disabilities — in the Netherlands and worldwide.',
+    'footer.description': 'We are committed to supporting vulnerable people: the poor, orphans, and people with disabilities, in the Netherlands and worldwide.',
     
     // Login
     'login.title': 'Login',
@@ -1434,11 +1434,11 @@ const translations = {
     'land.cta-text': 'Your support makes our work possible. Every contribution helps change lives and bring hope to communities that desperately need it. <strong>Together we can make a difference.</strong>',
     'land.view-all-projects': 'View all projects',
     'whoarewe.hero-title': 'Together we give <span class="highlight">hope</span> in times of crisis',
-    'whoarewe.hero-desc': 'We are a foundation dedicated worldwide to people affected by conflict, disasters, and poverty – in the Netherlands and far beyond. With respect, compassion, and an unwavering belief in the power of cooperation, we build a better future.',
+    'whoarewe.hero-desc': 'We are a foundation dedicated worldwide to people affected by conflict, disasters, and poverty, in the Netherlands and far beyond. With respect, compassion, and an unwavering belief in the power of cooperation, we build a better future.',
     'whoarewe.origin-title': 'Our Origin',
-    'whoarewe.origin-p1': 'The idea for Stichting Manarah was born in 2018, when a group of young volunteers took on the responsibility of standing alongside people in need: refugees, displaced people, and families affected by conflict and poverty. From that first aid in crisis areas grew the conviction that support is needed – not in one place alone, but wherever people are vulnerable.',
+    'whoarewe.origin-p1': 'The idea for Stichting Manarah was born in 2018, when a group of young volunteers took on the responsibility of standing alongside people in need: refugees, displaced people, and families affected by conflict and poverty. From that first aid in crisis areas grew the conviction that support is needed, not in one place alone, but wherever people are vulnerable.',
     'whoarewe.origin-p2': 'The foundation started with simple means and purely voluntary efforts, with a clear goal in mind: alleviating the suffering of those in need and providing their basic necessities of food, medicine, and shelter, wherever in the world they are needed. The team began with twenty volunteers who worked as one, dedicating their time and energy to serving people in need.',
-    'whoarewe.origin-p3': 'As needs grew, the foundation\'s humanitarian work expanded to more countries and regions – from the Middle East and Africa to Europe and other areas where communities urgently need support. Stichting Manarah is now an official organization based in the Netherlands, committed to international professional standards, transparency, credibility, and building trust with supporters and donors worldwide.',
+    'whoarewe.origin-p3': 'As needs grew, the foundation\'s humanitarian work expanded to more countries and regions, from the Middle East and Africa to Europe and other areas where communities urgently need support. Stichting Manarah is now an official organization based in the Netherlands, committed to international professional standards, transparency, credibility, and building trust with supporters and donors worldwide.',
     'values.intro': 'We work from principles that restore <span class="text-highlight">hope</span> and <span class="text-highlight">dignity</span>. These values drive us to be ready every day for people who desperately need it.',
     'values.title': 'Our values',
     'values.integrity': 'Integrity', 'values.integrity-desc': 'We want to live from our values and principles at every level of our organization and in every location.',
@@ -1480,7 +1480,7 @@ const translations = {
     'stories.story3-title': 'Water wells bring hope in Sudan', 'stories.story3-excerpt': 'Thanks to new water wells, villages now have access to clean drinking water, saving lives.',
     'impact.title': 'Global impact', 'impact.text': 'We are active in crisis areas around the world. With your support, we help <strong>more than 1 million people per year</strong>.', 'impact.button': 'See what we do',
     'quote.text': '"Every day I see how our help changes lives. Children going back to school, families getting access to clean water, and communities working together for peace. This is why I am here."',
-    'quote.author': '— Sarah, Aid worker in Sudan', 'quote.button': 'Read more about aid in Sudan',
+    'quote.author': 'Sarah, Aid worker in Sudan', 'quote.button': 'Read more about aid in Sudan',
     'footer.doc-beleidsplan': 'Policy plan', 'footer.doc-privacy': 'Privacy statement', 'footer.doc-terms': 'General terms', 'footer.doc-donation-policy': 'Donation policy', 'footer.location': 'Location',
     'donate.alert-select-amount': 'Select an amount or enter an amount.', 'donate.alert-name': 'Enter your name.', 'donate.alert-email': 'Enter a valid email address.', 'donate.alert-error': 'An error occurred while processing your donation.',
     'login.error-unverified': 'Your email has not been verified yet. Check your inbox or request a new verification email.',
@@ -1556,7 +1556,7 @@ const translations = {
     'about.pretitle': 'Solidarité · Compassion · Engagement',
     'about.title': 'Qui sommes-nous',
     'about.title-suffix': 'en tant que fondation',
-    'about.text1': 'Stichting Manarah est une organisation caritative indépendante à but non lucratif basée aux Pays-Bas. Nous nous engageons à soutenir les personnes vulnérables : les pauvres, les orphelins et les personnes handicapées – tant aux Pays-Bas que dans les communautés nécessiteuses du monde entier.',
+    'about.text1': 'Stichting Manarah est une organisation caritative indépendante à but non lucratif basée aux Pays-Bas. Nous nous engageons à soutenir les personnes vulnérables : les pauvres, les orphelins et les personnes handicapées, tant aux Pays-Bas que dans les communautés nécessiteuses du monde entier.',
     'about.text2': 'Partout dans le monde, des personnes attendent un repas chaud, un peu d\'attention ou une parole aimante. Avec votre soutien, nous pouvons leur donner de l\'espoir, soulager leur douleur et ramener un sourire sur les visages accablés par la pauvreté.',
     'about.text3': 'Ensemble, nous pouvons changer des vies.',
     'about.highlight': 'Soyez une source de lumière. Une raison d\'espérer. Et une différence dans la vie de quelqu\'un.',
@@ -1643,7 +1643,7 @@ const translations = {
     'projects.ramadan-2025-about': 'Le projet Ramadan a été créé pour soutenir ceux en difficulté financière pendant le Ramadan. Avec les dons nous avons préparé des colis alimentaires et des repas d\'iftar. Les bénévoles ont aidé à la collecte, préparation et distribution. Ce projet montre ce qui est possible quand une communauté se rassemble.',
     'projects.ramadan-2026-name': 'Projet Ramadan 2026',
     'projects.ramadan-2026-description': 'Alhamdulillah ! Grâce à votre soutien, le Projet Ramadan 2026 a été mené à bien. Ensemble, nous avons distribué des repas d\'iftar chauds et des colis alimentaires aux familles dans le besoin en Syrie. Jazakum Allahu khayran pour votre générosité.',
-    'projects.ramadan-2026-about': 'Le Projet Ramadan 2026 est terminé. Grâce à vos dons, au dévouement des bénévoles et à vos duas, nous avons pu distribuer des repas d\'iftar chauds et des colis alimentaires aux familles les plus dans le besoin pendant le mois béni du Ramadan. Merci à tous ceux qui ont contribué – vous avez fait une réelle différence dans la vie de nombreuses familles. Que Dieu vous récompense abondamment. Restez informés de nos nouvelles initiatives sur la page projets, in shaa Allah.',
+    'projects.ramadan-2026-about': 'Le Projet Ramadan 2026 est terminé. Grâce à vos dons, au dévouement des bénévoles et à vos duas, nous avons pu distribuer des repas d\'iftar chauds et des colis alimentaires aux familles les plus dans le besoin pendant le mois béni du Ramadan. Merci à tous ceux qui ont contribué, vous avez fait une réelle différence dans la vie de nombreuses familles. Que Dieu vous récompense abondamment. Restez informés de nos nouvelles initiatives sur la page projets, in shaa Allah.',
     
     // Project Detail
     'project.loading': 'Chargement du projet...',
@@ -1726,7 +1726,7 @@ const translations = {
     'help.title': 'Aidez-nous',
     'help.subtitle': 'Il existe différentes façons de s\'impliquer et d\'avoir un impact. Découvrez comment vous pouvez contribuer à notre travail.',
     'help.intro-title': 'Pourquoi votre soutien est important',
-    'help.intro-text1': 'Nous croyons que chacun peut faire la différence. Que vous donniez du temps, de l\'argent ou de l\'expertise – chaque contribution compte. Ensemble, nous pouvons changer des vies, renforcer les communautés et apporter l\'espoir là où il est le plus nécessaire.',
+    'help.intro-text1': 'Nous croyons que chacun peut faire la différence. Que vous donniez du temps, de l\'argent ou de l\'expertise, chaque contribution compte. Ensemble, nous pouvons changer des vies, renforcer les communautés et apporter l\'espoir là où il est le plus nécessaire.',
     'help.intro-text2': 'En travaillant avec des partenaires locaux et des communautés, nous nous assurons que l\'aide arrive là où elle est le plus nécessaire. Votre soutien rend cela possible.',
     'help.types-title': 'Comment pouvez-vous aider ?',
     'help.type-donor': 'Devenir donateur',
@@ -1796,7 +1796,7 @@ const translations = {
     'footer.data': 'Données',
     'footer.documents': 'Documents',
     'footer.copyright': '© {year} Stichting Manarah. Tous droits réservés.',
-    'footer.description': 'Nous nous engageons à soutenir les personnes vulnérables : les pauvres, les orphelins et les personnes handicapées — aux Pays-Bas et dans le monde entier.',
+    'footer.description': 'Nous nous engageons à soutenir les personnes vulnérables : les pauvres, les orphelins et les personnes handicapées, aux Pays-Bas et dans le monde entier.',
     
     // Login
     'login.title': 'Connexion',
@@ -1900,11 +1900,11 @@ const translations = {
     'land.cta-text': 'Votre soutien rend notre travail possible. <strong>Ensemble, nous pouvons faire la différence.</strong>',
     'land.view-all-projects': 'Voir tous les projets',
     'whoarewe.hero-title': 'Ensemble, nous donnons <span class="highlight">l\'espoir</span> en temps de crise',
-    'whoarewe.hero-desc': 'Nous sommes une fondation engagée dans le monde entier auprès des personnes touchées par les conflits, les catastrophes et la pauvreté – aux Pays-Bas et bien au-delà. Avec respect et compassion, nous construisons un avenir meilleur.',
+    'whoarewe.hero-desc': 'Nous sommes une fondation engagée dans le monde entier auprès des personnes touchées par les conflits, les catastrophes et la pauvreté, aux Pays-Bas et bien au-delà. Avec respect et compassion, nous construisons un avenir meilleur.',
     'whoarewe.origin-title': 'Notre origine',
-    'whoarewe.origin-p1': 'L\'idée de Stichting Manarah est née en 2018, lorsqu\'un groupe de jeunes bénévoles a pris la responsabilité de se tenir aux côtés des personnes dans le besoin : réfugiés, déplacés et familles touchées par le conflit et la pauvreté. De cette première aide dans les zones de crise est née la conviction qu\'un soutien est nécessaire – non pas en un seul endroit, mais partout où les personnes sont vulnérables.',
+    'whoarewe.origin-p1': 'L\'idée de Stichting Manarah est née en 2018, lorsqu\'un groupe de jeunes bénévoles a pris la responsabilité de se tenir aux côtés des personnes dans le besoin : réfugiés, déplacés et familles touchées par le conflit et la pauvreté. De cette première aide dans les zones de crise est née la conviction qu\'un soutien est nécessaire, non pas en un seul endroit, mais partout où les personnes sont vulnérables.',
     'whoarewe.origin-p2': 'La fondation a démarré avec des moyens simples et des efforts purement bénévoles, avec un objectif clair : soulager la souffrance des personnes dans le besoin et leur fournir les nécessités de base en nourriture, médicaments et abri, partout dans le monde où elles sont nécessaires. L\'équipe a commencé avec vingt bénévoles qui travaillaient comme un seul, consacrant leur temps et leur énergie au service des personnes dans le besoin.',
-    'whoarewe.origin-p3': 'À mesure que les besoins ont augmenté, le travail humanitaire de la fondation s\'est étendu à de plus en plus de pays et de régions – du Moyen-Orient et de l\'Afrique à l\'Europe et à d\'autres zones où les communautés ont un besoin urgent de soutien. Stichting Manarah est aujourd\'hui une organisation officielle basée aux Pays-Bas, engagée envers des normes professionnelles internationales, la transparence, la crédibilité et la confiance des supporters et donateurs du monde entier.',
+    'whoarewe.origin-p3': 'À mesure que les besoins ont augmenté, le travail humanitaire de la fondation s\'est étendu à de plus en plus de pays et de régions, du Moyen-Orient et de l\'Afrique à l\'Europe et à d\'autres zones où les communautés ont un besoin urgent de soutien. Stichting Manarah est aujourd\'hui une organisation officielle basée aux Pays-Bas, engagée envers des normes professionnelles internationales, la transparence, la crédibilité et la confiance des supporters et donateurs du monde entier.',
     'values.intro': 'Nous travaillons à partir de principes qui restaurent <span class="text-highlight">l\'espoir</span> et la <span class="text-highlight">dignité</span>.',
     'values.title': 'Nos valeurs',
     'values.integrity': 'Intégrité', 'values.integrity-desc': 'Nous vivons selon nos valeurs à tous les niveaux.',
@@ -1946,7 +1946,7 @@ const translations = {
     'stories.story3-title': 'Des puits d\'eau apportent l\'espoir au Soudan', 'stories.story3-excerpt': 'Grâce aux nouveaux puits, les villages ont accès à l\'eau potable.',
     'impact.title': 'Impact mondial', 'impact.text': 'Nous sommes actifs dans les zones de crise. Avec votre soutien, nous aidons <strong>plus d\'un million de personnes par an</strong>.', 'impact.button': 'Voir ce que nous faisons',
     'quote.text': '"Chaque jour, je vois comment notre aide change des vies. Des enfants qui retournent à l\'école, des familles qui obtiennent de l\'eau propre. C\'est pourquoi je suis ici."',
-    'quote.author': '— Sarah, Travailleuse humanitaire au Soudan', 'quote.button': 'En savoir plus sur l\'aide au Soudan',
+    'quote.author': 'Sarah, Travailleuse humanitaire au Soudan', 'quote.button': 'En savoir plus sur l\'aide au Soudan',
     'footer.doc-beleidsplan': 'Plan de politique', 'footer.doc-privacy': 'Déclaration de confidentialité', 'footer.doc-terms': 'Conditions générales', 'footer.doc-donation-policy': 'Politique de don', 'footer.location': 'Localisation',
     'donate.alert-select-amount': 'Sélectionnez ou saisissez un montant.', 'donate.alert-name': 'Entrez votre nom.', 'donate.alert-email': 'Entrez une adresse e-mail valide.', 'donate.alert-error': 'Une erreur est survenue lors du traitement de votre don.',
     'login.error-unverified': 'Votre e-mail n\'a pas encore été vérifié. Vérifiez votre boîte de réception.',

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../hooks/useTranslation'
 import { isEmailJsReady, sendSiteEmail, TO_EMAIL, EMAILJS_FORM_TITLE } from '../utils/emailjs'
+import { VOLUNTEER_IMAGE } from '../constants/images'
 
 const SamenInActie = () => {
   const { t } = useTranslation()
@@ -68,7 +69,7 @@ const SamenInActie = () => {
 
   const openMailtoFallback = () => {
     const subject = `Samen in actie: ${formData.interest}`
-    const body = `Interesse: ${formData.interest}\n\n${formData.message}\n\nNaam: ${formData.name}\nE-mail: ${formData.email}\nTelefoon: ${formData.phone || '—'}`
+    const body = `Interesse: ${formData.interest}\n\n${formData.message}\n\nNaam: ${formData.name}\nE-mail: ${formData.email}\nTelefoon: ${formData.phone || '-'}`
     window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
@@ -116,7 +117,7 @@ const SamenInActie = () => {
       <section className="help-hero">
         <div className="help-hero-bg">
           <img
-            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1080&fit=crop"
+            src={VOLUNTEER_IMAGE}
             alt=""
             className="help-hero-bg-img"
           />

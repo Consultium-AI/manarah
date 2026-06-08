@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../hooks/useTranslation'
+import { COUNTRY_IMAGES } from '../constants/images'
 
 const WaarWeWerken = () => {
   const { t } = useTranslation()
@@ -10,7 +11,7 @@ const WaarWeWerken = () => {
       slug: 'palestina',
       name: t('country.PS'),
       description: t('countries.palestine-desc'),
-      image: `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
+      image: COUNTRY_IMAGES.PS,
       accent: '#DC2626'
     },
     {
@@ -24,14 +25,14 @@ const WaarWeWerken = () => {
       slug: 'sudan',
       name: t('country.SD'),
       description: t('countries.sudan-desc'),
-      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&h=600&fit=crop',
+      image: COUNTRY_IMAGES.SD,
       accent: '#059669'
     },
     {
       slug: 'jemen',
       name: t('country.YE'),
       description: t('countries.yemen-desc'),
-      image: 'https://images.unsplash.com/photo-1574246604907-db69e30ddb97?w=800&h=600&fit=crop',
+      image: COUNTRY_IMAGES.YE,
       accent: '#D97706'
     },
     {

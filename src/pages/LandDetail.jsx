@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getStaticProjects } from '../data/projects'
 import { useTranslation } from '../hooks/useTranslation'
+import { COUNTRY_IMAGES } from '../constants/images'
 
 // Simple SVG icons for activities
 const ActivityIcon = ({ type }) => {
@@ -60,7 +61,7 @@ const LandDetail = () => {
     'sudan': {
       code: 'SD',
       name: 'Sudan',
-      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
+      image: COUNTRY_IMAGES.SD,
       context: [
         'Sudan is een van de meest kwetsbare landen ter wereld. Het land heeft te maken met aanhoudende conflicten, voedselonzekerheid en klimaatgerelateerde uitdagingen. Miljoenen mensen zijn afhankelijk van humanitaire hulp om te overleven.',
         'De situatie wordt verergerd door periodieke droogtes en overstromingen, die de voedselproductie verstoren en gemeenschappen dwingen om te migreren. Veel gezinnen hebben geen toegang tot basisvoorzieningen zoals schoon water, gezondheidszorg en onderwijs.',
@@ -92,7 +93,7 @@ const LandDetail = () => {
     'palestina': {
       code: 'PS',
       name: 'Palestina',
-      image: `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
+      image: COUNTRY_IMAGES.PS,
       context: [
         'Stichting Manarah voert humanitaire hulpcampagnes uit in Palestina, met bijzondere aandacht voor het ondersteunen van getroffen families die geconfronteerd worden met moeilijke humanitaire omstandigheden door conflicten, gedwongen ontheemding en een tekort aan basisvoorzieningen.',
         'Ons doel is om een echte steun te zijn voor getroffen families en hen een helpende hand te bieden die hun waardigheid bewaart en hun dagelijks lijden verlicht. Onze campagnes omvatten: het voorzien van schoon drinkwater, het uitdelen van voedselpakketten, het bieden van financiële noodhulp, het aanschaffen van noodonderdak voor families die hun huizen zijn kwijtgeraakt, en maandelijkse ondersteuning van families die hun inkomensbronnen hebben verloren.',
@@ -151,7 +152,7 @@ const LandDetail = () => {
     'jemen': {
       code: 'YE',
       name: 'Jemen',
-      image: 'https://images.unsplash.com/photo-1574246604907-db69e30ddb97?w=1920&h=1080&fit=crop',
+      image: COUNTRY_IMAGES.YE,
       context: [
         'Vanuit onze humanitaire missie om de meest kwetsbare groepen te ondersteunen, heeft Stichting Manarah programma\'s uitgevoerd in Jemen gericht op het bijstaan van families die hun inkomensbronnen zijn kwijtgeraakt en niet in staat zijn hun basisbehoeften te voorzien vanwege de moeilijke economische en humanitaire omstandigheden.',
         'Onze inspanningen omvatten maandelijkse bijstand aan gezinnen door het dekken van huurkosten en het voorzien in basislevensbehoeften, om hun bestaanszekerheid te waarborgen en hen in waardigheid te laten leven.',

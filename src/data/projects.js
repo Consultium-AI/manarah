@@ -40,7 +40,7 @@ export const STATIC_PROJECTS = [
     aboutKey: 'projects.old-yemen-about',
     country_code: 'YE',
     status: 'completed',
-    image_url: '/assets/jemen.jpeg',
+    image_url: '/assets/jemen.jpg',
   },
   // Palestina - Voltooid
   {
@@ -50,6 +50,7 @@ export const STATIC_PROJECTS = [
     aboutKey: 'projects.old-palestine-about',
     country_code: 'PS',
     status: 'completed',
+    image_url: '/assets/Palestina.webp',
   },
 ]
 

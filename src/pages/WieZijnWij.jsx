@@ -3,6 +3,7 @@ import ValuesTimeline from '../components/sections/ValuesTimeline'
 import AboutImpact from '../components/sections/AboutImpact'
 import AboutCTA from '../components/sections/AboutCTA'
 import { useTranslation } from '../hooks/useTranslation'
+import { VOLUNTEER_IMAGE } from '../constants/images'
 
 const WieZijnWij = () => {
   const { t } = useTranslation()
@@ -12,7 +13,7 @@ const WieZijnWij = () => {
       <section className="about-hero">
         <div className="about-hero-background">
           <img 
-            src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop" 
+            src={VOLUNTEER_IMAGE} 
             alt="Medewerker met lokale persoon" 
             className="about-hero-img"
           />

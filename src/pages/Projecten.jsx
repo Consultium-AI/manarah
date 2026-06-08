@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getStaticProjects } from '../data/projects'
 import { useTranslation } from '../hooks/useTranslation'
+import { COUNTRY_IMAGES, assetUrl } from '../constants/images'
 
 const Projecten = () => {
   const { t } = useTranslation()
@@ -42,17 +43,12 @@ const Projecten = () => {
   const getProjectImage = (project) => {
     // Gebruik project.image_url als die bestaat, anders fallback naar country image
     if (project.image_url) {
-      // Als het een relatief pad is, voeg BASE_URL toe
-      if (project.image_url.startsWith('/assets/')) {
-        return `${import.meta.env.BASE_URL}${project.image_url.substring(1)}`
-      }
-      return project.image_url
+      return assetUrl(project.image_url)
     }
-    // Fallback naar country image mapping
     const countryImages = {
-      'PS': `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
-      'SD': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
-      'YE': 'https://images.unsplash.com/photo-1580502304784-8985b7eb7260?w=1920&h=1080&fit=crop',
+      'PS': COUNTRY_IMAGES.PS,
+      'SD': COUNTRY_IMAGES.SD,
+      'YE': COUNTRY_IMAGES.YE,
     }
     return countryImages[project.country_code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }

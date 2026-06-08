@@ -25,7 +25,7 @@ export default function Hero() {
           </div>
           <Reveal>
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-16">
-              Ramadan Project – <span className="text-blue-400">2026</span>
+              Ramadan Project, <span className="text-blue-400">2026</span>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>

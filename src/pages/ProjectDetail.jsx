@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getStaticProjects } from '../data/projects'
 import { useTranslation } from '../hooks/useTranslation'
+import { COUNTRY_IMAGES, assetUrl } from '../constants/images'
 
 const ProjectDetail = () => {
   const { t } = useTranslation()
@@ -17,21 +18,17 @@ const ProjectDetail = () => {
   const getProjectImage = (proj) => {
     // Gebruik project.image_url als die bestaat
     if (proj && proj.image_url) {
-      // Als het een relatief pad is, voeg BASE_URL toe
-      if (proj.image_url.startsWith('/assets/')) {
-        return `${import.meta.env.BASE_URL}${proj.image_url.substring(1)}`
-      }
-      return proj.image_url
+      return assetUrl(proj.image_url)
     }
     // Fallback naar country image mapping
     const code = proj?.country_code
     const countryImages = {
       'BF': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
       'SY': 'https://images.unsplash.com/photo-1659781044995-1c68c81dcc67?w=1920&h=1080&fit=crop',
-      'SS': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
-      'SD': 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop',
+      'SS': COUNTRY_IMAGES.SD,
+      'SD': COUNTRY_IMAGES.SD,
       'UA': 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1920&h=1080&fit=crop',
-      'YE': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
+      'YE': COUNTRY_IMAGES.YE,
       'ET': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop',
       'SO': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop',
       'AF': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
@@ -50,7 +47,7 @@ const ProjectDetail = () => {
       'VE': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'GT': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
       'HN': 'https://images.unsplash.com/photo-1516026672322-bc52e61b55b5?w=1920&h=1080&fit=crop',
-      'PS': `${import.meta.env.BASE_URL}assets/Al_Aqsa.jpg`,
+      'PS': COUNTRY_IMAGES.PS,
     }
     return countryImages[code] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop'
   }

@@ -5,9 +5,9 @@ const TO_EMAIL = 'stichtingmanarah@gmail.com'
 
 /** Vult {{title}} in je EmailJS-onderwerp (bijv. "Contact Us: {{title}}"). */
 export const EMAILJS_FORM_TITLE = {
-  contactHomeEnPagina: 'Contact — home- en contactpagina',
+  contactHomeEnPagina: 'Contact, home- en contactpagina',
   samenInActie: 'Samen in actie (help mee)',
-  manarahLandingspagina: 'Contact — Manarah landingspagina'
+  manarahLandingspagina: 'Contact, Manarah landingspagina'
 }
 
 export function getEmailJsConfig () {
@@ -56,7 +56,7 @@ export async function sendSiteEmail ({
     templateId,
     {
       title: formName,
-      name: fromName || '—',
+      name: fromName || '-',
       time,
       message: buildMessageBody(message, { fromEmail, phone, interest })
     },

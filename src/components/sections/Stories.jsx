@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal'
 import { useTranslation } from '../../hooks/useTranslation'
+import { COUNTRY_IMAGES } from '../../constants/images'
 
 const Stories = () => {
   const { t } = useTranslation()
@@ -22,7 +23,7 @@ const Stories = () => {
     {
       title: t('stories.story3-title'),
       excerpt: t('stories.story3-excerpt'),
-      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&h=400&fit=crop',
+      image: COUNTRY_IMAGES.SD,
       label: t('stories.label-story')
     }
   ]

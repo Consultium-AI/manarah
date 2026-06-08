@@ -1,5 +1,6 @@
 import React from 'react'
 import { donateLinkProps } from '../../constants/donate'
+import { VOLUNTEER_IMAGE } from '../../constants/images'
 
 const Donor = () => {
   return (
@@ -8,7 +9,7 @@ const Donor = () => {
         <div className="donor-content">
           <div className="donor-image">
             <img 
-              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&h=600&fit=crop" 
+              src={VOLUNTEER_IMAGE} 
               alt="Hulpverlener" 
               className="donor-img"
             />

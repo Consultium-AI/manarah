@@ -23,7 +23,7 @@ export default function About() {
         <Reveal delay={0.2}>
           <div className="max-w-4xl mx-auto text-gray-800 text-lg sm:text-2xl leading-relaxed space-y-6 text-center">
             <p>
-            Stichting Manarah is een onafhankelijke, non-profit liefdadigheidsorganisatie gevestigd in Nederland. Wij zetten ons in voor het ondersteunen van kwetsbare mensen: armen, wezen en mensen met een beperking – zowel binnen Nederland als in noodlijdende gemeenschappen wereldwijd.
+            Stichting Manarah is een onafhankelijke, non-profit liefdadigheidsorganisatie gevestigd in Nederland. Wij zetten ons in voor het ondersteunen van kwetsbare mensen: armen, wezen en mensen met een beperking, zowel binnen Nederland als in noodlijdende gemeenschappen wereldwijd.
 
             </p>
             <p>Overal ter wereld zijn er mensen die wachten op een warme maaltijd, een beetje aandacht of een liefdevol woord. Met jouw steun kunnen wij hen hoop bieden, hun pijn verzachten en een glimlach terugbrengen op gezichten die gebukt gaan onder armoede.
