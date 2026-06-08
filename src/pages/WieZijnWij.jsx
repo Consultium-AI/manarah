@@ -1,6 +1,5 @@
 import React from 'react'
 import ValuesTimeline from '../components/sections/ValuesTimeline'
-import AboutImpact from '../components/sections/AboutImpact'
 import AboutCTA from '../components/sections/AboutCTA'
 import { useTranslation } from '../hooks/useTranslation'
 import { VOLUNTEER_IMAGE } from '../constants/images'
@@ -43,7 +42,6 @@ const WieZijnWij = () => {
       </section>
 
       <ValuesTimeline />
-      <AboutImpact />
       <AboutCTA />
     </div>
   )
