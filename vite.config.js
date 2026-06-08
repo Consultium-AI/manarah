@@ -14,7 +14,7 @@ export default defineConfig({
       }
     }
   ],
-  base: '/',  // Custom domain stichtingmanarah.com
+  base: '/',  // Custom domain stichtingmanarah.nl
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
