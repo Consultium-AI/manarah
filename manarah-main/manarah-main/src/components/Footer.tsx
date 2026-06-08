@@ -1,3 +1,5 @@
+import { donateLinkProps } from '../constants/donate';
+
 export default function Footer() {
   return (
     <footer className="mt-16 text-sm">
@@ -29,7 +31,7 @@ export default function Footer() {
             <p className="leading-relaxed">IBAN: <span className="font-mono">NL17RABO0141712287</span></p>
             <p className="leading-relaxed">t.n.v. Stichting Manarah</p>
             <p className="pt-1">
-              <a href="https://stichtingmanarah.nl/doneren.php" className="text-blue-400 hover:underline font-medium">Online doneren →</a>
+              <a {...donateLinkProps} className="text-blue-400 hover:underline font-medium">Online doneren →</a>
             </p>
           </div>
         </div>

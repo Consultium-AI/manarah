@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Reveal from './Reveal';
+import { donateLinkProps } from '../constants/donate';
 
 type Frequency = 'eenmalig' | 'maandelijks' | 'jaarlijks';
 const presetAmounts = [25, 50, 75];
@@ -104,10 +105,10 @@ export default function Donate() {
               </label>
 
               <a
-                href="https://stichtingmanarah.nl/doneren.php"
+                {...donateLinkProps}
                 className="inline-flex items-center justify-center gap-3 bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-lg font-bold"
               >
-                Doneer veilig via Mollie <span className="text-xl">💝</span>
+                Doneer nu <span className="text-xl">💝</span>
               </a>
             </div>
           </Reveal>

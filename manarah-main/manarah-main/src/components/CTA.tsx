@@ -1,3 +1,5 @@
+import { donateLinkProps } from '../constants/donate';
+
 export default function CTA() {
   return (
     <section className="mt-16 bg-blue-50 border border-blue-100 rounded-xl p-6 sm:p-8 max-w-3xl mx-auto shadow">
@@ -7,7 +9,7 @@ export default function CTA() {
         Andere opties worden binnenkort beschikbaar!
       </p>
       <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4">
-        <a href="https://stichtingmanarah.nl/doneren.php" className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition flex items-center gap-2 shadow">
+        <a {...donateLinkProps} className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition flex items-center gap-2 shadow">
           Doneer nu
         </a>
         <a href="https://stichtingmanarah.nl/nieuwsbrief.php" className="bg-violet-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-violet-800 transition flex items-center gap-2 shadow">

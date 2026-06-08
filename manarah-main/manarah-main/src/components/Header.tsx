@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { donateLinkProps } from '../constants/donate';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,7 @@ export default function Header() {
           <a href="#main" className="hover:text-blue-200">Home</a>
           <a href="#about" className="hover:text-blue-200">Over ons</a>
           <a href="#projects" className="hover:text-blue-200">Projecten</a>
-          <a href="#donate" className="hover:text-blue-200">Doneer</a>
+          <a {...donateLinkProps} className="hover:text-blue-200">Doneer</a>
           <a href="#contact" className="hover:text-blue-200">Contact</a>
           <a href="https://stichtingmanarah.nl/admin" className="hover:text-blue-200">Admin Dashboard</a>
         </motion.nav>
@@ -55,7 +56,7 @@ export default function Header() {
             <a href="#main" onClick={() => setOpen(false)}>Home</a>
             <a href="#about" onClick={() => setOpen(false)}>Over ons</a>
             <a href="#projects" onClick={() => setOpen(false)}>Projecten</a>
-            <a href="#donate" onClick={() => setOpen(false)}>Doneer</a>
+            <a {...donateLinkProps} onClick={() => setOpen(false)}>Doneer</a>
             <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
             <a href="https://stichtingmanarah.nl/admin">Admin Dashboard</a>
           </div>

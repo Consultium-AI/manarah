@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import { donateLinkProps } from '../constants/donate';
 
 export default function Hero() {
   return (
@@ -36,7 +37,7 @@ export default function Hero() {
           <Reveal delay={0.2}>
             <div className="flex items-center gap-5">
             <a
-              href="#donate"
+              {...donateLinkProps}
               className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-xl font-bold text-lg transition shadow"
             >
               Doneer nu

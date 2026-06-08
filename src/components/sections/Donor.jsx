@@ -1,4 +1,5 @@
 import React from 'react'
+import { donateLinkProps } from '../../constants/donate'
 
 const Donor = () => {
   return (
@@ -24,7 +25,7 @@ const Donor = () => {
               <li>Vredesopbouw initiatieven ondersteunen</li>
               <li>Sneller reageren bij nieuwe crises</li>
             </ul>
-            <a href="/doneren" className="btn btn-primary">Word donateur</a>
+            <a {...donateLinkProps} className="btn btn-primary">Word donateur</a>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ import MijnDonaties from './pages/MijnDonaties'
 import VerifyEmail from './pages/VerifyEmail'
 import OAuthCallback from './pages/OAuthCallback'
 import Bedankt from './pages/Bedankt'
-import Doneren from './pages/Doneren'
+import DonateRedirect from './pages/DonateRedirect'
 import Projecten from './pages/Projecten'
 import ProjectDetail from './pages/ProjectDetail'
 import SamenInActie from './pages/SamenInActie'
@@ -40,7 +40,7 @@ function App() {
             <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/auth/google/callback" element={<OAuthCallback />} />
             <Route path="/auth/facebook/callback" element={<OAuthCallback />} />
-            <Route path="/doneren" element={<Doneren />} />
+            <Route path="/doneren" element={<DonateRedirect />} />
             <Route path="/bedankt" element={<Bedankt />} />
             <Route path="/projecten" element={<Projecten />} />
             <Route path="/project/:projectId" element={<ProjectDetail />} />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../../hooks/useTranslation'
+import { donateLinkProps } from '../../constants/donate'
 
 const HERO_IMAGES = [
   'syrie-2025-3.jpeg',
@@ -88,12 +89,12 @@ const Hero = () => {
             
             {/* CTA Buttons */}
             <div className="hero-pro-actions">
-              <Link to="/doneren" className="hero-pro-btn-primary">
+              <a {...donateLinkProps} className="hero-pro-btn-primary">
                 <span>{t('hero.donate')}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-              </Link>
+              </a>
               <Link to="/projecten" className="hero-pro-btn-secondary">
                 <span>{t('hero.view-projects')}</span>
               </Link>

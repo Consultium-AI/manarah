@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from '../../hooks/useTranslation'
+import { donateLinkProps } from '../../constants/donate'
 
 const ValuesTimeline = () => {
   const { t } = useTranslation()
@@ -137,7 +138,7 @@ const ValuesTimeline = () => {
             {t('values.cta-text')}
           </p>
           <div className="values-cta-buttons">
-            <a href="/doneren" className="btn btn-primary btn-cta-large">{t('hero.donate')}</a>
+            <a {...donateLinkProps} className="btn btn-primary btn-cta-large">{t('hero.donate')}</a>
             <a href="#" className="btn btn-secondary">{t('values.volunteer')}</a>
           </div>
         </div>

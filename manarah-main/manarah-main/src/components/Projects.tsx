@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import { donateLinkProps } from '../constants/donate';
 
 type ProjectCard = {
   title: string;
@@ -80,7 +81,7 @@ export default function Projects() {
             Alle projecten bekijken
           </a>
           <a
-            href="https://stichtingmanarah.nl/doneren.php"
+            {...donateLinkProps}
             className="bg-blue-50 text-blue-800 px-6 py-3 rounded-full text-sm font-semibold hover:bg-blue-100 transition border border-blue-200"
           >
             Doneer ook

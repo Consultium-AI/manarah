@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import { RABOBANK_DONATE_URL } from '../constants/donate';
 
 const items = [
   {
@@ -15,7 +16,7 @@ const items = [
   {
     title: 'Noodhulp',
     image: 'assets/1747484031_5.jpeg',
-    href: 'https://stichtingmanarah.nl/doneren.php'
+    href: RABOBANK_DONATE_URL
   },
 ];
 
